@@ -44,19 +44,22 @@ export default async function CollegeDetailPage({
   const branchParam = first(query.branch);
   const categoryParam = first(query.category);
 
-  // Fall back to a branch this college actually has a cutoff for, so a stale
-  // link never lands on an empty chart.
+  // Fall back to CSE, the branch the header leads with, or else any branch this
+  // college actually has a cutoff for, so a stale link never lands on an empty
+  // chart.
   const published = getBranchesWithCutoffs(college.id);
   const branch: Branch =
     branchParam && isBranch(branchParam) && published.includes(branchParam)
       ? branchParam
-      : (published[0] ?? "CSE");
+      : published.includes("CSE")
+        ? "CSE"
+        : (published[0] ?? "CSE");
 
   const category: Category =
     categoryParam && isCategory(categoryParam) ? categoryParam : "GM";
 
   return (
-    <PageWrapper>
+    <PageWrapper className="pb-16 pt-0 md:pb-24 md:pt-0">
       <CollegeDetail
         college={college}
         initialBranch={branch}

@@ -91,12 +91,12 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               key={item.id}
               type="button"
               onClick={() => dismiss(item.id)}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 8, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 24 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               style={{ borderLeftColor: EDGE[item.tone] }}
-              className="pointer-events-auto rounded-xl border border-[#E5E0D8] border-l-4 bg-white px-4 py-3 text-sm font-medium text-[#1A1A1A] shadow-lg"
+              className="pointer-events-auto rounded-xl border border-[#E5E0D8] border-l-4 bg-white px-4 py-3 text-[13px] font-medium text-[#1A1A1A] shadow-[0_12px_32px_rgba(26,26,26,0.08)]"
             >
               {item.message}
             </motion.button>

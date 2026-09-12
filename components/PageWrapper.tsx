@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { pageTransition } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export interface PageWrapperProps {
@@ -13,15 +14,15 @@ export interface PageWrapperProps {
  *
  * Mounted inside each page rather than the layout, so it replays on
  * navigation. Pass `py-0` through `className` for a page that opens on a
- * full-bleed hero.
+ * full-bleed header.
  */
 export function PageWrapper({ children, className }: PageWrapperProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className={cn("py-8 md:py-12", className)}
+      transition={pageTransition}
+      className={cn("py-12 md:py-16", className)}
     >
       {children}
     </motion.div>

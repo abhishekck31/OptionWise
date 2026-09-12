@@ -13,23 +13,23 @@ export const metadata: Metadata = {
 export default function RankPredictorPage() {
   return (
     <PageWrapper>
-      <div className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        <header className="max-w-2xl">
-          <h1 className="text-3xl font-light tracking-tight text-[#1A1A1A]">
+      <div className="mx-auto max-w-[1120px] px-6 sm:px-8">
+        <header className="max-w-[720px]">
+          <h1 className="type-h1">
             Rank Predictor
           </h1>
-          <p className="mt-3 text-sm leading-relaxed text-[#6B6B6B]">
+          <p className="type-body-lg mt-4">
             KEA weighs your 2nd PUC marks and your KCET score equally. Enter both
             and you get the rank band that composite lands in, then the colleges
             it reaches against the {VERIFIED_YEAR} cutoffs.
           </p>
         </header>
 
-        <div className="mt-6">
+        <div className="mt-8">
           <Disclaimer />
         </div>
 
-        <div className="mt-8">
+        <div className="mt-12">
           <RankCalculator />
         </div>
       </div>

@@ -18,11 +18,15 @@
   --surface-overlay: #EAE6E0;
 
   --border-subtle: #E5E0D8;
+  --border-input: #E0DCD4;
+  --border-hairline: #F0EDE8;
   --border-strong: #C9C4BC;
 
   --text-primary: #1A1A1A;
+  --text-body: #3D3D3D;
   --text-secondary: #6B6B6B;
   --text-muted: #9B9B9B;
+  --text-faint: #B0AAA2;
 
   --accent: #CC3D2E;
   --accent-hover: #B5351F;
@@ -42,7 +46,39 @@
   --danger-bg: #FEE8E6;
   --danger-border: #F5C4BF;
 
+  /* Tier marks: the spectrum and the option list share these. */
+  --tier-reach: #CC3D2E;
+  --tier-moderate: #F59E0B;
+  --tier-safe: #10B981;
+
   --radius: 0.75rem;
+
+  /* ── Type ── */
+  --font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+
+  /* ── Spacing: an 8px grid, with 4 and 12 for the tight spots ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --width-page: 1120px;
+  --width-content: 720px;
+  --width-narrow: 480px;
+
+  /* ── Motion ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @theme inline {
@@ -57,6 +93,7 @@
 
   --color-foreground: var(--text-primary);
   --color-text-primary: var(--text-primary);
+  --color-text-body: var(--text-body);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-foreground-muted: var(--text-secondary);
@@ -91,7 +128,7 @@
   --color-accent-foreground: var(--text-primary);
   --color-destructive: var(--danger);
   --color-destructive-foreground: #FFFFFF;
-  --color-input: var(--border-subtle);
+  --color-input: var(--border-input);
   --color-ring: var(--accent);
 
   /* Charts */
@@ -106,8 +143,17 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: var(--font-geist-mono), "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+  /* next/font self-hosts both faces and exposes them as these variables. */
+  --font-sans: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: var(--font-dm-mono), "DM Mono", "SF Mono", "Fira Code", monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --container-page: 1120px;
+  --container-content: 720px;
+  --container-narrow: 480px;
 
   --animate-shimmer: shimmer 1.5s infinite linear;
 }
@@ -120,10 +166,13 @@
 
   html {
     font-family: var(--font-sans);
+    font-feature-settings: var(--font-feature-settings);
+    font-optical-sizing: auto;
     background: var(--background);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
     color-scheme: light;
   }
@@ -135,7 +184,21 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-size: 0.9375rem;
     line-height: 1.6;
+  }
+
+  /* Numbers set in the mono face line up in columns and never jitter
+     while they count. */
+  .font-mono {
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Thin strokes read as refined. :where keeps this weaker than any class or
+     prop, but it still beats the stroke-width attribute lucide writes. */
+  :where(svg.lucide) {
+    stroke-width: 1.5;
   }
 
   ::selection {
@@ -165,6 +228,367 @@
   }
 }
 
+/* ============================================================
+   Type scale
+
+   Named `type-*` rather than `text-*` so tailwind-merge never
+   mistakes a size for a colour and drops one of the two.
+   Colours here are defaults; a text-[…] utility still wins.
+   ============================================================ */
+
+@utility type-display {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+@utility type-display-accent {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+@utility type-h1 {
+  font-size: clamp(1.875rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+@utility type-h2 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+@utility type-h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+@utility type-body-lg {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+@utility type-body {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+@utility type-body-sm {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+@utility type-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--text-secondary);
+}
+
+@utility type-caption {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@utility type-mono-lg {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+@utility type-mono-sm {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   Primitives
+
+   In the components layer so any utility on the element still
+   overrides them.
+   ============================================================ */
+
+@layer components {
+  /* ── Card: white, warm border, lit from above ── */
+  .card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    background: var(--surface);
+    padding: var(--space-6);
+    transition:
+      transform 150ms var(--ease-in-out),
+      border-color 150ms var(--ease-in-out),
+      background-color 150ms var(--ease-in-out);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+  }
+
+  /* Only cards that do something lift. */
+  .card-hover:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: 40px;
+    padding: 0 20px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition:
+      transform 120ms var(--ease-in-out),
+      background-color 120ms var(--ease-in-out),
+      border-color 120ms var(--ease-in-out),
+      color 120ms var(--ease-in-out);
+  }
+
+  .btn:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+  }
+
+  .btn-sm {
+    height: 36px;
+    padding: 0 14px;
+    font-size: 0.8125rem;
+  }
+
+  .btn-lg {
+    height: 48px;
+    padding: 0 24px;
+    font-size: 0.9375rem;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--text-on-accent);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: var(--accent-hover);
+  }
+
+  .btn-primary:active:not(:disabled) {
+    background: var(--accent-active);
+  }
+
+  /* A single sweep of light across the button on hover. */
+  .btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.22) 50%,
+      transparent 65%
+    );
+    transform: translateX(-120%);
+  }
+
+  .btn-primary:hover:not(:disabled)::after {
+    transform: translateX(120%);
+    transition: transform 700ms var(--ease-out);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--border-input);
+    color: var(--text-primary);
+  }
+
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--surface-raised);
+    border-color: var(--border-strong);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border-color: rgba(204, 61, 46, 0.4);
+    color: var(--accent);
+  }
+
+  .btn-outline:hover:not(:disabled) {
+    background: var(--accent-light);
+    border-color: var(--accent);
+  }
+
+  /* Loading: the label fades out while the spinner fades in over it. */
+  .btn-label,
+  .btn-spinner {
+    transition: opacity 150ms var(--ease-in-out);
+  }
+
+  .btn-spinner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+
+  .btn[data-loading="true"] .btn-label {
+    opacity: 0;
+  }
+
+  .btn[data-loading="true"] .btn-spinner {
+    opacity: 1;
+  }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 9999px;
+    animation: spin 700ms linear infinite;
+  }
+
+  /* ── Inputs ── */
+  .field {
+    display: block;
+    width: 100%;
+    height: 44px;
+    padding: 0 var(--space-4);
+    border: 1px solid var(--border-input);
+    border-radius: 0.75rem;
+    background: var(--background);
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    transition:
+      background-color 150ms var(--ease-in-out),
+      border-color 150ms var(--ease-in-out),
+      box-shadow 150ms var(--ease-in-out);
+  }
+
+  .field::placeholder {
+    color: var(--text-faint);
+  }
+
+  .field:focus,
+  .field:focus-visible {
+    outline: none;
+    background: var(--surface);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(204, 61, 46, 0.08);
+  }
+
+  .field-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  /* ── Filter pill ── */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 14px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 9999px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition:
+      background-color 150ms var(--ease-in-out),
+      border-color 150ms var(--ease-in-out),
+      color 150ms var(--ease-in-out),
+      transform 120ms var(--ease-in-out);
+  }
+
+  .pill:hover {
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+  }
+
+  .pill:active {
+    transform: scale(0.97);
+  }
+
+  .pill[data-active="true"] {
+    border-color: var(--accent-border);
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -189,6 +613,12 @@
   background-size: 24px 24px;
 }
 
+/* Fades the dot grid out towards the edges so it never meets a hard line. */
+.dot-grid-fade {
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, #000 30%, transparent 75%);
+}
+
 .hero-grid-pattern {
   background-size: 32px 32px;
   background-image:
@@ -203,42 +633,13 @@
   text-shadow: none;
 }
 
-/* Native range inputs. The fill colour comes from --slider-fill so a
-   caller can let it follow the value. */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  background: var(--slider-fill, var(--border-subtle));
-  outline: none;
+/* Horizontal strips that scroll on a phone without showing a bar. */
+.scrollbar-none {
+  scrollbar-width: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 2px solid var(--accent);
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 2px solid var(--accent);
-  cursor: pointer;
-  transition: transform 0.15s ease;
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 /* Scrollbars */

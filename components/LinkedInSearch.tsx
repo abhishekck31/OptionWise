@@ -48,12 +48,12 @@ export function LinkedInSearch({
   }, [opened]);
 
   return (
-    <div className="flex items-center justify-between gap-4 rounded-xl border border-[#E5E0D8] bg-white p-4 transition-colors hover:border-[#C9C4BC]">
+    <div className="flex items-center justify-between gap-4 rounded-xl border border-[#E5E0D8] bg-white px-4 py-3 transition-colors duration-150 hover:border-[#C9C4BC]">
       <div className="flex min-w-0 items-center gap-3">
-        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-[#0A66C2]">
+        <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[#F7F4F0] text-[#0A66C2]">
           <LinkedInGlyph className="size-4" />
         </span>
-        <p className="min-w-0 truncate text-sm font-medium text-[#1A1A1A]">
+        <p className="min-w-0 truncate text-[14px] font-medium text-[#1A1A1A]">
           {branch ?? `Alumni from ${collegeShortName}`}
           {branch && (
             <span className="font-normal text-[#9B9B9B]">
@@ -69,21 +69,21 @@ export function LinkedInSearch({
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => setOpened(true)}
-        className={`inline-flex h-9 shrink-0 items-center gap-1.5 rounded-lg border px-3.5 text-xs font-medium transition-colors active:scale-[0.97] ${
+        className={`btn btn-sm shrink-0 ${
           opened
             ? "border-[#B8DFC9] bg-[#E8F5EE] text-[#1F7A4A]"
-            : "border-[#E5E0D8] bg-transparent text-[#1A1A1A] hover:bg-[#F0EDE8]"
+            : "btn-ghost"
         }`}
       >
         {opened ? (
           <>
-            <Check className="size-3.5" aria-hidden />
+            <Check className="size-3.5" strokeWidth={1.5} aria-hidden />
             Opened
           </>
         ) : (
           <>
             Find Alumni
-            <ArrowUpRight className="size-3.5" aria-hidden />
+            <ArrowUpRight className="size-3.5" strokeWidth={1.5} aria-hidden />
           </>
         )}
       </a>

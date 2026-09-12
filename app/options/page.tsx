@@ -16,7 +16,7 @@ const OptionEntryBuilder = dynamic(
   () => import("@/components/OptionEntryBuilder"),
   {
     loading: () => (
-      <div className="h-64 animate-shimmer rounded-xl border border-[#E5E0D8]" />
+      <div className="h-64 animate-shimmer rounded-2xl border border-[#E5E0D8]" />
     ),
   }
 );
@@ -24,23 +24,23 @@ const OptionEntryBuilder = dynamic(
 export default function OptionsPage() {
   return (
     <PageWrapper>
-      <div className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        <header className="max-w-2xl">
-          <h1 className="text-3xl font-light tracking-tight text-[#1A1A1A]">
+      <div className="mx-auto max-w-[1120px] px-6 sm:px-8">
+        <header className="max-w-[720px]">
+          <h1 className="type-h1">
             Option Entry Builder
           </h1>
-          <p className="mt-3 text-sm leading-relaxed text-[#6B6B6B]">
+          <p className="type-body-lg mt-4">
             KEA walks your list from the top and gives you the first seat you
             qualify for. Drag to set the order, and keep enough safe choices at
             the bottom that the list cannot run out.
           </p>
         </header>
 
-        <div className="mt-6">
+        <div className="mt-8">
           <Disclaimer />
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,65fr)_minmax(0,35fr)]">
+        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,65fr)_minmax(0,35fr)]">
           <OptionEntryBuilder />
           <StrategyPanel />
         </div>

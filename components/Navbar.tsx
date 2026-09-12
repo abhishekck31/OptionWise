@@ -13,8 +13,10 @@ const LINKS = [
   { href: "/predict/rank", label: "Rank Predictor" },
   { href: "/predict/college", label: "College Finder" },
   { href: "/options", label: "Option Entry" },
-  { href: "/explore", label: "Explore Colleges" },
+  { href: "/explore", label: "Explore" },
 ] as const;
+
+const KEA_PORTAL = "https://cetonline.karnataka.gov.in/kea/ugcet2026";
 
 /** A link is active on its own route and on anything nested under it. */
 function isActive(pathname: string, href: string): boolean {
@@ -29,14 +31,23 @@ function Wordmark() {
     >
       <span
         aria-hidden
-        className="flex size-6 items-center justify-center rounded-lg bg-[#CC3D2E] text-[13px] font-semibold text-white"
+        className="flex size-7 items-center justify-center rounded-lg bg-[#CC3D2E] font-mono text-sm font-medium text-white"
       >
         K
       </span>
-      <span className="text-base font-medium text-[#1A1A1A]">
+      <span className="text-[15px] font-medium tracking-[-0.01em] text-[#1A1A1A]">
         KCET Predictor
       </span>
     </Link>
+  );
+}
+
+function OptionCount({ count }: { count: number }) {
+  if (count === 0) return null;
+  return (
+    <span className="ml-1.5 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-[#F0EDE8] px-1 font-mono text-[11px] text-[#6B6B6B]">
+      {count}
+    </span>
   );
 }
 
@@ -51,14 +62,14 @@ export function Navbar() {
   const optionCount = hydrated ? optionList.length : 0;
 
   return (
-    <header className="print-hide sticky top-0 z-50 border-b border-[#E5E0D8] bg-[#F7F4F0]/90 backdrop-blur-md">
+    <header className="print-hide sticky top-0 z-50 border-b border-[#E5E0D8] bg-[#F7F4F0]/80 backdrop-blur-md">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-14 max-w-[1200px] items-center justify-between gap-4 px-6 sm:px-8"
+        className="relative mx-auto flex h-14 max-w-[1120px] items-center justify-between gap-4 px-6 sm:px-8"
       >
         <Wordmark />
 
-        <ul className="hidden h-full items-center gap-7 md:flex">
+        <ul className="absolute left-1/2 hidden h-full -translate-x-1/2 items-center gap-8 lg:flex">
           {LINKS.map((link) => {
             const active = isActive(pathname, link.href);
             return (
@@ -67,24 +78,21 @@ export function Navbar() {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "text-sm font-medium transition-colors focus-visible:outline-none",
+                    "inline-flex items-center text-[13px] font-medium transition-colors duration-150 focus-visible:outline-none",
                     active
-                      ? "text-[#CC3D2E]"
+                      ? "text-[#1A1A1A]"
                       : "text-[#6B6B6B] hover:text-[#1A1A1A]"
                   )}
                 >
                   {link.label}
-                  {link.href === "/options" && optionCount > 0 && (
-                    <span className="ml-1.5 rounded-full border border-[#E8C4BF] bg-[#F5E8E6] px-1.5 py-0.5 font-mono text-[10px] text-[#CC3D2E]">
-                      {optionCount}
-                    </span>
-                  )}
+                  {link.href === "/options" && <OptionCount count={optionCount} />}
                 </Link>
                 {active && (
                   <motion.span
-                    layoutId="nav-underline"
-                    className="absolute inset-x-0 -bottom-[1px] h-0.5 bg-[#CC3D2E]"
-                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                    layoutId="nav-dot"
+                    aria-hidden
+                    className="absolute bottom-2 left-1/2 -ml-0.5 size-1 rounded-full bg-[#CC3D2E]"
+                    transition={{ type: "spring", stiffness: 500, damping: 38 }}
                   />
                 )}
               </li>
@@ -94,30 +102,30 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
-            href="https://cetonline.karnataka.gov.in/kea/ugcet2026"
+            href={KEA_PORTAL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 rounded-lg border border-[#CC3D2E] px-3 py-1.5 text-sm text-[#CC3D2E] transition-all duration-150 hover:bg-[#F5E8E6] active:scale-[0.97] sm:inline-flex"
+            className="hidden items-center gap-1 text-[13px] font-medium text-[#6B6B6B] transition-colors duration-150 hover:text-[#1A1A1A] lg:inline-flex"
           >
-            2026 Data
-            <ArrowUpRight className="size-3.5" aria-hidden />
+            Open KEA Portal
+            <ArrowUpRight className="size-3.5" strokeWidth={1.5} aria-hidden />
           </a>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               aria-label="Open menu"
-              className="inline-flex size-9 items-center justify-center rounded-lg border border-[#E5E0D8] text-[#6B6B6B] transition-all duration-150 hover:bg-[#F0EDE8] hover:text-[#1A1A1A] active:scale-[0.97] md:hidden"
+              className="inline-flex size-9 items-center justify-center rounded-[10px] border border-[#E0DCD4] text-[#6B6B6B] transition-colors duration-150 hover:bg-[#F0EDE8] hover:text-[#1A1A1A] active:scale-[0.97] lg:hidden"
             >
-              <Menu className="size-4" aria-hidden />
+              <Menu className="size-4" strokeWidth={1.5} aria-hidden />
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[260px] border-l border-[#E5E0D8] bg-white p-0 text-[#1A1A1A]"
+              className="w-[280px] border-l border-[#E5E0D8] bg-[#F7F4F0] p-0 text-[#1A1A1A]"
             >
-              <SheetTitle className="border-b border-[#E5E0D8] px-5 py-4 text-left">
+              <SheetTitle className="border-b border-[#E5E0D8] px-6 py-4 text-left">
                 <Wordmark />
               </SheetTitle>
-              <ul className="flex flex-col p-3">
+              <ul className="flex flex-col gap-1 p-3">
                 {LINKS.map((link) => {
                   const active = isActive(pathname, link.href);
                   return (
@@ -127,23 +135,41 @@ export function Navbar() {
                         onClick={() => setOpen(false)}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                          "flex items-center justify-between rounded-[10px] px-3 py-2.5 text-[15px] font-medium transition-colors duration-150",
                           active
-                            ? "bg-[#F5E8E6] text-[#CC3D2E]"
+                            ? "bg-white text-[#1A1A1A]"
                             : "text-[#6B6B6B] hover:bg-[#F0EDE8] hover:text-[#1A1A1A]"
                         )}
                       >
-                        {link.label}
-                        {link.href === "/options" && optionCount > 0 && (
-                          <span className="rounded-full border border-[#E8C4BF] bg-[#F5E8E6] px-1.5 py-0.5 font-mono text-[10px] text-[#CC3D2E]">
-                            {optionCount}
-                          </span>
+                        <span className="inline-flex items-center gap-2.5">
+                          <span
+                            aria-hidden
+                            className={cn(
+                              "size-1 rounded-full",
+                              active ? "bg-[#CC3D2E]" : "bg-transparent"
+                            )}
+                          />
+                          {link.label}
+                        </span>
+                        {link.href === "/options" && (
+                          <OptionCount count={optionCount} />
                         )}
                       </Link>
                     </li>
                   );
                 })}
               </ul>
+              <div className="border-t border-[#E5E0D8] px-6 py-4">
+                <a
+                  href={KEA_PORTAL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[13px] font-medium text-[#6B6B6B] transition-colors hover:text-[#1A1A1A]"
+                >
+                  Open KEA Portal
+                  <ArrowUpRight className="size-3.5" strokeWidth={1.5} aria-hidden />
+                </a>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -18,7 +18,10 @@ import { getTrend } from "@/lib/kcet-formula";
 import { VERIFIED_YEAR } from "@/lib/data/cutoffs";
 import type { Branch, Category, Round } from "@/types";
 
-const inr = (n: number) => n.toLocaleString("en-IN");
+const inr = (n: number) => n.toLocaleString("en-IN", { maximumFractionDigits: 1 });
+
+/** Chart text is drawn by recharts as SVG, so it names the mono face itself. */
+const MONO = "var(--font-dm-mono), 'DM Mono', monospace";
 
 interface Point {
   year: number;
@@ -60,16 +63,16 @@ function ChartTooltip({
   const previous = series?.find((p) => p.year === year - 1);
 
   return (
-    <div className="rounded-xl border border-[#E5E0D8] bg-white p-3 text-xs shadow-sm">
+    <div className="rounded-xl border border-[#E5E0D8] bg-white px-3.5 py-3 text-[12px] shadow-[0_12px_32px_rgba(26,26,26,0.08)]">
       <p className="font-mono text-[#1A1A1A]">
         {year}
         {year === VERIFIED_YEAR ? (
-          <span className="ml-1.5 text-[10px] text-[#1F7A4A]">published</span>
+          <span className="ml-2 font-sans text-[11px] font-medium text-[#1F7A4A]">Published</span>
         ) : (
-          <span className="ml-1.5 text-[10px] text-[#9B9B9B]">projected</span>
+          <span className="ml-2 font-sans text-[11px] text-[#9B9B9B]">Projected</span>
         )}
       </p>
-      <ul className="mt-1.5 space-y-1">
+      <ul className="mt-2 space-y-1.5">
         {payload.map((item) => {
           const key = String(item.dataKey);
           const value = item.value;
@@ -79,15 +82,15 @@ function ChartTooltip({
           const change = before !== undefined ? value - before : undefined;
 
           return (
-            <li key={key} className="flex items-center gap-2">
+            <li key={key} className="flex min-w-[180px] items-center gap-3">
               <span className="text-[#6B6B6B]">{ROUND_NAME[key] ?? key}</span>
               <span className="ml-auto font-mono text-[#1A1A1A]">
-                #{inr(value)}
+                {inr(value)}
               </span>
               {change !== undefined && change !== 0 && (
                 <span
                   className={
-                    change > 0 ? "text-green-600" : "text-red-500"
+                    change > 0 ? "font-mono text-[#1F7A4A]" : "font-mono text-[#B45309]"
                   }
                 >
                   {change > 0 ? "↑" : "↓"}
@@ -135,7 +138,7 @@ export function RankTrendChart({
 
   if (data.length === 0) {
     return (
-      <div className="flex h-[300px] items-center justify-center rounded-xl border border-[#E5E0D8] bg-white text-sm text-[#9B9B9B]">
+      <div className="flex h-[340px] items-center justify-center rounded-2xl border border-[#E5E0D8] bg-white text-[15px] text-[#9B9B9B]">
         No published cutoff for this combination
       </div>
     );
@@ -151,26 +154,29 @@ export function RankTrendChart({
         : "text-[#9B9B9B]";
 
   return (
-    <div className="relative rounded-xl border border-[#E5E0D8] bg-white p-4">
-      <div className="absolute right-4 top-4 z-10 text-right">
+    <div className="relative rounded-2xl border border-[#E5E0D8] bg-white p-6">
+      <div className="mb-2 flex flex-wrap items-start justify-between gap-3">
+        <p className="type-label">Closing rank by year</p>
+      <div className="text-right">
         <span
-          className={`inline-flex items-center gap-1 text-xs ${trendTone}`}
+          className={`inline-flex items-center gap-1.5 text-[13px] font-medium ${trendTone}`}
         >
-          <TrendIcon className="size-3" aria-hidden />
+          <TrendIcon className="size-3.5" strokeWidth={1.5} aria-hidden />
           {trend === "stable"
             ? "Stable"
             : `${trend === "tightening" ? "Tightening" : "Relaxing"} ~${inr(delta)} ranks/yr`}
         </span>
-        <span className="mt-0.5 block text-[10px] text-[#9B9B9B]">
-          projected from {VERIFIED_YEAR}
+        <span className="mt-0.5 block text-[11px] text-[#9B9B9B]">
+          Earlier years projected from {VERIFIED_YEAR}
         </span>
+      </div>
       </div>
 
       <div className="h-[300px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={data}
-            margin={{ top: 32, right: 12, bottom: 4, left: 4 }}
+            margin={{ top: 12, right: 12, bottom: 4, left: 4 }}
           >
             <defs>
               <linearGradient id="r3-fill" x1="0" y1="0" x2="0" y2="1">
@@ -180,29 +186,29 @@ export function RankTrendChart({
             </defs>
 
             <CartesianGrid
-              stroke="#E5E0D8"
+              stroke="#F0EDE8"
               vertical={false}
             />
             <XAxis
               dataKey="year"
               tickLine={false}
               axisLine={false}
-              tick={{ fill: "#9B9B9B", fontSize: 11 }}
+              tick={{ fill: "#9B9B9B", fontSize: 11, fontFamily: MONO }}
             />
             {/* A lower rank is a better result, so the axis runs downward. */}
             <YAxis
               reversed
-              width={58}
+              width={64}
               tickLine={false}
               axisLine={false}
-              tick={{ fill: "#9B9B9B", fontSize: 11 }}
+              tick={{ fill: "#9B9B9B", fontSize: 11, fontFamily: MONO }}
               tickFormatter={(v: number) => inr(v)}
               label={{
-                value: "← Better",
+                value: "Better",
                 angle: -90,
                 position: "insideLeft",
                 fill: "#9B9B9B",
-                fontSize: 10,
+                fontSize: 11,
               }}
             />
 
@@ -250,7 +256,7 @@ export function RankTrendChart({
                   value: "Your Rank",
                   position: "insideTopRight",
                   fill: "#6B6B6B",
-                  fontSize: 10,
+                  fontSize: 11,
                 }}
               />
             )}
@@ -258,7 +264,7 @@ export function RankTrendChart({
         </ResponsiveContainer>
       </div>
 
-      <div className="mt-2 flex items-center justify-center gap-5 text-[11px] text-[#9B9B9B]">
+      <div className="mt-4 flex items-center justify-center gap-6 text-[12px] text-[#6B6B6B]">
         <span className="inline-flex items-center gap-1.5">
           <span className="h-px w-4 border-t border-dashed border-[#E8C4BF]" />
           Round 1

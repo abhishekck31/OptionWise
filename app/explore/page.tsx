@@ -19,7 +19,7 @@ export default function ExplorePage() {
         <CutoffExplorer initialCategory={category} />
       </section>
 
-      <div className="mx-auto max-w-[1200px] px-6 pb-16 sm:px-8">
+      <div className="mx-auto max-w-[1120px] px-6 pb-[96px] sm:px-8">
         <Disclaimer />
       </div>
     </PageWrapper>

@@ -15,25 +15,25 @@ export const metadata: Metadata = {
 export default function CollegePredictorPage() {
   return (
     <PageWrapper>
-      <div className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        <header className="max-w-2xl">
-          <h1 className="text-3xl font-light tracking-tight text-[#1A1A1A]">
+      <div className="mx-auto max-w-[1120px] px-6 sm:px-8">
+        <header className="max-w-[720px]">
+          <h1 className="type-h1">
             College Finder
           </h1>
-          <p className="mt-3 text-sm leading-relaxed text-[#6B6B6B]">
+          <p className="type-body-lg mt-4">
             Every college and branch your rank reaches, measured against the
             round 3 closing ranks KEA published for {VERIFIED_YEAR}.
           </p>
         </header>
 
-        <div className="mt-6">
+        <div className="mt-8">
           <Disclaimer />
         </div>
 
         {/* useSearchParams needs a boundary; the skeleton is what shows first. */}
         <Suspense
           fallback={
-            <div className="mt-8">
+            <div className="mt-10">
               <SkeletonCardGrid count={6} />
             </div>
           }

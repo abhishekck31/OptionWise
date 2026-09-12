@@ -16,11 +16,11 @@ export function Disclaimer({
   return (
     <div
       className={cn(
-        "flex items-start gap-2.5 rounded-xl border border-[#E5E0D8] bg-white p-3.5 text-xs leading-relaxed text-[#6B6B6B]",
+        "flex items-start gap-3 rounded-2xl border border-[#E5E0D8] bg-white px-5 py-4 text-[13px] leading-[1.65] text-[#6B6B6B]",
         className
       )}
     >
-      <Info className="mt-0.5 size-4 shrink-0 text-[#9B9B9B]" aria-hidden />
+      <Info className="mt-[3px] size-3.5 shrink-0 text-[#9B9B9B]" strokeWidth={1.5} aria-hidden />
       <p>
         {children ?? (
           <>
