@@ -1,26 +1,324 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Claude light theme.
+
+   Warm off-white ground, white cards, borders instead of
+   shadows, and the terracotta accent used sparingly. One
+   palette only — there is no dark variant.
+
+   Tailwind 4 has no config file: the tokens below are the
+   theme, and @theme inline is what turns them into utilities
+   (bg-background, text-accent, border-border-strong, …).
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F7F4F0;
+  --surface: #FFFFFF;
+  --surface-raised: #F0EDE8;
+  --surface-overlay: #EAE6E0;
+
+  --border-subtle: #E5E0D8;
+  --border-strong: #C9C4BC;
+
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-muted: #9B9B9B;
+
+  --accent: #CC3D2E;
+  --accent-hover: #B5351F;
+  --accent-active: #A02E1A;
+  --accent-light: #F5E8E6;
+  --accent-border: #E8C4BF;
+  --text-on-accent: #FFFFFF;
+
+  /* Semantic, for chance and tier readouts */
+  --success: #1F7A4A;
+  --success-bg: #E8F5EE;
+  --success-border: #B8DFC9;
+  --warning: #B45309;
+  --warning-bg: #FEF3E2;
+  --warning-border: #F5D9A0;
+  --danger: #CC3D2E;
+  --danger-bg: #FEE8E6;
+  --danger-border: #F5C4BF;
+
+  --radius: 0.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-overlay: var(--surface-overlay);
+
+  --color-border: var(--border-subtle);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-foreground: var(--text-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-foreground-muted: var(--text-secondary);
+  --color-foreground-subtle: var(--text-muted);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-accent-border: var(--accent-border);
+
+  --color-brand: var(--accent);
+  --color-brand-from: var(--accent);
+  --color-brand-to: var(--accent-hover);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: #2563EB;
+  --color-reach: var(--accent);
+
+  /* shadcn/ui contract */
+  --color-card: var(--surface);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--text-on-accent);
+  --color-secondary: var(--surface-raised);
+  --color-secondary-foreground: var(--text-primary);
+  --color-muted: var(--surface-raised);
+  --color-muted-foreground: var(--text-secondary);
+  --color-accent-foreground: var(--text-primary);
+  --color-destructive: var(--danger);
+  --color-destructive-foreground: #FFFFFF;
+  --color-input: var(--border-subtle);
+  --color-ring: var(--accent);
+
+  /* Charts */
+  --color-chart-1: #CC3D2E;
+  --color-chart-2: #E8C4BF;
+  --color-chart-3: #1F7A4A;
+  --color-chart-4: #B45309;
+  --color-chart-5: #2563EB;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+
+  --animate-shimmer: shimmer 1.5s infinite linear;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background: var(--background);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: rgba(204, 61, 46, 0.14);
+    color: var(--accent);
+  }
+
+  /* One focus treatment across the app, keyboard only. */
+  :focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px rgba(204, 61, 46, 0.4);
+  }
+
+  /* Rank and marks fields are numeric; the spinners are noise. */
+  input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
   }
 }
 
-body {
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   Project utilities
+   ============================================================ */
+
+/* The hero ground: a dot grid quiet enough to read as texture. */
+.dot-grid {
+  background-image: radial-gradient(circle, #C9C4BC 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+.hero-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(26, 26, 26, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.03) 1px, transparent 1px);
+}
+
+/* The estimated rank is set plain — no glow in this theme. */
+.rank-glow,
+.rank-glow-subtle {
+  color: var(--text-primary);
+  text-shadow: none;
+}
+
+/* Native range inputs. The fill colour comes from --slider-fill so a
+   caller can let it follow the value. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--slider-fill, var(--border-subtle));
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) var(--background);
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    var(--surface-raised) 0%,
+    var(--border-subtle) 50%,
+    var(--surface-raised) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* ============================================================
+   Print
+   Only the option list is meant to reach paper.
+   ============================================================ */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 24px;
+    background: #ffffff !important;
+    color: #000000 !important;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .print-area * {
+    background: transparent !important;
+    color: #000000 !important;
+    border-color: #d4d4d4 !important;
+  }
+
+  .print-hide,
+  .no-print {
+    display: none !important;
+  }
 }
