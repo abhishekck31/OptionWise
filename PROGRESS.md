@@ -66,3 +66,16 @@ Human should verify: the parsed-text format (`# year: N round: N` header +
 pipe-delimited rows) is an invented placeholder, not derived from a real KEA PDF —
 adjust `parseCutoffRows.ts` once a real one is available to check against (see
 `AUDIT.md` Task 5 notes, `BLOCKED.md`).
+
+## Task 6 — Sample-data banner
+
+Added `GET /api/sample-data-status` and a `SampleDataBanner` Server Component
+(mounted in `app/layout.tsx`, `dynamic = "force-dynamic"` since it reads live DB
+state) that shows SPEC.md's exact "Sample data — not real cutoffs" notice whenever
+any `Cutoff` row has `isSample: true`. Verified with `make build` (still succeeds)
+and a real screenshot (`design/screenshots/home-with-sample-banner.png`) after
+running `make seed`. Added 4 of SPEC.md's design tokens (Ink/Surface/Card/Brand,
+light mode only) to `app/globals.css` for the banner to use instead of ad-hoc colours.
+
+Human should verify: dark-mode styling on the banner is a Tailwind stopgap, not
+derived tokens — revisit once the "Design system" task lands real dark-mode values.

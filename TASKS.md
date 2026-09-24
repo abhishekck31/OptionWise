@@ -6,7 +6,7 @@
 - [x] Data model + migrations for all SPEC tables with `source` and `is_sample` on every data row; tests
 - [x] Category/quota config file; verify against data/docs if present, else mark UNVERIFIED and note in BLOCKED.md
 - [x] Ingestion: parse KEA cutoff PDFs from data/raw into Cutoff rows with a validation report (row counts, unknown codes, rejected rows). If data/raw is empty, create a small obviously-fake sample dataset (is_sample=true). Tests with small fixture files
-- [ ] Sample-data banner: API exposes whether sample data is in use; UI shows a clear banner
+- [x] Sample-data banner: API exposes whether sample data is in use; UI shows a clear banner
 
 ## Core predictors
 - [ ] Rank predictor (merit score from config weights + interpolation over score-rank points) returning optimistic/likely/conservative + confidence; property tests (higher score never gives worse rank)

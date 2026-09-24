@@ -107,7 +107,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | Data model / migrations, `source`/`is_sample` columns | done (schema + migration; no data in it yet) |
 | `config/categories.json` (category/quota codes) | done, but UNVERIFIED — see BLOCKED.md |
 | KEA PDF ingestion + sample dataset | done (pipeline works; PDF text-format is an unverified placeholder — see Task 5 notes) |
-| Sample-data banner | missing |
+| Sample-data banner | done (see Task 6 notes) |
 | Rank predictor | missing |
 | College predictor (Safe/Target/Reach) | missing |
 | Option-entry builder logic | missing |
@@ -181,6 +181,36 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
 - Prisma writes in `ingest.ts` are per-row upserts in a loop, not batched — fine at
   today's scale (a handful of rows) but revisit if/when real KEA PDFs bring thousands
   of rows per file.
+
+## Task 6 (Sample-data banner) notes
+
+- `GET /api/sample-data-status` (`apps/web/app/api/sample-data-status/route.ts`) →
+  `{ isSampleDataInUse: boolean }`, backed by `lib/sampleDataStatus.ts` (true iff any
+  `Cutoff` row has `isSample: true`). `components/SampleDataBanner.tsx` is an async
+  Server Component that calls the same lib function directly (no client-side fetch
+  round-trip) and renders nothing when `isSampleDataInUse` is false. Mounted once in
+  `app/layout.tsx` so it shows on every page.
+- Because the banner reads live DB state per request, `app/layout.tsx` now exports
+  `export const dynamic = "force-dynamic"` — otherwise `next build` would try to
+  statically prerender it at build time, which needs a reachable DB. Verified
+  `make build` still succeeds (`ƒ (Dynamic)` on all routes) and the banner correctly
+  shows/hides based on whether `make seed` has run.
+- Added four of SPEC.md's design tokens (Ink/Surface/Card/Brand — verbatim hex values,
+  light mode only) as CSS custom properties in `app/globals.css`, and used only those
+  for the banner's light-mode styling, deliberately avoiding the Safe/Target/Reach
+  chance-system colours (a "sample data" notice isn't a chance-chip and reusing that
+  palette risked confusing the two once real chance chips exist elsewhere on the same
+  pages). Dark mode falls back to plain Tailwind utility classes as a stopgap — real
+  dark-mode token derivation is the "Design system: tokens file" task's job. The
+  banner's copy is a hardcoded string, matching every other page's copy so far;
+  hardcoding is expected to persist until the "i18n setup" task migrates all UI text
+  into translation files.
+- `design/screenshots/home-with-sample-banner.png` — a one-off Playwright screenshot
+  (mobile width, light mode) taken to sanity-check the banner visually, per
+  `CLAUDE.md`'s instruction to check UI work visually. `playwright-core` was added as
+  a devDependency to take it; kept rather than removed since the "UI polish pass" task
+  will need Playwright anyway. This was a manual one-off, not an automated screenshot
+  pipeline — that's the polish task's job, including dark mode and other viewports.
 
 ## Notes for future sessions
 
