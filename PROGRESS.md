@@ -119,3 +119,15 @@ Human should verify: SPEC.md's "Safe options placed above options they prefer"
 wording is genuinely ambiguous — see AUDIT.md's Option-entry builder notes for the
 specific reading implemented (Safe-before-Reach only) and why. If that's not the
 intended product behavior, this needs revisiting, not just extending.
+
+## Core predictors: Allotment simulator
+
+Added `apps/web/lib/simulator/allotmentSimulator.ts` (pure, round-by-round,
+upgrade-only allotment simulation) and `simulateAllotmentForStudent.ts` (DB wrapper:
+finds the most recent cutoff year for the given college-courses/category and
+simulates against it). 10 tests: 5 example-based, 2 `fast-check` property tests (a
+held seat is never lost or downgraded round over round), 3 DB-integration tests
+(most-recent-year selection, no-data case, a real two-round upgrade scenario).
+
+Human should verify: nothing new — this task didn't introduce any unverified data,
+just simulation logic over cutoffs that already exist in the DB.

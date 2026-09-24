@@ -111,7 +111,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | Rank predictor | done (logic + tests; UNVERIFIED config — see BLOCKED.md; no UI yet) |
 | College predictor (Safe/Target/Reach) | done (logic + tests; no UI yet) |
 | Option-entry builder logic | done (logic + tests; no drag UI yet — see Notes) |
-| Allotment simulator | missing |
+| Allotment simulator | done (logic + tests; no UI yet) |
 | CSV/PDF export | missing |
 | Design system / tokens / `/design` page | missing |
 | i18n (English + Kannada) | missing |
@@ -294,6 +294,25 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   from-scratch reference computation (every Safe entry with a later Reach entry, no
   more no less) across randomized chance-tier sequences; filtering never drops or
   duplicates an acceptable candidate.
+
+## Core predictors: Allotment simulator notes
+
+- `apps/web/lib/simulator/allotmentSimulator.ts`: pure `simulateAllotment(orderedIds,
+  options, rank)` walks each round (ascending) and allots the most-preferred option
+  the student clears that round, but only ever *upgrades* — a round's search is
+  restricted to positions strictly better than whatever's currently held, matching
+  real KEA counseling (you keep a held seat; later rounds can only move you up your
+  list, never down or back to nothing). `SIMULATION_LABEL` exports SPEC.md's required
+  "Simulation based on last year's data" string for the UI task to use verbatim.
+- `simulateAllotmentForStudent.ts` is the DB-facing wrapper: given ordered
+  `CollegeCourse` ids + category + rank, it finds the single most recent year present
+  across the relevant `Cutoff` rows (real ingested data or the sample dataset — either
+  way, whatever's most recent) and simulates against that year's rounds only. Returns
+  `year: null` when there's no cutoff data at all, rather than fabricating a result.
+- Property-tested with `fast-check`: across randomized option lists (fixed per-option
+  round cutoffs) and rank, a held seat is never lost (never regresses to null) and
+  never moves to a less-preferred option round over round; `finalOptionId` always
+  matches the last round's outcome.
 
 ## Notes for future sessions
 
