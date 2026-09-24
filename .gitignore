@@ -37,6 +37,10 @@ __pycache__/
 .venv/
 venv/
 
+# ingestion inputs/outputs — see data/raw/README.md, data/docs/README.md
+data/raw/*.pdf
+data/ingestion-report.json
+
 # editor
 .vscode/
 .idea/

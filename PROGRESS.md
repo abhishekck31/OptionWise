@@ -50,3 +50,19 @@ instructions).
 Human should verify: get a real KEA rules/brochure PDF into `data/docs/` and re-derive
 this file from it before trusting it for a real student — see `BLOCKED.md` for exactly
 what's uncertain (GM's suffix variants, possible extra quota categories).
+
+## Task 5 — Ingestion + sample dataset
+
+Added `apps/web/lib/ingestion/` (PDF text extraction via `pdf-parse`, a row parser,
+the fake sample dataset, and an orchestrator) and wired `make seed` to run it for
+real (`apps/web/prisma/seed.ts`), writing `data/ingestion-report.json`. `data/raw/`
+has no PDFs, so `make seed` currently writes the small fake sample dataset (12
+cutoff rows, isSample=true) — verified by actually running it against a real local
+Postgres. 8 new tests, including two that generate a real PDF with `pdfkit` at test
+time and round-trip it through `pdf-parse` (caught and fixed two real extraction
+bugs — see AUDIT.md).
+
+Human should verify: the parsed-text format (`# year: N round: N` header +
+pipe-delimited rows) is an invented placeholder, not derived from a real KEA PDF —
+adjust `parseCutoffRows.ts` once a real one is available to check against (see
+`AUDIT.md` Task 5 notes, `BLOCKED.md`).

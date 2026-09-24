@@ -39,9 +39,10 @@ check: lint typecheck test
 dev:
 	pnpm run dev
 
-# Populate local dev data. Currently a no-op placeholder — see scripts/seed.mjs.
-seed:
-	node scripts/seed.mjs
+# Populate local dev data: ingest data/raw/*.pdf, or a small fake sample dataset if
+# there are none. Writes data/ingestion-report.json. See apps/web/prisma/seed.ts.
+seed: db-migrate
+	pnpm --filter web exec tsx prisma/seed.ts
 
 # Production build of the web app.
 build:

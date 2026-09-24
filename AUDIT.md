@@ -80,8 +80,8 @@ later). Decisions below are meant to be extended by later tasks, not replaced.
 - **Root tooling**: a root `package.json` (private, no deps of its own) exposes
   `dev` / `build` / `lint` / `typecheck` / `test` scripts that delegate to `apps/web`
   via `pnpm --filter web`. The `Makefile` wraps those (see below) and adds `make seed`,
-  currently a placeholder (`scripts/seed.mjs`) since there's no data model or database
-  to seed yet.
+  which now runs the real ingestion pipeline (`apps/web/prisma/seed.ts`) — see the
+  Task 5 notes below.
 
 ## How to run
 
@@ -90,7 +90,7 @@ pnpm install      # or: make install
 make dev          # starts the Next.js dev server (apps/web), http://localhost:3000
 make check        # lint + typecheck + test — must pass before any task is "done"
 make test         # tests only
-make seed         # currently a no-op placeholder; see scripts/seed.mjs
+make seed         # ingest data/raw/*.pdf, or write a small fake sample dataset if none
 ```
 
 Node 22, pnpm 10, Python 3.11, and Docker are available in this environment.
@@ -106,7 +106,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 |---|---|
 | Data model / migrations, `source`/`is_sample` columns | done (schema + migration; no data in it yet) |
 | `config/categories.json` (category/quota codes) | done, but UNVERIFIED — see BLOCKED.md |
-| KEA PDF ingestion + sample dataset | missing |
+| KEA PDF ingestion + sample dataset | done (pipeline works; PDF text-format is an unverified placeholder — see Task 5 notes) |
 | Sample-data banner | missing |
 | Rank predictor | missing |
 | College predictor (Safe/Target/Reach) | missing |
@@ -144,6 +144,43 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   Postgres before the data-model task relies on it.
 - `.env.example` added: `DATABASE_URL` (matches the compose service), `ANTHROPIC_API_KEY`
   + LangSmith vars for the future AI service, `NEXT_TELEMETRY_DISABLED`.
+
+## Task 5 (Ingestion) notes
+
+- `apps/web/lib/ingestion/` — `extractPdfText.ts` (thin `pdf-parse` v2 wrapper),
+  `parseCutoffRows.ts` (pure text→rows parser, no I/O), `sampleDataset.ts` (the fake
+  fallback data), `ingest.ts` (`ingestFromRawDir`: lists `data/raw/*.pdf`; if there are
+  none, upserts the sample dataset with `isSample:true`; if there are, extracts +
+  parses + upserts each with `isSample:false`, `source` set to the PDF's relative
+  path). `apps/web/prisma/seed.ts` runs it via `make seed` and writes
+  `data/ingestion-report.json` (gitignored — it's generated output).
+- **The parsed text format is an invented placeholder, not derived from a real KEA
+  PDF** — none was available to inspect (same root cause as `config/categories.json`'s
+  UNVERIFIED status; see `BLOCKED.md`). `parseCutoffRows.ts` expects lines like
+  `# year: 2024 round: 1` followed by
+  `COLLEGE_CODE|COLLEGE_NAME|COURSE_CODE|COURSE_NAME|CATEGORY_CODE|CLOSING_RANK`. When
+  a real KEA cutoff PDF is available, check what `extractPdfText` actually produces
+  from it and adjust the parser to match — it will almost certainly need changes (real
+  KEA PDFs are tables, and pdf-parse's text extraction of tables can be irregular).
+  `data/raw/*.pdf` files are gitignored (source data, not code) — see
+  `data/raw/README.md`.
+- Tests use real fixtures, not mocks: `parseCutoffRows.test.ts` tests the pure parser
+  against inline text; `extractPdfText.test.ts` and `ingest.test.ts` generate an actual
+  small PDF at test time with `pdfkit` and round-trip it through the real `pdf-parse`
+  library — this caught two real bugs before they'd have hit a real PDF: pdfkit
+  wrapping a too-long line onto two lines (fixed with a wide custom page size, see
+  `apps/web/lib/ingestion/__tests__/testHelpers.ts`), and pdf-parse's default
+  `"-- page N of M --"` page-boundary marker being mistaken for a malformed data line
+  (fixed by passing `pageJoiner: ""`).
+- `vitest.config.ts` now sets `test.fileParallelism: false`. DB-backed test files each
+  `TRUNCATE` the same real Postgres tables in `beforeAll`/`afterEach`; running files in
+  parallel (Vitest's default) raced those truncates against each other and caused
+  intermittent failures unrelated to the code under test. Worth revisiting (e.g. a
+  per-file schema or transaction-per-test) if the test suite's DB-backed portion grows
+  large enough that sequential execution becomes slow.
+- Prisma writes in `ingest.ts` are per-row upserts in a loop, not batched — fine at
+  today's scale (a handful of rows) but revisit if/when real KEA PDFs bring thousands
+  of rows per file.
 
 ## Notes for future sessions
 
