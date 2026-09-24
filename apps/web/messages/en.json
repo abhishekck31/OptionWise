@@ -69,13 +69,28 @@
       "maxFeesInrRange": "Maximum fees can't be negative."
     }
   },
-  "ResultsPlaceholder": {
+  "Results": {
     "title": "Your rank range",
     "likelyRank": "You'll most likely get a rank between {optimistic} and {conservative}.",
     "confidenceLabel": "Confidence: {confidence}",
     "sampleDataNotice": "This prediction is based on a sample dataset, not real KCET results.",
     "startOver": "Start over",
     "noAnswers": "We don't have your answers yet.",
-    "noAnswersAction": "Start the onboarding flow"
+    "noAnswersAction": "Start the onboarding flow",
+    "collegesTitle": "Colleges you can realistically get",
+    "loading": "Finding colleges you can get…",
+    "errorLoadingTitle": "Couldn't load colleges",
+    "errorLoadingDescription": "Check your connection and try again.",
+    "retry": "Retry",
+    "resultCount": "{count, plural, =0 {No colleges} one {# college} other {# colleges}}",
+    "filterAll": "All",
+    "noResults": "No colleges match your filters yet.",
+    "noResultsAction": "Adjust your preferences",
+    "feesKnown": "₹{fees}/year",
+    "feesUnknown": "Fees not available",
+    "evidenceShow": "Show past cutoffs",
+    "evidenceHide": "Hide past cutoffs",
+    "evidenceEmpty": "No cutoff history for this category yet.",
+    "evidenceRow": "{year} round {round}: closing rank {rank}"
   }
 }

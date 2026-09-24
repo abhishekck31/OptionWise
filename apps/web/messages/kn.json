@@ -69,13 +69,28 @@
       "maxFeesInrRange": "ಗರಿಷ್ಠ ಶುಲ್ಕ ಋಣಾತ್ಮಕವಾಗಿರಲು ಸಾಧ್ಯವಿಲ್ಲ."
     }
   },
-  "ResultsPlaceholder": {
+  "Results": {
     "title": "ನಿಮ್ಮ ಶ್ರೇಣಿ ವ್ಯಾಪ್ತಿ",
     "likelyRank": "ನೀವು ಹೆಚ್ಚಾಗಿ {optimistic} ಮತ್ತು {conservative} ನಡುವಿನ ಶ್ರೇಣಿ ಪಡೆಯುವಿರಿ.",
     "confidenceLabel": "ವಿಶ್ವಾಸ: {confidence}",
     "sampleDataNotice": "ಈ ಮುನ್ಸೂಚನೆ ನಮೂನೆ ದತ್ತಾಂಶವನ್ನು ಆಧರಿಸಿದೆ, ನಿಜವಾದ KCET ಫಲಿತಾಂಶಗಳಲ್ಲ.",
     "startOver": "ಮತ್ತೆ ಪ್ರಾರಂಭಿಸಿ",
     "noAnswers": "ನಮ್ಮ ಬಳಿ ನಿಮ್ಮ ಉತ್ತರಗಳು ಇನ್ನೂ ಇಲ್ಲ.",
-    "noAnswersAction": "ಆರಂಭಿಕ ಹಂತಗಳನ್ನು ಪ್ರಾರಂಭಿಸಿ"
+    "noAnswersAction": "ಆರಂಭಿಕ ಹಂತಗಳನ್ನು ಪ್ರಾರಂಭಿಸಿ",
+    "collegesTitle": "ನೀವು ವಾಸ್ತವಿಕವಾಗಿ ಪಡೆಯಬಹುದಾದ ಕಾಲೇಜುಗಳು",
+    "loading": "ನೀವು ಪಡೆಯಬಹುದಾದ ಕಾಲೇಜುಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ…",
+    "errorLoadingTitle": "ಕಾಲೇಜುಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ",
+    "errorLoadingDescription": "ನಿಮ್ಮ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+    "retry": "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+    "resultCount": "{count, plural, =0 {ಕಾಲೇಜುಗಳಿಲ್ಲ} one {# ಕಾಲೇಜು} other {# ಕಾಲೇಜುಗಳು}}",
+    "filterAll": "ಎಲ್ಲಾ",
+    "noResults": "ನಿಮ್ಮ ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಯಾವುದೇ ಕಾಲೇಜು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.",
+    "noResultsAction": "ನಿಮ್ಮ ಆದ್ಯತೆಗಳನ್ನು ಬದಲಾಯಿಸಿ",
+    "feesKnown": "₹{fees}/ವರ್ಷಕ್ಕೆ",
+    "feesUnknown": "ಶುಲ್ಕ ಲಭ್ಯವಿಲ್ಲ",
+    "evidenceShow": "ಹಿಂದಿನ ಕಟ್‌ಆಫ್‌ಗಳನ್ನು ತೋರಿಸಿ",
+    "evidenceHide": "ಹಿಂದಿನ ಕಟ್‌ಆಫ್‌ಗಳನ್ನು ಮರೆಮಾಡಿ",
+    "evidenceEmpty": "ಈ ವರ್ಗಕ್ಕೆ ಇನ್ನೂ ಕಟ್‌ಆಫ್ ಇತಿಹಾಸವಿಲ್ಲ.",
+    "evidenceRow": "{year} ಸುತ್ತು {round}: ಮುಕ್ತಾಯ ಶ್ರೇಣಿ {rank}"
   }
 }

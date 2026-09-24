@@ -116,7 +116,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | Design system / tokens / `/design` page | done — see Task 17 notes |
 | i18n (English + Kannada) | done — see Task 18 notes; kn.json needs native review |
 | Onboarding flow | done — see Task 19 notes |
-| Results page (full Safe/Target/Reach list + filters + evidence) | missing (a minimal rank-only placeholder exists at /results — see Task 19 notes) |
+| Results page (full Safe/Target/Reach list + filters + evidence) | done — see Task 20 notes |
 | Option ladder, college page/compare UI | missing |
 | Auth (student/alumni/admin) | missing |
 | Alumni verification queue, in-app Q&A, moderation | missing |
@@ -517,6 +517,51 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   `Select`, `Button`'s `asChild`, and a full 3-step walkthrough of the real
   `OnboardingPage` including the validation-blocks-advancing and back-preserves-
   answers cases).
+
+## Task 20 (Results page) notes
+
+- **Extended, not replaced**, the `/results` placeholder from Task 19 — same route,
+  same "no answers yet" branch, same rank-range summary, now with a real college
+  list under it. This is the pattern the onboarding task's notes said to expect.
+- **New API route** `GET /api/colleges` (`app/api/colleges/route.ts`) wraps
+  `predictColleges` for client-side fetching: query params `rank`, `categoryCode`
+  (both required, 400 if missing/invalid), `city`, `maxFeesInr`, `branches`
+  (comma-separated) all optional. The results page builds this URL from the stored
+  onboarding answers (`location` → `city`, etc.) — the preferences captured during
+  onboarding are what drive the filters here; there's no additional filter UI to
+  change them mid-results yet (only the Safe/Target/Reach segmented view, which is
+  a pure client-side filter over the already-fetched list, no refetch).
+- Classifies against `prediction.likelyRank` specifically (not the optimistic/
+  conservative bounds) — the same decision documented back in the College predictor
+  task's notes, now actually wired up end to end.
+- **New components** (`components/results/`): `ChanceFilterTabs` (SPEC.md's "Safe /
+  Target / Reach segmented view, instant filtering" — reuses `Chip`, filters the
+  in-memory list, no network round-trip per tab click) and `CollegeResultRow`
+  (college + course + `ChanceChip` + fees, with a native `<details>`/`<summary>` for
+  "tap to expand for cutoff evidence" per SPEC.md's option-ladder-pattern wording —
+  chose native `<details>` over a Radix primitive since disclosure semantics are
+  exactly what it's built for, no extra JS state needed).
+- **New `lib/formatNumber.ts`** (`formatIndianNumber`): ranks and fees now render
+  with Indian digit grouping (`1,20,000`, not `120,000`) — `Number.toLocaleString()`
+  with no locale argument was using the runtime's default locale (effectively
+  Western grouping in this environment), which is the wrong convention for a
+  Karnataka-focused product. Applied consistently to the rank range, fees, and
+  evidence rows; a first draft of the tests assumed Indian grouping without the
+  component actually doing it, which is what surfaced the bug.
+- Verified against the real seeded sample dataset (`make seed`), not just fixtures:
+  `GET /api/colleges` was curled directly, and a full real-browser walkthrough
+  (onboarding → results, switching the Safe/Target/Reach tabs, expanding evidence)
+  produced `design/screenshots/results-full-360.png`,
+  `results-filtered-safe.png` (a real empty state — the test student's poor merit
+  score put every sample college in Reach), and `results-evidence-open.png`.
+- 16 new tests (142 total): the API route (validation + real DB classification +
+  filters), `ChanceFilterTabs`, `CollegeResultRow` (including that a closed
+  `<details>` still has its content in the DOM — Testing Library's
+  `not.toBeInTheDocument()` checks DOM presence, not CSS visibility, so the first
+  draft of this test was checking the wrong thing), `formatIndianNumber`, and the
+  full `ResultsPage` (loading/loaded/error/empty/filtered states, mocking `fetch`
+  and this repo's own `@/i18n/navigation` — the mock needed an actual `Link`
+  implementation this time, since `Button`'s new `asChild` renders straight into it).
 
 ## Notes for future sessions
 

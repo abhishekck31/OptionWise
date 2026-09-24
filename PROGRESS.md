@@ -198,3 +198,20 @@ page component, plus a real Playwright run through every step (screenshots in
 Human should verify: the manual (non-zod) validators in `lib/onboarding/schema.ts` —
 see AUDIT.md's Task 19 notes for why zod's number coercion was dropped partway
 through (silently treated an empty required field as 0 instead of flagging it).
+
+## Results page
+
+Extended `/results` (not a new route) with the real college list: `GET
+/api/colleges` wraps `predictColleges` for client fetching; `ChanceFilterTabs`
+(instant client-side Safe/Target/Reach filtering, no refetch) and
+`CollegeResultRow` (college + course + chance chip + fees, tap-to-expand cutoff
+evidence via native `<details>`) render it. Filters come from the onboarding
+answers already saved (location → city, fee cap, branches). Added
+`lib/formatNumber.ts` for Indian digit grouping (₹1,20,000, not ₹120,000) — applied
+to ranks, fees, and evidence, fixing a real formatting bug the tests caught. 16 new
+tests (142 total), plus a real browser walkthrough against the seeded sample
+dataset (screenshots in `design/screenshots/`, including a genuine empty
+Safe-filter state).
+
+Human should verify: nothing new to flag beyond what's already in BLOCKED.md — this
+task only consumed data/config that earlier tasks already marked unverified.

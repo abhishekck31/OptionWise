@@ -19,7 +19,7 @@
 - [x] Design system: tokens file (light + dark), fonts, type scale, spacing, core components (button, input, chip, sheet, toast, skeleton, empty/error states), chance chips with label + icon; a /design page showing them all
 - [x] i18n setup: English + Kannada translation files, language switcher, no hard-coded UI strings
 - [x] Onboarding flow: marks, board %, category, quota, preferences (location, fee cap, branches); mobile-first
-- [ ] Results page: rank range with confidence + Safe/Target/Reach college list with filters and evidence
+- [x] Results page: rank range with confidence + Safe/Target/Reach college list with filters and evidence
 - [ ] Option ladder (signature screen): smooth drag-to-reorder with spring motion, keyboard/screen-reader reordering, inline warnings with one-tap fixes, live simulator panel, autosave, undo, export and 'Share with parents' link
 - [ ] College page (fees, intake, cutoff trend chart, placement stats with source + year) and compare view (up to 3)
 
