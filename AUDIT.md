@@ -117,7 +117,8 @@ the empty app shell and the tooling to build on top of. Specifically:
 | i18n (English + Kannada) | done — see Task 18 notes; kn.json needs native review |
 | Onboarding flow | done — see Task 19 notes |
 | Results page (full Safe/Target/Reach list + filters + evidence) | done — see Task 20 notes |
-| Option ladder, college page/compare UI | missing |
+| Option ladder (drag-to-reorder, warnings, simulator, export, share) | done — see Task 21 notes |
+| College page/compare UI | missing |
 | Auth (student/alumni/admin) | missing |
 | Alumni verification queue, in-app Q&A, moderation | missing |
 | AI counsellor (`services/ai`, agents, guardrails, eval harness) | missing |
@@ -562,6 +563,89 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   full `ResultsPage` (loading/loaded/error/empty/filtered states, mocking `fetch`
   and this repo's own `@/i18n/navigation` — the mock needed an actual `Link`
   implementation this time, since `Button`'s new `asChild` renders straight into it).
+
+## Task 21 (Option ladder) notes
+
+- **New route** `/option-list` (`app/[locale]/option-list/page.tsx`), plus a new
+  "Add to my list" / "Remove from list" toggle on `CollegeResultRow` (results page)
+  that writes through a new `lib/optionList/storage.ts` — localStorage again, same
+  pattern as onboarding (no `OptionList` DB table exists yet, per SPEC.md's data
+  model). Adding is dedup-guarded by `collegeCode-courseCode`; the array's own order
+  *is* the student's priority order, matching SPEC.md's "the list must be ordered by
+  the student's TRUE preference" (Option-entry builder task).
+- **Reused, not rebuilt**, every piece of prior "Core predictors" work: the existing
+  pure `buildOptionList` (warnings + explanations) runs over the saved list's
+  `chance` values via a new thin bridge (`lib/optionList/warnings.ts`,
+  `buildOptionListView`); the existing pure `simulateAllotment` runs over each
+  option's own cached evidence via `lib/optionList/simulate.ts::simulateOptionList`
+  (documented caveat: uses each option's own most-recent evidence year, which can
+  differ option-to-option, since evidence was fetched independently per college —
+  a reasonable approximation for a *live* reordering preview, unlike the server-side
+  `simulateAllotmentForStudent` used elsewhere, which picks one year across the
+  whole list). No new server round-trip is needed to reorder or re-simulate.
+- **Drag-to-reorder**: `@dnd-kit/core` + `@dnd-kit/sortable` (new dependencies —
+  actively maintained, accessible-by-default, and its `KeyboardSensor` +
+  `sortableKeyboardCoordinates` gave "full keyboard support" almost for free).
+  Every row *also* has explicit Move up / Move down / Remove buttons — SPEC.md asks
+  for both ("smooth drag-to-reorder" *and* "move up / move down buttons, announced
+  positions"), so drag was never treated as the only way to reorder. An
+  `aria-live="assertive"` region announces "X moved to position N of M" after every
+  reorder (drag, button, or one-tap warning fix) and every removal restore.
+- **Warnings, inline, with a one-tap fix** (SPEC.md, verbatim): `too_few_safe`
+  renders as a list-level banner (no single row causes it) linking back to
+  `/results`; `safe_above_reach` renders *on the exact shadowing Safe row*, with a
+  "Move below the Reach options it shadows" button. The fix
+  (`lib/optionList/warnings.ts::fixSafeAboveReach`) moves that Safe option to just
+  after the last Reach option it shadowed, leaving everything else's relative order
+  untouched — a small, pure, independently tested function, not reordering logic
+  baked into the component.
+- **Undo, not just remove**: removing an option shows a toast with an "Undo" action
+  that re-inserts it at its original index. This needed extending `ToastProvider`
+  (`components/ui/toast.tsx`) with an optional `action: {label, onClick}` — the
+  first consumer of an actionable toast; SPEC.md's "undo for every destructive
+  action" already implied this was coming.
+- **Export**: CSV is generated and downloaded fully client-side (existing
+  `optionListToCsv`, `Blob` + object URL). PDF is not — `pdfkit` is Node-only, so a
+  new route `POST /api/export/pdf` (`app/api/export/pdf/route.ts`) wraps the
+  existing `optionListToPdf` and streams the bytes back; the client has no
+  server-stored option list to read, so the current list is sent in the request
+  body and validated by hand (shape-checked, `chance` restricted to the three known
+  values) rather than trusted.
+- **"Share with parents"**: deliberately not a backend feature — there's no
+  `OptionList`/session table to persist to, and CLAUDE.md's minors/minimal-data rule
+  argues against inventing one just for this. Instead (`lib/optionList/share.ts`)
+  the list — college/course codes+names and chance *only*, no rank, no student
+  identity — is base64-JSON-encoded into the **URL fragment** (`/share#...`), which
+  browsers never send to a server, so the link needs no backend and never touches a
+  server log. `decodeShareData` is defensive (bad base64, wrong shape, unknown
+  `chance` value) and returns `null` rather than throwing, so a corrupted/hand-typed
+  link shows a clean "invalid link" state, not a crash.
+- Found and fixed a real i18n bug while screenshotting the Kannada view: `entry.
+  explanation` from `optionBuilder.ts` (Task 14, pre-dates the i18n task) is a
+  hardcoded English sentence. This is the *first* screen to render that field, so
+  rather than reworking `optionBuilder.ts`'s pure logic (out of scope, and it has no
+  reason to know about `next-intl`), `OptionListRow` now derives the same sentence
+  from a new `OptionList.explanation.{safe,target,reach}` translation key, keyed off
+  the same `chance` the original was derived from.
+- Also extended `vitest.setup.ts` with no-op `hasPointerCapture` /
+  `setPointerCapture` / `releasePointerCapture` stubs on `Element.prototype` — jsdom
+  implements none of the Pointer Capture APIs, and Radix's `Toast.Root` calls
+  `hasPointerCapture` unconditionally on its swipe-gesture handlers, so clicking
+  anything inside a toast (e.g. the new Undo button) threw in tests without this.
+- Verified against the real seeded sample dataset end-to-end in a real browser (not
+  just component tests): onboarding → results → add 3 colleges to the list →
+  reorder → remove → undo → dark mode → Kannada → copy share link → open the
+  resulting `/share` link. Screenshots in `design/screenshots/`
+  (`option-list-390.png`, `-1280.png`, `-dark-390.png`, `-kn-390.png`,
+  `-after-move-390.png`, `-remove-toast-390.png`, `-share-toast-390.png`,
+  `share-page-390.png`, `results-with-added-options-390.png`).
+- 49 new tests (191 total): `lib/optionList/*` (storage, simulate, warnings, share —
+  all pure/unit), `OptionListRow`, `SimulatorPanel`, the full `OptionListPage`
+  (empty/loaded/reorder/remove+undo/warnings+fix/simulator/CSV/PDF/share, mocking
+  `fetch`, `URL.createObjectURL`, and `navigator.clipboard`), the full `SharePage`
+  (invalid/empty/loaded), the `POST /api/export/pdf` route (validation + a real
+  generated-PDF byte check), plus the extended `CollegeResultRow` and `ToastProvider`
+  tests.
 
 ## Notes for future sessions
 

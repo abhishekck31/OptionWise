@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderWithIntl } from "@/test-utils/intl";
@@ -46,5 +46,23 @@ describe("CollegeResultRow", () => {
     renderWithIntl(<CollegeResultRow prediction={{ ...prediction, evidence: [] }} />);
     await userEvent.click(screen.getByText("Show past cutoffs"));
     expect(screen.getByText("No cutoff history for this category yet.")).toBeInTheDocument();
+  });
+
+  it("hides the option-list action when no handler is passed", () => {
+    renderWithIntl(<CollegeResultRow prediction={prediction} />);
+    expect(screen.queryByText("Add to my list")).not.toBeInTheDocument();
+  });
+
+  it("offers to add to the option list and calls back with the prediction", async () => {
+    const onToggleOptionList = vi.fn();
+    renderWithIntl(<CollegeResultRow prediction={prediction} inOptionList={false} onToggleOptionList={onToggleOptionList} />);
+    await userEvent.click(screen.getByText("Add to my list"));
+    expect(onToggleOptionList).toHaveBeenCalledWith(prediction);
+  });
+
+  it("offers to remove from the option list when already on it", () => {
+    renderWithIntl(<CollegeResultRow prediction={prediction} inOptionList onToggleOptionList={vi.fn()} />);
+    expect(screen.getByText("Remove from list")).toBeInTheDocument();
+    expect(screen.queryByText("Add to my list")).not.toBeInTheDocument();
   });
 });

@@ -1,19 +1,25 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
 import { ChanceChip } from "@/components/ui/chip";
 import { formatIndianNumber } from "@/lib/formatNumber";
 import type { CollegePrediction } from "@/lib/predictors/predictColleges";
 
 export interface CollegeResultRowProps {
   prediction: CollegePrediction;
+  /** Whether this college+course is already on the student's option list — flips
+   * the action button between "add" and "remove". Omit to hide the action entirely
+   * (used by contexts, like the future share view, that shouldn't offer it). */
+  inOptionList?: boolean;
+  onToggleOptionList?: (prediction: CollegePrediction) => void;
 }
 
 /** One row of the results list — college + course, a chance chip, and (tap to
  * expand) the cutoff evidence behind it. SPEC.md "UI / UX": "Each row shows college
  * + course, a chance chip, and a one-line reason. Tap to expand for cutoff
  * evidence." */
-export function CollegeResultRow({ prediction }: CollegeResultRowProps) {
+export function CollegeResultRow({ prediction, inOptionList, onToggleOptionList }: CollegeResultRowProps) {
   const t = useTranslations("Results");
 
   return (
@@ -28,7 +34,19 @@ export function CollegeResultRow({ prediction }: CollegeResultRowProps) {
             {prediction.feesInr != null ? t("feesKnown", { fees: formatIndianNumber(prediction.feesInr) }) : t("feesUnknown")}
           </p>
         </div>
-        <ChanceChip chance={prediction.chance} className="shrink-0" />
+        <div className="flex shrink-0 flex-col items-end gap-2">
+          <ChanceChip chance={prediction.chance} />
+          {onToggleOptionList ? (
+            <Button
+              type="button"
+              size="sm"
+              variant={inOptionList ? "secondary" : "primary"}
+              onClick={() => onToggleOptionList(prediction)}
+            >
+              {inOptionList ? t("removeFromList") : t("addToList")}
+            </Button>
+          ) : null}
+        </div>
       </div>
 
       <details className="mt-3 group">

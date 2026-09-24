@@ -10,6 +10,7 @@ import { ErrorState } from "@/components/ui/error-state";
 import { ChanceFilterTabs, type ChanceFilterValue } from "@/components/results/ChanceFilterTabs";
 import { CollegeResultRow } from "@/components/results/CollegeResultRow";
 import { loadOnboarding, type StoredOnboarding } from "@/lib/onboarding/storage";
+import { addToOptionList, loadOptionList, optionId, removeFromOptionList } from "@/lib/optionList/storage";
 import { formatIndianNumber } from "@/lib/formatNumber";
 import type { CollegePrediction } from "@/lib/predictors/predictColleges";
 
@@ -33,13 +34,21 @@ export default function ResultsPage() {
   const [loadState, setLoadState] = useState<LoadState>("loading");
   const [chanceFilter, setChanceFilter] = useState<ChanceFilterValue>("all");
   const [reloadKey, setReloadKey] = useState(0);
+  const [optionListIds, setOptionListIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     // localStorage doesn't exist during SSR, so this can only be read client-side,
     // post-mount — a legitimate one-time sync from an external system.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setStored(loadOnboarding());
+    setOptionListIds(new Set(loadOptionList().map(optionId)));
   }, []);
+
+  function handleToggleOptionList(prediction: CollegePrediction) {
+    const id = optionId(prediction);
+    const next = optionListIds.has(id) ? removeFromOptionList(prediction.collegeCode, prediction.courseCode) : addToOptionList(prediction);
+    setOptionListIds(new Set(next.map(optionId)));
+  }
 
   useEffect(() => {
     if (!stored) return;
@@ -106,7 +115,12 @@ export default function ResultsPage() {
       </div>
 
       <div className="flex flex-col gap-4 border-t border-ink/10 pt-6">
-        <h2 className="font-heading text-xl font-semibold text-ink">{t("collegesTitle")}</h2>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 className="font-heading text-xl font-semibold text-ink">{t("collegesTitle")}</h2>
+          <Link href="/option-list" className="text-sm text-brand underline underline-offset-2">
+            {t("viewOptionList", { count: optionListIds.size })}
+          </Link>
+        </div>
         <ChanceFilterTabs value={chanceFilter} onChange={setChanceFilter} />
 
         {loadState === "loading" ? (
@@ -133,7 +147,12 @@ export default function ResultsPage() {
             <p className="text-sm text-ink/60">{t("resultCount", { count: filteredPredictions.length })}</p>
             <ul className="flex flex-col gap-3">
               {filteredPredictions.map((p) => (
-                <CollegeResultRow key={`${p.collegeCode}-${p.courseCode}`} prediction={p} />
+                <CollegeResultRow
+                  key={`${p.collegeCode}-${p.courseCode}`}
+                  prediction={p}
+                  inOptionList={optionListIds.has(optionId(p))}
+                  onToggleOptionList={handleToggleOptionList}
+                />
               ))}
             </ul>
           </>

@@ -20,7 +20,7 @@
 - [x] i18n setup: English + Kannada translation files, language switcher, no hard-coded UI strings
 - [x] Onboarding flow: marks, board %, category, quota, preferences (location, fee cap, branches); mobile-first
 - [x] Results page: rank range with confidence + Safe/Target/Reach college list with filters and evidence
-- [ ] Option ladder (signature screen): smooth drag-to-reorder with spring motion, keyboard/screen-reader reordering, inline warnings with one-tap fixes, live simulator panel, autosave, undo, export and 'Share with parents' link
+- [x] Option ladder (signature screen): smooth drag-to-reorder with spring motion, keyboard/screen-reader reordering, inline warnings with one-tap fixes, live simulator panel, autosave, undo, export and 'Share with parents' link
 - [ ] College page (fees, intake, cutoff trend chart, placement stats with source + year) and compare view (up to 3)
 
 ## Alumni connect

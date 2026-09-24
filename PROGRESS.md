@@ -215,3 +215,25 @@ Safe-filter state).
 
 Human should verify: nothing new to flag beyond what's already in BLOCKED.md — this
 task only consumed data/config that earlier tasks already marked unverified.
+
+## Option ladder
+
+Added `/option-list` (drag-to-reorder via `@dnd-kit`, plus explicit Move up/down/
+Remove buttons and aria-live position announcements — full keyboard/screen-reader
+support, not drag-only), reusing the existing option-builder/simulator logic instead
+of rebuilding it. Inline warnings sit on the exact row that causes them, each with a
+one-tap fix; removing an option shows an Undo toast (extended `ToastProvider` with
+actions). CSV downloads client-side; PDF goes through a new `POST /api/export/pdf`
+route (pdfkit is Node-only). "Share with parents" needed no backend: the list
+(codes/names/chance only — no rank, no identity) is base64-encoded into the `/share`
+URL's fragment, which browsers never send to a server. Also fixed a real bug found
+while screenshotting Kannada: the option-builder's per-row explanation sentence was
+hardcoded English — now translated. 49 new tests (191 total), verified end-to-end in
+a real browser incl. dark mode and Kannada (screenshots in `design/screenshots/`).
+
+Human should verify: the simulator's "most recent year per option" approximation
+(see AUDIT.md Task 21 notes) is a deliberate tradeoff for a live/no-refetch preview,
+not a bug — confirm that's acceptable versus always matching the server-side
+single-year simulation used elsewhere. Also confirm the share link's fully
+client-side, non-persistent design (no backend, no expiry, works forever as long as
+the URL is kept) is the intended behavior for something parents will be sent.

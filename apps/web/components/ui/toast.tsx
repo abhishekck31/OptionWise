@@ -9,6 +9,9 @@ interface ToastMessage {
   title: string;
   description?: string;
   variant?: "default" | "error";
+  /** An inline action, e.g. "Undo" (SPEC.md "UI / UX": "undo for every destructive
+   * action"). Clicking it also dismisses the toast. */
+  action?: { label: string; onClick: () => void };
 }
 
 interface ToastContextValue {
@@ -65,6 +68,20 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               <RadixToast.Description className="mt-1 text-sm text-ink/70">
                 {toast.description}
               </RadixToast.Description>
+            ) : null}
+            {toast.action ? (
+              <RadixToast.Action asChild altText={toast.action.label}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    toast.action?.onClick();
+                    dismiss(toast.id);
+                  }}
+                  className="mt-2 text-sm font-semibold text-brand underline underline-offset-2"
+                >
+                  {toast.action.label}
+                </button>
+              </RadixToast.Action>
             ) : null}
           </RadixToast.Root>
         ))}
