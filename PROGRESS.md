@@ -23,3 +23,17 @@ concrete DB choice), a real root `README.md` with setup/run/check steps, and
 Human should verify: `docker compose up -d` actually reaches a healthy Postgres on
 your machine — the build sandbox had no usable Docker daemon so this piece is
 untested end-to-end (see AUDIT.md). Nothing in the app depends on it yet.
+
+## Task 3 — Data model + migrations
+
+Added a Prisma 6.19.3 schema (`apps/web/prisma/schema.prisma`) for all 10 SPEC
+tables with `source`/`isSample` on every one, an initial migration applied and
+verified against a real local Postgres, a `lib/db.ts` client singleton, and
+`prisma/__tests__/schema.test.ts` (6 tests: source/isSample persistence, unique
+constraints, cascade deletes, alumni 1:1 + PENDING default, message/report/audit-log
+shape) — all running against that real Postgres via a new `make db-up`/`db-migrate`
+auto-bootstrap (`scripts/ensure-db.sh`), not a mock.
+
+Human should verify: the Prisma 6.x pin (see AUDIT.md — 7/8 changed config format and
+8 is still an RC) is the version you want to build on; `Cutoff.categoryCode` is an
+unvalidated string until the category/quota config task lands.

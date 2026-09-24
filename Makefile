@@ -1,4 +1,4 @@
-.PHONY: install check lint typecheck test dev seed build docker-up docker-down
+.PHONY: install check lint typecheck test dev seed build docker-up docker-down db-up db-migrate
 
 # Install all workspace dependencies.
 install:
@@ -20,8 +20,16 @@ lint:
 typecheck:
 	pnpm run typecheck
 
+# Make sure a local Postgres matching .env.example is reachable (starts one if not).
+db-up:
+	bash scripts/ensure-db.sh
+
+# Apply pending Prisma migrations.
+db-migrate: db-up
+	pnpm --filter web exec prisma migrate deploy
+
 # Run all tests (FakeProvider / fixtures only — never live LLMs or external APIs).
-test:
+test: db-migrate
 	pnpm run test
 
 # Everything CI / a human should run before calling a task done.

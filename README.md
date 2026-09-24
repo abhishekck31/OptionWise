@@ -29,8 +29,8 @@ predictors, and no AI service yet**; those land in upcoming tasks.
 ```bash
 git clone https://github.com/abhishekck31/OptionWise.git
 cd OptionWise
-cp .env.example .env        # fill in real values as features need them
-pnpm install                # or: make install
+cp .env.example apps/web/.env   # apps/web (Next.js + Prisma) reads its own .env
+pnpm install                     # or: make install
 ```
 
 ## Running

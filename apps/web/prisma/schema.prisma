@@ -1,0 +1,209 @@
+// OptionWise data model — see SPEC.md "Data (accuracy is the product)".
+//
+// Every table carries `source` and `isSample` per SPEC.md's explicit instruction
+// ("EVERY data row has source and is_sample"). For KEA-derived tables (College,
+// Course, CollegeCourse, Cutoff, PlacementStat) `source` names the file/URL the row
+// came from and `isSample` marks obviously-fake placeholder data. For in-app tables
+// (User, AlumniProfile, Message, Report, AuditLog) `source` defaults to "app" (the
+// row originates from in-app action, not an external document) and `isSample` should
+// stay false — there's no such thing as "sample" user-generated content.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---- KEA reference data ----------------------------------------------------
+
+model College {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  city      String?
+  district  String?
+  website   String?
+  source    String
+  isSample  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  collegeCourses CollegeCourse[]
+  placementStats PlacementStat[]
+  alumniProfiles AlumniProfile[]
+}
+
+model Course {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  source    String
+  isSample  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  collegeCourses CollegeCourse[]
+  placementStats PlacementStat[]
+  alumniProfiles AlumniProfile[]
+}
+
+model CollegeCourse {
+  id        String   @id @default(cuid())
+  collegeId String
+  courseId  String
+  feesInr   Int?
+  intake    Int?
+  source    String
+  isSample  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  college College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  course  Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  cutoffs Cutoff[]
+
+  @@unique([collegeId, courseId])
+}
+
+// categoryCode references config/categories (a file, not a table — see SPEC.md),
+// validated at the application layer.
+model Cutoff {
+  id              String   @id @default(cuid())
+  collegeCourseId String
+  year            Int
+  round           Int
+  categoryCode    String
+  closingRank     Int
+  source          String
+  isSample        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+
+  collegeCourse CollegeCourse @relation(fields: [collegeCourseId], references: [id], onDelete: Cascade)
+
+  @@unique([collegeCourseId, year, round, categoryCode])
+}
+
+model PlacementStat {
+  id                String   @id @default(cuid())
+  collegeId         String
+  courseId          String
+  year              Int
+  medianPackageInr  Int?
+  avgPackageInr     Int?
+  highestPackageInr Int?
+  percentPlaced     Float?
+  source            String
+  isSample          Boolean  @default(false)
+  createdAt         DateTime @default(now())
+
+  college College @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+  course  Course  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([collegeId, courseId, year])
+}
+
+// ---- Users, alumni connect --------------------------------------------------
+
+enum Role {
+  STUDENT
+  ALUMNI
+  ADMIN
+}
+
+// Minimal fields only — this repo's minors policy (SPEC.md) means auth-specific
+// fields (credentials, sessions) are added by the Auth task that actually needs
+// them, not speculatively here.
+model User {
+  id        String   @id @default(cuid())
+  role      Role     @default(STUDENT)
+  source    String   @default("app")
+  isSample  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  alumniProfile    AlumniProfile?
+  sentMessages     Message[]  @relation("MessageSender")
+  receivedMessages Message[]  @relation("MessageRecipient")
+  reportsFiled     Report[]   @relation("ReportsFiled")
+  reportsReceived  Report[]   @relation("ReportsReceived")
+  auditLogs        AuditLog[]
+}
+
+enum AlumniVerificationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model AlumniProfile {
+  id                 String                    @id @default(cuid())
+  userId             String                    @unique
+  collegeId          String
+  courseId           String
+  graduationYear     Int
+  isAdult            Boolean
+  verificationStatus AlumniVerificationStatus  @default(PENDING)
+  bio                String?
+  source             String                    @default("app")
+  isSample           Boolean                   @default(false)
+  createdAt          DateTime                  @default(now())
+  updatedAt          DateTime                  @updatedAt
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college College @relation(fields: [collegeId], references: [id])
+  course  Course  @relation(fields: [courseId], references: [id])
+}
+
+// Contact-info filtering, rate limits, moderation queue are a later task
+// ("In-app Q&A/messaging with server-side contact-info filter...") — this is just
+// the storage shape.
+model Message {
+  id          String   @id @default(cuid())
+  senderId    String
+  recipientId String
+  content     String
+  source      String   @default("app")
+  isSample    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  sender    User @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  recipient User @relation("MessageRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+}
+
+enum ReportStatus {
+  OPEN
+  RESOLVED
+  DISMISSED
+}
+
+model Report {
+  id             String       @id @default(cuid())
+  reporterId     String
+  reportedUserId String
+  reason         String
+  status         ReportStatus @default(OPEN)
+  source         String       @default("app")
+  isSample       Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  reporter     User @relation("ReportsFiled", fields: [reporterId], references: [id], onDelete: Cascade)
+  reportedUser User @relation("ReportsReceived", fields: [reportedUserId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  action     String
+  targetType String?
+  targetId   String?
+  metadata   Json?
+  source     String   @default("app")
+  isSample   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+}
