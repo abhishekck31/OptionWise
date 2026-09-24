@@ -19,6 +19,9 @@ importers:
       pdf-parse:
         specifier: ^2.4.5
         version: 2.4.5
+      pdfkit:
+        specifier: ^0.20.2
+        version: 0.20.2
       react:
         specifier: 19.2.8
         version: 19.2.8
@@ -62,9 +65,6 @@ importers:
       jsdom:
         specifier: ^25
         version: 25.0.1
-      pdfkit:
-        specifier: ^0.20.2
-        version: 0.20.2
       playwright-core:
         specifier: ^1.63.0
         version: 1.63.0

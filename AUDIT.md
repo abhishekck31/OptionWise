@@ -112,7 +112,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | College predictor (Safe/Target/Reach) | done (logic + tests; no UI yet) |
 | Option-entry builder logic | done (logic + tests; no drag UI yet — see Notes) |
 | Allotment simulator | done (logic + tests; no UI yet) |
-| CSV/PDF export | missing |
+| CSV/PDF export | done (logic + tests; no download UI/route yet) |
 | Design system / tokens / `/design` page | missing |
 | i18n (English + Kannada) | missing |
 | Onboarding, results, option ladder, college page/compare UI | missing (only a placeholder home page exists) |
@@ -313,6 +313,23 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   round cutoffs) and rank, a held seat is never lost (never regresses to null) and
   never moves to a less-preferred option round over round; `finalOptionId` always
   matches the last round's outcome.
+
+## Core predictors: Export notes
+
+- `apps/web/lib/export/exportOptionList.ts`: `optionListToCsv` (RFC4180-ish escaping,
+  header row, college code + course code in list order — SPEC.md's requirement,
+  plus names/chance for readability) and `optionListToPdf` (real PDF via `pdfkit`,
+  one line per option in order, with the required "Not affiliated with KEA" line).
+  `pdfkit` moved from a devDependency (test fixtures only) to a real dependency now
+  that it's used in production code, not just tests.
+- Both are pure functions over an `ExportOptionEntry[]` — no DB access. A future task
+  (the "Option ladder" UI, which explicitly owns "export and 'Share with parents'
+  link") wires these into an actual download route/button and maps richer domain data
+  (predictColleges results, optionBuilder entries) into this shape; scoped that way
+  deliberately, matching how the option-builder and simulator tasks were logic-only.
+- The PDF test round-trips through the real `extractPdfText`/`pdf-parse` (already
+  used by the ingestion tests) rather than just checking `%PDF` magic bytes, so it
+  actually verifies college codes appear in the rendered text, in order.
 
 ## Notes for future sessions
 

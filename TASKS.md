@@ -13,7 +13,7 @@
 - [x] College predictor: Safe/Target/Reach per college-course across years and rounds with trend adjustment and evidence; tests
 - [x] Option-entry builder logic: preference-ordered list, warnings (too few Safe, Safe above preferred), per-entry explanations; tests
 - [x] Allotment simulator over previous-year rounds; tests
-- [ ] Export option list to CSV and printable PDF with codes in order; tests
+- [x] Export option list to CSV and printable PDF with codes in order; tests
 
 ## Product UI
 - [ ] Design system: tokens file (light + dark), fonts, type scale, spacing, core components (button, input, chip, sheet, toast, skeleton, empty/error states), chance chips with label + icon; a /design page showing them all

@@ -131,3 +131,16 @@ held seat is never lost or downgraded round over round), 3 DB-integration tests
 
 Human should verify: nothing new — this task didn't introduce any unverified data,
 just simulation logic over cutoffs that already exist in the DB.
+
+## Core predictors: Export (CSV + PDF)
+
+Added `apps/web/lib/export/exportOptionList.ts`: `optionListToCsv` and
+`optionListToPdf` (real PDF via `pdfkit`, now a production dependency), both pure
+functions over an option-entry array, college code + course code in list order per
+SPEC.md. 6 tests, including one that round-trips the generated PDF through
+`pdf-parse` to verify codes actually appear in order in the rendered text.
+
+This completes TASKS.md's "Core predictors" section.
+
+Human should verify: nothing new to flag — no download route/button exists yet
+(that's the "Option ladder" UI task's job), just the generation logic.
