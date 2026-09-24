@@ -110,7 +110,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | Sample-data banner | done (see Task 6 notes) |
 | Rank predictor | done (logic + tests; UNVERIFIED config — see BLOCKED.md; no UI yet) |
 | College predictor (Safe/Target/Reach) | done (logic + tests; no UI yet) |
-| Option-entry builder logic | missing |
+| Option-entry builder logic | done (logic + tests; no drag UI yet — see Notes) |
 | Allotment simulator | missing |
 | CSV/PDF export | missing |
 | Design system / tokens / `/design` page | missing |
@@ -262,6 +262,38 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   (lower) rank never yields a worse chance classification (reach < target < safe
   ordering) than a worse rank; evidence is always sorted ascending by year with no
   duplicate years.
+
+## Core predictors: Option-entry builder logic notes
+
+- `apps/web/lib/optionBuilder/optionBuilder.ts`: `buildOptionList(candidates)` takes a
+  TRUE-preference-ordered array (`{id, chance, acceptable?}`) and returns filtered,
+  explained, position-indexed entries plus warnings. Two warnings: `too_few_safe`
+  (fewer than `config/optionBuilder.json`'s `minSafeOptions`, default 3, Safe-tier
+  entries) and `safe_above_reach`.
+- **Interpretation call on an ambiguous spec sentence**: SPEC.md says to "flag Reach
+  options placed where they waste nothing (fine) vs. Safe options placed above
+  options they prefer (warn)" — but the list order *is* the student's stated
+  preference, so "options they prefer" can't literally mean "anything later in the
+  list" (that's true of every list, by construction) without a second preference
+  signal this repo doesn't capture anywhere. Reading the two halves of that sentence
+  as describing the *same* relative-ordering situation from two sides (Reach-before-
+  Safe = fine; the reverse, Safe-before-Reach = warn) gives a rule that's fully
+  implementable from data already on hand and matches SPEC.md's own UI example
+  ("This safe option sits above 3 colleges you prefer"). That's the reading
+  implemented here: `safe_above_reach` fires whenever a Safe entry sits above one or
+  more Reach entries later in the list — nothing compares Safe against Target. If a
+  future session learns the product intent was something else (e.g. a separate
+  explicit "how much do you want this" signal per option), this logic and its tests
+  will need revisiting, not just extending.
+- There is no `OptionList`/`OptionEntry` table in the Prisma schema — SPEC.md's table
+  list for the Data model task doesn't include one, and this task is scoped to logic
+  only. Where a student's list actually gets persisted (a new table? JSON on `User`?)
+  is for whichever later task first needs to save one (autosave is called out
+  explicitly under the "Option ladder" UI task).
+- Property-tested with `fast-check`: `safe_above_reach` warnings exactly match a
+  from-scratch reference computation (every Safe entry with a later Reach entry, no
+  more no less) across randomized chance-tier sequences; filtering never drops or
+  duplicates an acceptable candidate.
 
 ## Notes for future sessions
 

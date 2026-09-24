@@ -1,0 +1,4 @@
+{
+  "note": "Tuning parameters for the option-entry builder (apps/web/lib/optionBuilder/optionBuilder.ts). Not sourced from KEA data — our own product-methodology defaults.",
+  "minSafeOptions": 3
+}

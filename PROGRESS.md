@@ -106,3 +106,16 @@ against real Postgres (classification, filters, "no evidence" skip).
 Human should verify: the 15%/15%/0.5 threshold and trend-weight constants in
 `config/collegePredictor.json` are reasonable defaults, not validated against real
 admission outcomes.
+
+## Core predictors: Option-entry builder logic
+
+Added `apps/web/lib/optionBuilder/optionBuilder.ts` (`buildOptionList`): filters
+unacceptable candidates, explains each remaining entry by tier, and warns on too few
+Safe options or a Safe option shadowing a later Reach option. 10 tests: 8
+example-based, 2 `fast-check` property tests (warnings exactly match a from-scratch
+reference computation; filtering never drops/duplicates a candidate).
+
+Human should verify: SPEC.md's "Safe options placed above options they prefer"
+wording is genuinely ambiguous — see AUDIT.md's Option-entry builder notes for the
+specific reading implemented (Safe-before-Reach only) and why. If that's not the
+intended product behavior, this needs revisiting, not just extending.
