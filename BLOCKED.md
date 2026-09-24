@@ -48,3 +48,17 @@ real KEA rules document with the actual formula) is available, replace
 then, `rankPredictor.ts` returns a `basedOnSampleData: true` flag on every result so
 callers (and eventually the UI) can surface that the prediction isn't backed by real
 data yet.
+
+## `messages/kn.json`'s Kannada text is an LLM best-effort translation
+
+Same shape of caveat as the two entries above, different reason: `messages/kn.json`
+(next-intl's Kannada translation file) was written by this session without a native
+Kannada speaker to check it. The strings are small and simple right now (a handful of
+sentences), so the risk is lower than fabricated cutoff data, but this product is
+specifically for Karnataka students — translation quality (grammar, natural phrasing,
+whether product/KEA-specific terms should stay in English) genuinely matters and
+hasn't been verified by anyone who speaks the language natively.
+
+**What should happen next**: a native Kannada speaker reviews `messages/kn.json`
+before this ships to real users, and reviews it again each time new keys are added
+(see `messages/README.md`).

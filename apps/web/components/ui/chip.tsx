@@ -1,4 +1,7 @@
+"use client";
+
 import { type ButtonHTMLAttributes, type SVGProps } from "react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/cn";
 import type { Chance } from "@/lib/predictors/collegePredictor";
 
@@ -57,11 +60,11 @@ function ReachIcon(props: SVGProps<SVGSVGElement>) {
 
 const CHANCE_CONFIG: Record<
   Chance,
-  { label: string; textClass: string; surfaceClass: string; Icon: (props: SVGProps<SVGSVGElement>) => React.ReactElement }
+  { textClass: string; surfaceClass: string; Icon: (props: SVGProps<SVGSVGElement>) => React.ReactElement }
 > = {
-  safe: { label: "Safe", textClass: "text-safe-text", surfaceClass: "bg-safe-surface", Icon: SafeIcon },
-  target: { label: "Target", textClass: "text-target-text", surfaceClass: "bg-target-surface", Icon: TargetIcon },
-  reach: { label: "Reach", textClass: "text-reach-text", surfaceClass: "bg-reach-surface", Icon: ReachIcon },
+  safe: { textClass: "text-safe-text", surfaceClass: "bg-safe-surface", Icon: SafeIcon },
+  target: { textClass: "text-target-text", surfaceClass: "bg-target-surface", Icon: TargetIcon },
+  reach: { textClass: "text-reach-text", surfaceClass: "bg-reach-surface", Icon: ReachIcon },
 };
 
 export interface ChanceChipProps {
@@ -75,6 +78,7 @@ export interface ChanceChipProps {
  * too (colour-blind safe)").
  */
 export function ChanceChip({ chance, className }: ChanceChipProps) {
+  const t = useTranslations("Chance");
   const config = CHANCE_CONFIG[chance];
   const Icon = config.Icon;
   return (
@@ -87,7 +91,7 @@ export function ChanceChip({ chance, className }: ChanceChipProps) {
       )}
     >
       <Icon aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-      {config.label}
+      {t(chance)}
     </span>
   );
 }

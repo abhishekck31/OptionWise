@@ -162,3 +162,20 @@ darkened `-text` variants used instead (this is a disclosed, deliberate deviatio
 from the literal hex values, made in favor of SPEC's equally-explicit AA requirement,
 not an oversight). Dark-mode token values are this session's own derivation, not
 literally specified anywhere — sanity-check them against a real device if possible.
+
+## i18n setup
+
+`next-intl` with full App Router locale routing (`/en/...`, `/kn/...`, default
+`en`), not just a message catalog — `app/` restructured to `app/[locale]/...`.
+`messages/en.json` + `messages/kn.json`, a `LanguageSwitcher` in the root layout (so
+it's on every page), and every current product string (home page, sample-data
+banner, chance chip labels) now goes through translations. Verified live in a real
+browser, not just tests: `/` redirects to `/en`, `/kn` renders fully in Kannada with
+the correct font, and clicking the switcher actually navigates `/en` → `/kn`
+(screenshots in `design/screenshots/`). Also fixed a real Next.js 16 deprecation
+(`middleware.ts` → `proxy.ts`) noticed along the way.
+
+Human should verify: `messages/kn.json`'s Kannada text is an LLM best-effort
+translation, not reviewed by a native speaker — see `messages/README.md` and
+`BLOCKED.md`. Also note `/design` itself stays English-only on purpose (it's a
+developer tool, not product UI) — see AUDIT.md's Task 18 notes.

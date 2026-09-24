@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { renderWithIntl } from "@/test-utils/intl";
 import { Chip, ChanceChip } from "../chip";
 
 describe("Chip", () => {
@@ -20,7 +21,7 @@ describe("Chip", () => {
 
 describe("ChanceChip", () => {
   it("shows a label for every tier, not colour alone", () => {
-    render(
+    renderWithIntl(
       <>
         <ChanceChip chance="safe" />
         <ChanceChip chance="target" />
@@ -33,8 +34,8 @@ describe("ChanceChip", () => {
   });
 
   it("renders a distinct icon per tier (not just colour)", () => {
-    const { container: safeContainer } = render(<ChanceChip chance="safe" />);
-    const { container: reachContainer } = render(<ChanceChip chance="reach" />);
+    const { container: safeContainer } = renderWithIntl(<ChanceChip chance="safe" />);
+    const { container: reachContainer } = renderWithIntl(<ChanceChip chance="reach" />);
     expect(safeContainer.querySelector("svg")).toBeInTheDocument();
     expect(safeContainer.querySelector("svg")?.outerHTML).not.toBe(reachContainer.querySelector("svg")?.outerHTML);
   });

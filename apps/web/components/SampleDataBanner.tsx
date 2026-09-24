@@ -1,20 +1,16 @@
+import { getTranslations } from "next-intl/server";
+import type { Locale } from "@/i18n/routing";
 import { getSampleDataStatus } from "@/lib/sampleDataStatus";
+import { SampleDataBannerView } from "@/components/SampleDataBannerView";
 
-export async function SampleDataBanner() {
+export async function SampleDataBanner({ locale }: { locale: Locale }) {
   const { isSampleDataInUse } = await getSampleDataStatus();
 
   if (!isSampleDataInUse) {
     return null;
   }
 
-  return (
-    <div role="status" className="flex items-start gap-2 border-b border-brand bg-card px-4 py-2 text-sm text-ink">
-      <span aria-hidden="true">⚠️</span>
-      <p>
-        <strong>Sample data — not real cutoffs.</strong> Colleges, fees, and cutoff
-        ranks shown right now are made up for testing and don&apos;t reflect real KEA
-        results.
-      </p>
-    </div>
-  );
+  const t = await getTranslations({ locale, namespace: "SampleDataBanner" });
+
+  return <SampleDataBannerView title={t("title")} description={t("description")} />;
 }

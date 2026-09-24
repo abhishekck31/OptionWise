@@ -114,7 +114,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | Allotment simulator | done (logic + tests; no UI yet) |
 | CSV/PDF export | done (logic + tests; no download UI/route yet) |
 | Design system / tokens / `/design` page | done — see Task 17 notes |
-| i18n (English + Kannada) | missing |
+| i18n (English + Kannada) | done — see Task 18 notes; kn.json needs native review |
 | Onboarding, results, option ladder, college page/compare UI | missing (only a placeholder home page exists) |
 | Auth (student/alumni/admin) | missing |
 | Alumni verification queue, in-app Q&A, moderation | missing |
@@ -400,6 +400,66 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   Sheet/Toast tests exercised it (duplicate elements, then a "pointer-events: none"
   error from a leftover overlay intercepting the next test's click). Fixed once,
   centrally, in `vitest.setup.ts` (`afterEach(() => cleanup())`) rather than per file.
+
+## Task 18 (i18n) notes
+
+- **Stack**: `next-intl` 4.14.7, using its App Router routing integration (locale-
+  prefixed URLs: `/en/...`, `/kn/...`), not just the message-catalog half of the
+  library. `apps/web/app/` is now `app/[locale]/{layout,page}.tsx` +
+  `app/[locale]/design/page.tsx`, plus `app/api/...` (unchanged, not locale-scoped —
+  API routes don't need one) and `app/{globals.css,favicon.ico}` at the true root.
+  `apps/web/middleware.ts` doesn't exist — Next.js 16 renamed that convention to
+  `proxy.ts` (a deprecation warning at build time until renamed); this repo already
+  uses `apps/web/proxy.ts`.
+  - `i18n/routing.ts` (locales `["en","kn"]`, default `en`, exports a shared `Locale`
+    type), `i18n/navigation.ts` (locale-aware `Link`/`redirect`/`usePathname`/
+    `useRouter` — components should import these, not `next/navigation` directly, so
+    navigation stays locale-aware), `i18n/request.ts` (loads the right
+    `messages/{locale}.json`).
+  - `messages/en.json` / `messages/kn.json` — namespaced (`HomePage`,
+    `SampleDataBanner`, `Chance`, `LanguageSwitcher`). `global.d.ts` augments
+    next-intl's `AppConfig` so `t("someKey")` is typo-checked against `en.json` at
+    compile time.
+- **`messages/kn.json`'s Kannada text is an LLM best-effort translation, not reviewed
+  by a native speaker** — flagged in `messages/README.md` the same way
+  `config/categories.json`/`config/rankPredictor.json` flag their own unverified
+  assumptions (see `BLOCKED.md`). This product is specifically for Karnataka
+  students, so this is worth a real review before shipping, not just a "looks
+  plausible" pass.
+- **`LanguageSwitcher`** (`components/language-switcher.tsx`) lives in the root
+  layout (not per-page), so it's genuinely on every current and future page — SPEC's
+  "switchable anywhere" read literally. It swaps locale via `router.replace(pathname,
+  {locale})`, keeping the user on the same page.
+- **No hard-coded UI strings**, with one deliberate, disclosed exception: `/design`
+  (`app/[locale]/design/page.tsx`) is a developer-facing style-guide page, not part
+  of the product students use, so its own labels ("Buttons", "Sheet", "Trigger
+  toast", ...) stay in plain English rather than going through translation keys —
+  the *components it demonstrates* (`ChanceChip` et al.) are fully translated.
+- **A real Vitest/next-intl incompatibility, worked around by design, not
+  suppressed**: `getTranslations` (next-intl's server-only API) throws `"not
+  supported in Client Components"` when called under Vitest, because it's resolved
+  via Node package-export conditions and only behaves correctly under the special
+  `"react-server"` resolve condition that Next.js's own RSC bundler sets — Vitest's
+  default Vite config doesn't set it, and setting it globally would break the
+  *client*-side `useTranslations` hook used by `ChanceChip`/`LanguageSwitcher`/etc.
+  in the same test run instead. Rather than fight Vite resolve conditions, translated
+  Server Components got a presentational/logic split — `HomeView.tsx` and
+  `SampleDataBannerView.tsx` take already-resolved strings as props and are fully
+  unit-tested; the thin Server Component wrappers (`app/[locale]/page.tsx`,
+  `SampleDataBanner.tsx`) that call `getTranslations` are covered instead by
+  `next build` + the real dev-server screenshots below (`design/screenshots/
+  home-en-360.png`, `home-kn-360.png`, `language-switch-clicked.png` — the last one
+  captured mid-interaction, proving the switcher's click handler actually navigates
+  `/en` → `/kn` in a real browser, not just that the component renders).
+- Client components needing translations (`ChanceChip`, `LanguageSwitcher`) are
+  tested via a shared `test-utils/intl.tsx` (`renderWithIntl`, wraps in a real
+  `NextIntlClientProvider` with the actual English messages) rather than mocking
+  `next-intl` itself — real message keys, real `t()` calls, so a renamed/missing key
+  would actually fail these tests. `LanguageSwitcher`'s test mocks `@/i18n/navigation`
+  (this repo's own thin wrapper) rather than `next/navigation` directly — mocking the
+  latter failed with a module-resolution error from inside next-intl's own
+  node_modules under pnpm's isolated layout; mocking the wrapper this repo already
+  owns sidesteps that and is arguably the more correct boundary to mock anyway.
 
 ## Notes for future sessions
 

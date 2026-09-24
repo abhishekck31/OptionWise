@@ -1,0 +1,22 @@
+{
+  "HomePage": {
+    "title": "OptionWise",
+    "tagline": "Smarter option entry, from rank to college.",
+    "devNotice": "This app is under active development. See TASKS.md in the repository for progress.",
+    "footer": "Not affiliated with KEA or any government body."
+  },
+  "SampleDataBanner": {
+    "title": "Sample data — not real cutoffs.",
+    "description": "Colleges, fees, and cutoff ranks shown right now are made up for testing and don't reflect real KEA results."
+  },
+  "Chance": {
+    "safe": "Safe",
+    "target": "Target",
+    "reach": "Reach"
+  },
+  "LanguageSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "kn": "ಕನ್ನಡ"
+  }
+}
