@@ -92,3 +92,17 @@ likely rank, and optimistic ≤ likely ≤ conservative always holds.
 Human should verify: `config/rankPredictor.json`'s `scoreRankPoints` are fabricated
 placeholder numbers, not real historical KCET results — see `BLOCKED.md`. Every
 prediction carries `basedOnSampleData: true` until that's replaced with real data.
+
+## Core predictors: College predictor
+
+Added `apps/web/lib/predictors/collegePredictor.ts` (pure Safe/Target/Reach
+classifier: latest-round-per-year evidence, simple two-year trend extrapolation,
+configurable safe/reach margins) and `predictColleges.ts` (DB-facing: rank + category
++ location/fee/branch filters -> classified college-courses with evidence). 15 tests:
+6 example-based, 2 `fast-check` property tests (better rank never gets a worse
+classification, evidence always sorted/deduped by year), and 3 DB-integration tests
+against real Postgres (classification, filters, "no evidence" skip).
+
+Human should verify: the 15%/15%/0.5 threshold and trend-weight constants in
+`config/collegePredictor.json` are reasonable defaults, not validated against real
+admission outcomes.

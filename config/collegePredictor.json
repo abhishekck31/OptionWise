@@ -1,0 +1,6 @@
+{
+  "note": "Tuning parameters for the Safe/Target/Reach classifier (apps/web/lib/predictors/collegePredictor.ts). These are our own prediction-methodology choices, not sourced from a KEA document — unlike config/categories.json or config/rankPredictor.json, this isn't presenting itself as real KEA data, so it doesn't need a BLOCKED.md entry, but the thresholds are still just reasonable defaults, not validated against real outcomes.",
+  "safeMarginFraction": 0.15,
+  "reachMarginFraction": 0.15,
+  "trendWeight": 0.5
+}

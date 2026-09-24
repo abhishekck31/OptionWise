@@ -10,7 +10,7 @@
 
 ## Core predictors
 - [x] Rank predictor (merit score from config weights + interpolation over score-rank points) returning optimistic/likely/conservative + confidence; property tests (higher score never gives worse rank)
-- [ ] College predictor: Safe/Target/Reach per college-course across years and rounds with trend adjustment and evidence; tests
+- [x] College predictor: Safe/Target/Reach per college-course across years and rounds with trend adjustment and evidence; tests
 - [ ] Option-entry builder logic: preference-ordered list, warnings (too few Safe, Safe above preferred), per-entry explanations; tests
 - [ ] Allotment simulator over previous-year rounds; tests
 - [ ] Export option list to CSV and printable PDF with codes in order; tests

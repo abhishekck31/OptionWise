@@ -109,7 +109,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | KEA PDF ingestion + sample dataset | done (pipeline works; PDF text-format is an unverified placeholder — see Task 5 notes) |
 | Sample-data banner | done (see Task 6 notes) |
 | Rank predictor | done (logic + tests; UNVERIFIED config — see BLOCKED.md; no UI yet) |
-| College predictor (Safe/Target/Reach) | missing |
+| College predictor (Safe/Target/Reach) | done (logic + tests; no UI yet) |
 | Option-entry builder logic | missing |
 | Allotment simulator | missing |
 | CSV/PDF export | missing |
@@ -234,6 +234,34 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   a strictly higher merit score never yields a strictly worse likely rank, and
   optimistic ≤ likely ≤ conservative always holds, across randomized KCET-marks/board%
   inputs — not just the handful of example-based unit tests.
+
+## Core predictors: College predictor notes
+
+- `apps/web/lib/predictors/collegePredictor.ts`: pure `classifyCollegeCourse(cutoffs,
+  rank)` — groups a college-course's cutoffs by year (keeping only the latest round
+  per year, since later KEA rounds subsume earlier ones), then, with 2+ years of
+  evidence, extrapolates a "trend-adjusted" rank from the two most recent years
+  (dampened by `config/collegePredictor.json`'s `trendWeight`, default 0.5) rather
+  than using the latest year alone — SPEC.md's "simple trend adjustment", not a full
+  regression. Classifies against `safeMarginFraction`/`reachMarginFraction` bands
+  (both default 0.15) around that adjusted rank. Returns `null` when there's no
+  cutoff evidence at all for that category, rather than guessing.
+- `apps/web/lib/predictors/predictColleges.ts`: the DB-facing wrapper — takes
+  `{ categoryCode, rank, city?, maxFeesInr?, courseCodes? }` (SPEC.md's "rank + category
+  + quota + filters (location, fee cap, branches)"; quota is folded into
+  `categoryCode`, matching how `config/categories.json` already encodes category+quota
+  together), queries matching `CollegeCourse` rows with their `Cutoff`s for that
+  category, and classifies each. Tested against a real Postgres fixture (filters,
+  classification, and the "no evidence -> skipped" case).
+- `config/collegePredictor.json` holds the threshold/trend tuning constants. Unlike
+  `categories.json`/`rankPredictor.json` this isn't presenting itself as real KEA data
+  — it's our own classification methodology — so it doesn't have a `BLOCKED.md` entry,
+  but the specific threshold values (15%/15%/0.5) are reasonable defaults, not
+  validated against real admission outcomes.
+- Property-tested with `fast-check`: for fixed cutoff evidence, a strictly better
+  (lower) rank never yields a worse chance classification (reach < target < safe
+  ordering) than a worse rank; evidence is always sorted ascending by year with no
+  duplicate years.
 
 ## Notes for future sessions
 
