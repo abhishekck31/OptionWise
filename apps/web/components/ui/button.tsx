@@ -1,4 +1,5 @@
 import { type ButtonHTMLAttributes, forwardRef } from "react";
+import { Slot } from "radix-ui";
 import { cn } from "@/lib/cn";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
@@ -7,6 +8,10 @@ export type ButtonSize = "default" | "sm";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  /** Render as the single child element instead of a <button> — e.g.
+   * <Button asChild><Link href="/x">Go</Link></Button> — so a link can look like a
+   * button without nesting an <a> inside a <button>. */
+  asChild?: boolean;
 }
 
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
@@ -23,11 +28,12 @@ const SIZE_CLASSES: Record<ButtonSize, string> = {
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { className, variant = "primary", size = "default", ...props },
+  { className, variant = "primary", size = "default", asChild = false, ...props },
   ref,
 ) {
+  const Comp = asChild ? Slot.Root : "button";
   return (
-    <button
+    <Comp
       ref={ref}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors",

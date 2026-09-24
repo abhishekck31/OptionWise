@@ -3,7 +3,9 @@ import {
   CATEGORIES,
   CATEGORIES_VERIFIED,
   QUOTA_SUFFIXES,
+  findCategoryByBaseAndQuota,
   getCategory,
+  getCategoryBases,
   isValidCategoryCode,
 } from "@/lib/categories";
 
@@ -39,5 +41,18 @@ describe("category/quota config", () => {
       label: "Scheduled Tribe — Hyderabad-Karnataka",
     });
     expect(getCategory("nope")).toBeUndefined();
+  });
+
+  it("lists each base once, flagging GM as the only one with no quota suffix", () => {
+    const bases = getCategoryBases();
+    expect(bases.map((b) => b.base)).toEqual(["GM", "1", "2A", "2B", "3A", "3B", "SC", "ST"]);
+    expect(bases.find((b) => b.base === "GM")?.hasQuota).toBe(false);
+    expect(bases.find((b) => b.base === "2A")?.hasQuota).toBe(true);
+  });
+
+  it("combines a base + quota back into the matching category code", () => {
+    expect(findCategoryByBaseAndQuota("2A", "R")?.code).toBe("2AR");
+    expect(findCategoryByBaseAndQuota("GM", null)?.code).toBe("GM");
+    expect(findCategoryByBaseAndQuota("GM", "R")).toBeUndefined();
   });
 });

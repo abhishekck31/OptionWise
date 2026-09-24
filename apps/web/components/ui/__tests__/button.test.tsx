@@ -32,4 +32,16 @@ describe("Button", () => {
     expect(screen.getByRole("button", { name: "Default" }).className).toMatch(/h-11/);
     expect(screen.getByRole("button", { name: "Small" }).className).toMatch(/h-11/);
   });
+
+  it("renders as its child element (e.g. a link) when asChild is set, not a nested button", () => {
+    render(
+      <Button asChild>
+        <a href="https://example.com/get-started">Get started</a>
+      </Button>,
+    );
+    const link = screen.getByRole("link", { name: "Get started" });
+    expect(link.tagName).toBe("A");
+    expect(link.className).toMatch(/bg-brand/);
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
 });

@@ -115,7 +115,9 @@ the empty app shell and the tooling to build on top of. Specifically:
 | CSV/PDF export | done (logic + tests; no download UI/route yet) |
 | Design system / tokens / `/design` page | done — see Task 17 notes |
 | i18n (English + Kannada) | done — see Task 18 notes; kn.json needs native review |
-| Onboarding, results, option ladder, college page/compare UI | missing (only a placeholder home page exists) |
+| Onboarding flow | done — see Task 19 notes |
+| Results page (full Safe/Target/Reach list + filters + evidence) | missing (a minimal rank-only placeholder exists at /results — see Task 19 notes) |
+| Option ladder, college page/compare UI | missing |
 | Auth (student/alumni/admin) | missing |
 | Alumni verification queue, in-app Q&A, moderation | missing |
 | AI counsellor (`services/ai`, agents, guardrails, eval harness) | missing |
@@ -460,6 +462,61 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   latter failed with a module-resolution error from inside next-intl's own
   node_modules under pnpm's isolated layout; mocking the wrapper this repo already
   owns sidesteps that and is arguably the more correct boundary to mock anyway.
+
+## Task 19 (Onboarding flow) notes
+
+- **New route**: `app/[locale]/onboarding/page.tsx` — a 3-step client-side wizard
+  (`StepIndicator` + `MarksStep`/`CategoryStep`/`PreferencesStep`, all in
+  `components/onboarding/`). Step order matches SPEC.md exactly: marks → category +
+  quota → preferences. Validation is manual, not a schema library — an earlier
+  attempt with `zod`'s `z.coerce.number()` silently turned an empty (required) field
+  into `0` instead of a "required" error, so it was removed in favour of small
+  hand-written validators (`lib/onboarding/schema.ts`) that check emptiness before
+  parsing. Those return **i18n keys**, not English strings (`FieldErrors` is typed as
+  a literal union of exactly the keys in `messages/*.json`'s `Onboarding.errors`), so
+  next-intl's typed `t()` catches a typo'd/renamed error key at compile time, and the
+  step components translate them for display.
+- **Category + quota UI**: SPEC.md lists "category, quota" as two onboarding fields,
+  but `config/categories.json`'s codes already encode both together (e.g. `2AR` =
+  base `2A` + quota `R`). Two new `lib/categories.ts` helpers
+  (`getCategoryBases`/`findCategoryByBaseAndQuota`) let the UI ask the two questions
+  separately and recombine them into the single `categoryCode` every predictor
+  expects. GM has no quota suffix in the config (see `BLOCKED.md`), so its quota
+  `<Select>` is hidden entirely rather than shown-but-empty, with a line explaining
+  why (`categoryQuotaNotApplicable`).
+- **New `Select` component** (`components/ui/select.tsx`) — a styled native
+  `<select>`, not a custom Radix dropdown: on mobile a native select opens the OS's
+  own picker, which is both more usable and less code than reimplementing one.
+  Tested and documented the same way as the other core components.
+- **`Button` gained `asChild`** (via `radix-ui`'s `Slot`) so a `Link` can be styled
+  as a button without nesting `<a>` inside `<button>` (invalid HTML) — used by the
+  results placeholder's "start onboarding" action. Small, genuinely reusable addition
+  to the design system, not scope creep specific to this page.
+- **No account/DB to save answers to** (same reasoning as the option-builder task):
+  `lib/onboarding/storage.ts` saves the filled-in answers + the computed rank
+  prediction to `localStorage` (`saveOnboarding`/`loadOnboarding`, JSON, fails soft on
+  corrupt data) and the flow navigates to `/results` client-side. `predictRank` is a
+  pure function with no DB dependency, so it's called directly in the browser on
+  "Finish" — no server round-trip needed for this step.
+- **`/results` is a deliberately minimal placeholder**, not the real results page:
+  it reads the stored prediction and shows the rank range + confidence +
+  sample-data notice, nothing else. The dedicated "Results page" TASKS.md item (full
+  Safe/Target/Reach college list, filters, evidence) extends this route rather than
+  replacing it — kept this task scoped to onboarding, matching how earlier
+  logic-only tasks (option builder, simulator, export) stayed scoped to their own
+  piece.
+- Verified live, not just via tests: `next build` succeeds, and a real Playwright
+  run through all 3 steps (including triggering and clearing a validation error, and
+  the dynamic quota field appearing for a non-GM category) produced
+  `design/screenshots/onboarding-step{1,1-error,2,2-quota,3}.png` and
+  `results-placeholder.png`. One thing that tripped up the *screenshot script*
+  (not the app): Next.js dev mode compiles each route on first visit, so a fixed
+  `waitForTimeout` after clicking "Finish" caught the page mid-compile — fixed by
+  waiting on the URL change instead, not by lengthening the timeout blindly.
+- 41 new tests (schema validators, storage round-trip, every step component,
+  `Select`, `Button`'s `asChild`, and a full 3-step walkthrough of the real
+  `OnboardingPage` including the validation-blocks-advancing and back-preserves-
+  answers cases).
 
 ## Notes for future sessions
 

@@ -179,3 +179,22 @@ Human should verify: `messages/kn.json`'s Kannada text is an LLM best-effort
 translation, not reviewed by a native speaker — see `messages/README.md` and
 `BLOCKED.md`. Also note `/design` itself stays English-only on purpose (it's a
 developer tool, not product UI) — see AUDIT.md's Task 18 notes.
+
+## Onboarding flow
+
+Added `/onboarding` (3-step wizard: marks → category+quota → preferences, all
+translated, mobile-first) and a new `Select` component. Category+quota are asked as
+two separate questions and recombined into the single categoryCode config/
+categories.json expects; GM's quota field is hidden (not empty) since it has no
+suffix variants. On finish, computes the rank prediction client-side (pure function,
+no server round-trip), saves answers + prediction to localStorage (no account/DB to
+save to yet), and navigates to a new minimal `/results` placeholder showing just the
+rank range — the real Results page task will extend that route, not replace it.
+`Button` gained an `asChild` prop (via Radix `Slot`) so links can be styled as
+buttons correctly. 41 new tests, including a full 3-step walkthrough of the real
+page component, plus a real Playwright run through every step (screenshots in
+`design/screenshots/`).
+
+Human should verify: the manual (non-zod) validators in `lib/onboarding/schema.ts` —
+see AUDIT.md's Task 19 notes for why zod's number coercion was dropped partway
+through (silently treated an empty required field as 0 instead of flagging it).

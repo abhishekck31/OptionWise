@@ -18,5 +18,64 @@
     "label": "ಭಾಷೆ",
     "en": "English",
     "kn": "ಕನ್ನಡ"
+  },
+  "Onboarding": {
+    "stepIndicator": "ಹಂತ {current} / {total}",
+    "back": "ಹಿಂದೆ",
+    "next": "ಮುಂದೆ",
+    "finish": "ನನ್ನ ಫಲಿತಾಂಶಗಳನ್ನು ನೋಡಿ",
+    "marksStepTitle": "ನಿಮ್ಮ ಅಂಕಗಳು",
+    "kcetMarksLabel": "KCET ಅಂಕಗಳು",
+    "kcetMarksHint": "180 ರಲ್ಲಿ — ನಿಮ್ಮ ಮೆರಿಟ್ ಸ್ಕೋರ್ ಲೆಕ್ಕ ಹಾಕಲು ಬಳಸಲಾಗುತ್ತದೆ.",
+    "boardPcmPercentLabel": "ಬೋರ್ಡ್ PCM ಶೇಕಡಾವಾರು",
+    "boardPcmPercentHint": "12ನೇ ತರಗತಿ ಬೋರ್ಡ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಭೌತಶಾಸ್ತ್ರ, ರಸಾಯನಶಾಸ್ತ್ರ, ಗಣಿತ ಶೇಕಡಾವಾರು.",
+    "categoryStepTitle": "ವರ್ಗ ಮತ್ತು ಕೋಟಾ",
+    "categoryBaseLabel": "ವರ್ಗ",
+    "categoryBaseHint": "ನಾವು ಏಕೆ ಕೇಳುತ್ತೇವೆ: ನಿಮ್ಮ ವರ್ಗವು ನಿಮಗೆ ಯಾವ ಕಟ್‌ಆಫ್ ಅನ್ವಯಿಸುತ್ತದೆ ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ.",
+    "categoryQuotaLabel": "ಕೋಟಾ",
+    "categoryQuotaHint": "ನಾವು ಏಕೆ ಕೇಳುತ್ತೇವೆ: ಗ್ರಾಮೀಣ, ಕನ್ನಡ-ಮಾಧ್ಯಮ ಮತ್ತು ಹೈದರಾಬಾದ್-ಕರ್ನಾಟಕ ಕೋಟಾಗಳಿಗೆ ಪ್ರತಿಯೊಂದಕ್ಕೂ ತನ್ನದೇ ಆದ ಕಟ್‌ಆಫ್ ಇದೆ.",
+    "categoryQuotaNotApplicable": "ಜನರಲ್ ಮೆರಿಟ್‌ಗೆ ಕೋಟಾ ಅಗತ್ಯವಿಲ್ಲ — ನೀವು ಸಿದ್ಧರಿದ್ದೀರಿ.",
+    "categoryBases": {
+      "GM": "ಜನರಲ್ ಮೆರಿಟ್ (GM)",
+      "1": "ವರ್ಗ 1",
+      "2A": "ವರ್ಗ 2A",
+      "2B": "ವರ್ಗ 2B",
+      "3A": "ವರ್ಗ 3A",
+      "3B": "ವರ್ಗ 3B",
+      "SC": "ಪರಿಶಿಷ್ಟ ಜಾತಿ (SC)",
+      "ST": "ಪರಿಶಿಷ್ಟ ಪಂಗಡ (ST)"
+    },
+    "quotas": {
+      "G": "ಸಾಮಾನ್ಯ",
+      "R": "ಗ್ರಾಮೀಣ",
+      "K": "ಕನ್ನಡ ಮಾಧ್ಯಮ",
+      "H": "ಹೈದರಾಬಾದ್-ಕರ್ನಾಟಕ"
+    },
+    "preferencesStepTitle": "ಆದ್ಯತೆಗಳು",
+    "locationLabel": "ಆದ್ಯತೆಯ ಸ್ಥಳ",
+    "locationHint": "ಐಚ್ಛಿಕ — ಉದಾ. ಬೆಂಗಳೂರು. ಎಲ್ಲಾ ಕಡೆಯ ಕಾಲೇಜುಗಳನ್ನು ನೋಡಲು ಖಾಲಿ ಬಿಡಿ.",
+    "maxFeesInrLabel": "ಗರಿಷ್ಠ ಶುಲ್ಕ (₹ ವರ್ಷಕ್ಕೆ)",
+    "maxFeesInrHint": "ಐಚ್ಛಿಕ — ಯಾವುದೇ ಶುಲ್ಕದ ಕಾಲೇಜುಗಳನ್ನು ನೋಡಲು ಖಾಲಿ ಬಿಡಿ.",
+    "branchesLabel": "ಆದ್ಯತೆಯ ಶಾಖೆಗಳು",
+    "branchesHint": "ಐಚ್ಛಿಕ — ಅಲ್ಪವಿರಾಮದಿಂದ ಬೇರ್ಪಡಿಸಿ, ಉದಾ. CS, EC. ಎಲ್ಲಾ ಶಾಖೆಗಳನ್ನು ನೋಡಲು ಖಾಲಿ ಬಿಡಿ.",
+    "errors": {
+      "kcetMarksRequired": "ನಿಮ್ಮ KCET ಅಂಕಗಳನ್ನು ನಮೂದಿಸಿ.",
+      "kcetMarksRange": "KCET ಅಂಕಗಳು 0 ಮತ್ತು 180 ರ ನಡುವೆ ಇರಬೇಕು.",
+      "boardPcmPercentRequired": "ನಿಮ್ಮ ಬೋರ್ಡ್ PCM ಶೇಕಡಾವಾರು ನಮೂದಿಸಿ.",
+      "boardPcmPercentRange": "ಬೋರ್ಡ್ PCM ಶೇಕಡಾವಾರು 0 ಮತ್ತು 100 ರ ನಡುವೆ ಇರಬೇಕು.",
+      "categoryBaseRequired": "ನಿಮ್ಮ ವರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      "categoryQuotaRequired": "ನಿಮ್ಮ ಕೋಟಾವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      "categoryInvalid": "ಮಾನ್ಯವಾದ ವರ್ಗ ಮತ್ತು ಕೋಟಾ ಸಂಯೋಜನೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      "maxFeesInrRange": "ಗರಿಷ್ಠ ಶುಲ್ಕ ಋಣಾತ್ಮಕವಾಗಿರಲು ಸಾಧ್ಯವಿಲ್ಲ."
+    }
+  },
+  "ResultsPlaceholder": {
+    "title": "ನಿಮ್ಮ ಶ್ರೇಣಿ ವ್ಯಾಪ್ತಿ",
+    "likelyRank": "ನೀವು ಹೆಚ್ಚಾಗಿ {optimistic} ಮತ್ತು {conservative} ನಡುವಿನ ಶ್ರೇಣಿ ಪಡೆಯುವಿರಿ.",
+    "confidenceLabel": "ವಿಶ್ವಾಸ: {confidence}",
+    "sampleDataNotice": "ಈ ಮುನ್ಸೂಚನೆ ನಮೂನೆ ದತ್ತಾಂಶವನ್ನು ಆಧರಿಸಿದೆ, ನಿಜವಾದ KCET ಫಲಿತಾಂಶಗಳಲ್ಲ.",
+    "startOver": "ಮತ್ತೆ ಪ್ರಾರಂಭಿಸಿ",
+    "noAnswers": "ನಮ್ಮ ಬಳಿ ನಿಮ್ಮ ಉತ್ತರಗಳು ಇನ್ನೂ ಇಲ್ಲ.",
+    "noAnswersAction": "ಆರಂಭಿಕ ಹಂತಗಳನ್ನು ಪ್ರಾರಂಭಿಸಿ"
   }
 }

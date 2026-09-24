@@ -18,5 +18,64 @@
     "label": "Language",
     "en": "English",
     "kn": "ಕನ್ನಡ"
+  },
+  "Onboarding": {
+    "stepIndicator": "Step {current} of {total}",
+    "back": "Back",
+    "next": "Next",
+    "finish": "See my results",
+    "marksStepTitle": "Your marks",
+    "kcetMarksLabel": "KCET marks",
+    "kcetMarksHint": "Out of 180 — used to calculate your merit score.",
+    "boardPcmPercentLabel": "Board PCM percentage",
+    "boardPcmPercentHint": "Your Physics, Chemistry, Maths percentage in Class 12 boards.",
+    "categoryStepTitle": "Category & quota",
+    "categoryBaseLabel": "Category",
+    "categoryBaseHint": "Why we ask: your category decides which cutoff applies to you.",
+    "categoryQuotaLabel": "Quota",
+    "categoryQuotaHint": "Why we ask: rural, Kannada-medium, and Hyderabad-Karnataka quotas each have their own cutoff.",
+    "categoryQuotaNotApplicable": "General Merit doesn't need a quota — you're all set.",
+    "categoryBases": {
+      "GM": "General Merit (GM)",
+      "1": "Category 1",
+      "2A": "Category 2A",
+      "2B": "Category 2B",
+      "3A": "Category 3A",
+      "3B": "Category 3B",
+      "SC": "Scheduled Caste (SC)",
+      "ST": "Scheduled Tribe (ST)"
+    },
+    "quotas": {
+      "G": "General",
+      "R": "Rural",
+      "K": "Kannada medium",
+      "H": "Hyderabad-Karnataka"
+    },
+    "preferencesStepTitle": "Preferences",
+    "locationLabel": "Preferred location",
+    "locationHint": "Optional — e.g. Bengaluru. Leave blank to see colleges everywhere.",
+    "maxFeesInrLabel": "Maximum fees (₹ per year)",
+    "maxFeesInrHint": "Optional — leave blank to see colleges at any fee.",
+    "branchesLabel": "Preferred branches",
+    "branchesHint": "Optional — comma-separated, e.g. CS, EC. Leave blank to see every branch.",
+    "errors": {
+      "kcetMarksRequired": "Enter your KCET marks.",
+      "kcetMarksRange": "KCET marks must be between 0 and 180.",
+      "boardPcmPercentRequired": "Enter your board PCM percentage.",
+      "boardPcmPercentRange": "Board PCM percentage must be between 0 and 100.",
+      "categoryBaseRequired": "Choose your category.",
+      "categoryQuotaRequired": "Choose your quota.",
+      "categoryInvalid": "Choose a valid category and quota combination.",
+      "maxFeesInrRange": "Maximum fees can't be negative."
+    }
+  },
+  "ResultsPlaceholder": {
+    "title": "Your rank range",
+    "likelyRank": "You'll most likely get a rank between {optimistic} and {conservative}.",
+    "confidenceLabel": "Confidence: {confidence}",
+    "sampleDataNotice": "This prediction is based on a sample dataset, not real KCET results.",
+    "startOver": "Start over",
+    "noAnswers": "We don't have your answers yet.",
+    "noAnswersAction": "Start the onboarding flow"
   }
 }
