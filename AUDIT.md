@@ -113,7 +113,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | Option-entry builder logic | done (logic + tests; no drag UI yet — see Notes) |
 | Allotment simulator | done (logic + tests; no UI yet) |
 | CSV/PDF export | done (logic + tests; no download UI/route yet) |
-| Design system / tokens / `/design` page | missing |
+| Design system / tokens / `/design` page | done — see Task 17 notes |
 | i18n (English + Kannada) | missing |
 | Onboarding, results, option ladder, college page/compare UI | missing (only a placeholder home page exists) |
 | Auth (student/alumni/admin) | missing |
@@ -330,6 +330,76 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
 - The PDF test round-trips through the real `extractPdfText`/`pdf-parse` (already
   used by the ingestion tests) rather than just checking `%PDF` magic bytes, so it
   actually verifies college codes appear in the rendered text, in order.
+
+## Task 17 (Design system) notes
+
+- **Tokens** (`apps/web/app/globals.css`): all of SPEC.md's tokens now exist for both
+  light and dark — Ink/Surface/Card/Brand plus Safe/Target/Reach/Error, mapped to
+  Tailwind utilities via `@theme inline` (`bg-brand`, `text-ink`, `bg-safe-surface`,
+  etc.). Light mode uses SPEC's literal hex values where possible.
+  - **Deviation, disclosed**: SPEC's literal Safe (`#1F8A5B`) and Target (`#C98A12`)
+    fail WCAG AA 4.5:1 for text against white/Surface on their own (measured 4.33 and
+    2.95 respectively — Target fails badly). Since AA contrast is *also* an explicit
+    SPEC.md requirement ("Quality floor... WCAG 2.2 AA: contrast"), and the two
+    requirements conflict for these two colours specifically, contrast won: each
+    chance colour now has three CSS variables — `--color-{name}` (SPEC's literal hex,
+    for icons/borders/large fills), `--color-{name}-text` (darkened just enough to
+    clear 4.5:1 — Reach/Error needed no change, Safe barely, Target substantially:
+    `#8F640F`), and `--color-{name}-surface` (a light tint sized so text-on-surface
+    also clears 4.5:1). Every pairing was checked with the real WCAG relative-
+    luminance formula (a throwaway Node script, not eyeballed) before being picked.
+  - **Dark mode is a from-scratch derivation**, not literally specified by SPEC.md
+    beyond "derived from the same tokens with AA contrast". Background `#12142a`,
+    card `#1b1e3a`, ink (text) `#eef0f9`, brighter chance colours for legibility on a
+    dark background (e.g. Safe `#3ed18f`). All checked ≥4.6:1 against both the dark
+    background and card. One real bug this caught: white button text on the brighter
+    dark-mode brand blue (`#7c93ff`) is only 2.81:1 (fails) — dark ink text on it is
+    6.45:1 (passes), so there's now a `--color-brand-contrast` token (white in light
+    mode, dark ink in dark mode) rather than hardcoding white everywhere a button
+    sits on `--color-brand`.
+  - No manual light/dark toggle exists — theme follows `prefers-color-scheme` only,
+    via a `@media` block. A toggle can be added later by additionally scoping the same
+    dark values under `:root[data-theme="dark"]`.
+- **Fonts**: Bricolage Grotesque (headings, via a global `h1`-`h6` rule using
+  `--font-heading`), Manrope (body/UI, default `font-sans`), Noto Sans Kannada
+  (`font-kannada` utility, `subsets: ["kannada"]`) — all loaded with `next/font/google`
+  in `app/layout.tsx`, matching how the previous Geist fonts were wired.
+- **Type scale / spacing**: no custom tokens added for either — Tailwind v4's own
+  scale already satisfies SPEC.md's asks (its spacing scale is 4px-based already;
+  `text-xs`...`text-4xl` cover the type scale). Documented here instead of
+  reinventing it. Tabular figures: use Tailwind's built-in `tabular-nums` utility on
+  any rank/cutoff/fee number (see the `/design` page's Type section for an example).
+- **Core components** (`apps/web/components/ui/`): `button.tsx` (primary/secondary/
+  ghost, both sizes keep the 44px touch-target minimum — SPEC's "sm" never shrinks
+  height, only padding/text), `input.tsx` (label/hint/error wired via
+  `aria-describedby` + `aria-invalid`), `chip.tsx` (generic `Chip` filter pill +
+  `ChanceChip` — label AND a distinct SVG icon shape per tier, not colour alone, per
+  SPEC's explicit colour-blind-safe requirement), `sheet.tsx` (Radix `Dialog` styled
+  as a bottom sheet, `motion` for the slide-up, `useReducedMotion` respected),
+  `toast.tsx` (`ToastProvider`/`useToast` on Radix `Toast`, CSS keyframes for
+  enter/exit gated by `prefers-reduced-motion`), `skeleton.tsx`, `empty-state.tsx`,
+  `error-state.tsx` (`role="alert"`). Built on `radix-ui` (the unified package) +
+  `motion` (Framer Motion's current package name) + `clsx`/`tailwind-merge` (a `cn()`
+  helper at `lib/cn.ts`) — all newly added, no peer-dependency conflicts with React 19.
+- **`/design` page** (`apps/web/app/design/page.tsx`): renders every token/font/
+  component with real interaction (the Sheet actually opens, the Toast actually
+  fires) — not just a static swatch sheet. Screenshotted at 360/1280px, light+dark,
+  plus the Sheet-open and Toast-open states, into `design/screenshots/` (this
+  session's sandbox has no real device/browser for a human to click through, so this
+  is the verification that exists).
+- **Existing pages updated to stop using ad-hoc colours**: `app/page.tsx` (was
+  `zinc-*` Tailwind defaults) and `components/SampleDataBanner.tsx` (was an inline
+  `style` + Tailwind dark: stopgap, per Task 6's own notes) now use the real tokens
+  and need no dark-mode-specific classes at all — the CSS variables they reference
+  already change under `prefers-color-scheme: dark`.
+- **Testing note**: `@testing-library/react`'s automatic per-test `cleanup()` never
+  ran in this project — it only self-registers when it detects Jest/Vitest globals,
+  and this repo imports `describe`/`it`/etc. explicitly rather than setting
+  `test.globals: true`. That silently let DOM (and, worse, Radix's portaled dialog
+  content) leak between tests in the same file, causing 3 real test failures once the
+  Sheet/Toast tests exercised it (duplicate elements, then a "pointer-events: none"
+  error from a leftover overlay intercepting the next test's click). Fixed once,
+  centrally, in `vitest.setup.ts` (`afterEach(() => cleanup())`) rather than per file.
 
 ## Notes for future sessions
 

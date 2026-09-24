@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Manrope, Noto_Sans_Kannada } from "next/font/google";
 import { SampleDataBanner } from "@/components/SampleDataBanner";
+import { ToastProvider } from "@/components/ui/toast";
 import "./globals.css";
 
 // SampleDataBanner reads live DB state on every request — opt out of static
 // prerendering so `next build` doesn't need a reachable DB.
 export const dynamic = "force-dynamic";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// SPEC.md "UI / UX" -> Type: Bricolage Grotesque for headings, Manrope for UI/body,
+// Noto Sans Kannada for Kannada.
+const bricolageGrotesque = Bricolage_Grotesque({
+  variable: "--font-bricolage-grotesque",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
+});
+
+const notoSansKannada = Noto_Sans_Kannada({
+  variable: "--font-noto-sans-kannada",
+  subsets: ["kannada"],
 });
 
 export const metadata: Metadata = {
@@ -28,11 +36,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${bricolageGrotesque.variable} ${manrope.variable} ${notoSansKannada.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <SampleDataBanner />
-        {children}
+        <ToastProvider>
+          <SampleDataBanner />
+          {children}
+        </ToastProvider>
       </body>
     </html>
   );

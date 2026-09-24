@@ -144,3 +144,21 @@ This completes TASKS.md's "Core predictors" section.
 
 Human should verify: nothing new to flag — no download route/button exists yet
 (that's the "Option ladder" UI task's job), just the generation logic.
+
+## Design system
+
+Full light+dark token set in `app/globals.css` (Ink/Surface/Card/Brand/Safe/Target/
+Reach/Error), Bricolage Grotesque/Manrope/Noto Sans Kannada fonts, and 8 core
+components (`apps/web/components/ui/`: button, input, chip + chance chip, sheet,
+toast, skeleton, empty state, error state) built on newly-added `radix-ui` + `motion`
++ `clsx`/`tailwind-merge`. `/design` page shows/exercises them all. Updated the
+existing home page and sample-data banner to use real tokens instead of ad-hoc
+Tailwind colours. 15 new component tests (91 total now). Screenshots at 360/1280px,
+light+dark, plus Sheet-open/Toast-open, in `design/screenshots/`.
+
+Human should verify: SPEC's literal Safe/Target chance colours fail WCAG AA contrast
+for text on their own — see AUDIT.md's Task 17 notes for the exact numbers and the
+darkened `-text` variants used instead (this is a disclosed, deliberate deviation
+from the literal hex values, made in favor of SPEC's equally-explicit AA requirement,
+not an oversight). Dark-mode token values are this session's own derivation, not
+literally specified anywhere — sanity-check them against a real device if possible.

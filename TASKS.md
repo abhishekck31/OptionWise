@@ -16,7 +16,7 @@
 - [x] Export option list to CSV and printable PDF with codes in order; tests
 
 ## Product UI
-- [ ] Design system: tokens file (light + dark), fonts, type scale, spacing, core components (button, input, chip, sheet, toast, skeleton, empty/error states), chance chips with label + icon; a /design page showing them all
+- [x] Design system: tokens file (light + dark), fonts, type scale, spacing, core components (button, input, chip, sheet, toast, skeleton, empty/error states), chance chips with label + icon; a /design page showing them all
 - [ ] i18n setup: English + Kannada translation files, language switcher, no hard-coded UI strings
 - [ ] Onboarding flow: marks, board %, category, quota, preferences (location, fee cap, branches); mobile-first
 - [ ] Results page: rank range with confidence + Safe/Target/Reach college list with filters and evidence

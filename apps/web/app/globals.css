@@ -1,35 +1,164 @@
 @import "tailwindcss";
 
+/*
+ * Design tokens — SPEC.md "UI / UX" -> "Design tokens". Single source of truth;
+ * components must reference these (via the @theme mapping below, e.g. `bg-brand`,
+ * `text-ink`) rather than ad-hoc Tailwind colours.
+ *
+ * Chance colours (safe/target/reach) each define three variants:
+ *   --color-{name}          the literal SPEC.md hex — for icons, borders, chart
+ *                            lines, large decorative fills (WCAG's 3:1 "large/
+ *                            non-text" threshold).
+ *   --color-{name}-text      a colour actually safe for small text at 4.5:1 (AA) —
+ *                            SPEC's literal Safe (#1F8A5B) and Target (#C98A12) hex
+ *                            values fail 4.5:1 against white/Surface on their own
+ *                            (4.33 and 2.95 respectively), so these are slightly
+ *                            darkened. Reach and Error already pass and keep their
+ *                            literal value here.
+ *   --color-{name}-surface   a light tint for chip backgrounds, tuned so
+ *                            {name}-text on {name}-surface clears 4.5:1 too.
+ * Every pairing below was checked against the WCAG contrast formula before picking
+ * these values (see PROGRESS.md's Design system entry) — this isn't decorative
+ * guesswork.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  /* Partial design tokens from SPEC.md ("UI / UX" -> Design tokens), light mode
-     only. The full token set (dark mode derivation, chance colours, type scale,
-     spacing) belongs to the dedicated "Design system: tokens file" task — these four
-     are just enough for the sample-data banner to avoid an ad-hoc colour. */
   --color-ink: #1b1f3b;
   --color-surface: #f5f7fa;
   --color-card: #ffffff;
   --color-brand: #2e4bd6;
-}
+  /* Text/icon colour to place ON TOP of a --color-brand fill. */
+  --color-brand-contrast: #ffffff;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-safe: #1f8a5b;
+  --color-safe-text: #1b7a50;
+  --color-safe-surface: #e6f2ed;
+
+  --color-target: #c98a12;
+  --color-target-text: #8f640f;
+  --color-target-surface: #f8f0e0;
+
+  --color-reach: #7a4fd6;
+  --color-reach-text: #7a4fd6;
+  --color-reach-surface: #f0ecfa;
+
+  --color-error: #c8412f;
+  --color-error-text: #c8412f;
+  --color-error-surface: #fcf6f5;
+
+  --font-heading: var(--font-bricolage-grotesque);
+  --font-body: var(--font-manrope);
+  --font-kannada: var(--font-noto-sans-kannada);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-ink: #eef0f9;
+    --color-surface: #12142a;
+    --color-card: #1b1e3a;
+    --color-brand: #7c93ff;
+    --color-brand-contrast: #12142a;
+
+    --color-safe: #3ed18f;
+    --color-safe-text: #3ed18f;
+    --color-safe-surface: #244e51;
+
+    --color-target: #e6a93b;
+    --color-target-text: #e6a93b;
+    --color-target-surface: #50423a;
+
+    --color-reach: #a98cf0;
+    --color-reach-text: #a98cf0;
+    --color-reach-surface: #302e55;
+
+    --color-error: #f0796c;
+    --color-error-text: #f0796c;
+    --color-error-surface: #3d2d42;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Maps tokens to Tailwind utilities: bg-ink, text-brand, bg-safe-surface, etc. */
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-surface: var(--color-surface);
+  --color-card: var(--color-card);
+  --color-brand: var(--color-brand);
+  --color-brand-contrast: var(--color-brand-contrast);
+
+  --color-safe: var(--color-safe);
+  --color-safe-text: var(--color-safe-text);
+  --color-safe-surface: var(--color-safe-surface);
+
+  --color-target: var(--color-target);
+  --color-target-text: var(--color-target-text);
+  --color-target-surface: var(--color-target-surface);
+
+  --color-reach: var(--color-reach);
+  --color-reach-text: var(--color-reach-text);
+  --color-reach-surface: var(--color-reach-surface);
+
+  --color-error: var(--color-error);
+  --color-error-text: var(--color-error-text);
+  --color-error-surface: var(--color-error-surface);
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-kannada: var(--font-kannada);
+  --font-sans: var(--font-body);
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+
+/* Ranks, cutoffs and fees always align — SPEC.md "UI / UX" -> Type. Use Tailwind's
+   built-in `tabular-nums` utility class wherever a rank/cutoff/fee number renders. */
+
+/* Toast enter/exit — purposeful and quick (150-250ms), SPEC.md "UI / UX" ->
+   Interaction quality. Targets Radix Toast's own data-state attribute. */
+@keyframes toast-slide-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.toast-root[data-state="open"] {
+  animation: toast-slide-in 200ms ease-out;
+}
+
+.toast-root[data-state="closed"] {
+  animation: toast-fade-out 150ms ease-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast-root[data-state="open"],
+  .toast-root[data-state="closed"] {
+    animation: none;
+  }
+}
+
