@@ -109,6 +109,19 @@ real onboarding or predictors behind it yet), the repo's governing docs
 None — there is no feature code yet to have bugs in. `make check` (lint, typecheck,
 `next build`, and the one smoke test) is green as of this commit.
 
+## Task 2 (Hygiene) notes
+
+- `docker-compose.yml` runs a single Postgres 16 service — the first concrete choice
+  of database, since the data model task needs one to migrate against. `docker compose
+  config` validates it, but the Claude Code sandbox this repo was built in has no
+  usable Docker daemon (`service docker start` fails with a permission error), so
+  `docker compose up` itself couldn't be exercised here. Nothing in the app reads from
+  Postgres yet, so this doesn't block anything — a human (or a session with a working
+  Docker daemon) should confirm `make docker-up` actually brings up a reachable
+  Postgres before the data-model task relies on it.
+- `.env.example` added: `DATABASE_URL` (matches the compose service), `ANTHROPIC_API_KEY`
+  + LangSmith vars for the future AI service, `NEXT_TELEMETRY_DISABLED`.
+
 ## Notes for future sessions
 
 - Next.js 16's production build collects anonymous telemetry by default. Nobody has

@@ -1,8 +1,16 @@
-.PHONY: install check lint typecheck test dev seed build
+.PHONY: install check lint typecheck test dev seed build docker-up docker-down
 
 # Install all workspace dependencies.
 install:
 	pnpm install
+
+# Start local dev services (currently just Postgres; nothing uses it yet).
+docker-up:
+	docker compose up -d
+
+# Stop local dev services.
+docker-down:
+	docker compose down
 
 # Lint the web app.
 lint:
