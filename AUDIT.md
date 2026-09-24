@@ -105,7 +105,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | Area | Status |
 |---|---|
 | Data model / migrations, `source`/`is_sample` columns | done (schema + migration; no data in it yet) |
-| `config/categories` (category/quota codes) | missing |
+| `config/categories.json` (category/quota codes) | done, but UNVERIFIED — see BLOCKED.md |
 | KEA PDF ingestion + sample dataset | missing |
 | Sample-data banner | missing |
 | Rank predictor | missing |

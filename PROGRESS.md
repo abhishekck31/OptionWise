@@ -37,3 +37,16 @@ auto-bootstrap (`scripts/ensure-db.sh`), not a mock.
 Human should verify: the Prisma 6.x pin (see AUDIT.md — 7/8 changed config format and
 8 is still an RC) is the version you want to build on; `Cutoff.categoryCode` is an
 unvalidated string until the category/quota config task lands.
+
+## Task 4 — Category/quota config file
+
+Added `config/categories.json` (29 codes: GM + {1,2A,2B,3A,3B,SC,ST} × {G,R,K,H} per
+SPEC.md's own example list) and a typed loader (`apps/web/lib/categories.ts`,
+`isValidCategoryCode`/`getCategory`) with tests. `data/docs/` doesn't exist in this
+repo, so there's nothing to verify against — marked `verified: false` in the file
+itself and explained in `BLOCKED.md` (not a stop-the-run blocker, per the task's own
+instructions).
+
+Human should verify: get a real KEA rules/brochure PDF into `data/docs/` and re-derive
+this file from it before trusting it for a real student — see `BLOCKED.md` for exactly
+what's uncertain (GM's suffix variants, possible extra quota categories).

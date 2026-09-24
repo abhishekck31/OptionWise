@@ -1,0 +1,41 @@
+{
+  "verified": false,
+  "verificationNote": "UNVERIFIED. No KEA rules/brochure documents were present in data/docs/ when this file was generated (data/docs/ doesn't exist yet in this repo). These codes are a direct, mechanical reading of SPEC.md's own example list (\"GM, 1G, 2A, 2B, 3A, 3B, SC, ST with suffixes for general/rural/Kannada-medium/Hyderabad-Karnataka etc.\"), not sourced from an official KEA document. See BLOCKED.md. Do not treat as authoritative, and do not use to reject or accept a real student's category, until this has been checked against a real KEA rules/brochure PDF placed in data/docs/ and `verified` flipped to true (with `source` on each entry pointing at that document).",
+  "quotaSuffixes": [
+    { "code": "G", "label": "General" },
+    { "code": "R", "label": "Rural" },
+    { "code": "K", "label": "Kannada medium" },
+    { "code": "H", "label": "Hyderabad-Karnataka (Article 371J)" }
+  ],
+  "categories": [
+    { "code": "GM", "label": "General Merit", "base": "GM", "quota": null },
+    { "code": "1G", "label": "Category 1 — General", "base": "1", "quota": "G" },
+    { "code": "1R", "label": "Category 1 — Rural", "base": "1", "quota": "R" },
+    { "code": "1K", "label": "Category 1 — Kannada medium", "base": "1", "quota": "K" },
+    { "code": "1H", "label": "Category 1 — Hyderabad-Karnataka", "base": "1", "quota": "H" },
+    { "code": "2AG", "label": "Category 2A — General", "base": "2A", "quota": "G" },
+    { "code": "2AR", "label": "Category 2A — Rural", "base": "2A", "quota": "R" },
+    { "code": "2AK", "label": "Category 2A — Kannada medium", "base": "2A", "quota": "K" },
+    { "code": "2AH", "label": "Category 2A — Hyderabad-Karnataka", "base": "2A", "quota": "H" },
+    { "code": "2BG", "label": "Category 2B — General", "base": "2B", "quota": "G" },
+    { "code": "2BR", "label": "Category 2B — Rural", "base": "2B", "quota": "R" },
+    { "code": "2BK", "label": "Category 2B — Kannada medium", "base": "2B", "quota": "K" },
+    { "code": "2BH", "label": "Category 2B — Hyderabad-Karnataka", "base": "2B", "quota": "H" },
+    { "code": "3AG", "label": "Category 3A — General", "base": "3A", "quota": "G" },
+    { "code": "3AR", "label": "Category 3A — Rural", "base": "3A", "quota": "R" },
+    { "code": "3AK", "label": "Category 3A — Kannada medium", "base": "3A", "quota": "K" },
+    { "code": "3AH", "label": "Category 3A — Hyderabad-Karnataka", "base": "3A", "quota": "H" },
+    { "code": "3BG", "label": "Category 3B — General", "base": "3B", "quota": "G" },
+    { "code": "3BR", "label": "Category 3B — Rural", "base": "3B", "quota": "R" },
+    { "code": "3BK", "label": "Category 3B — Kannada medium", "base": "3B", "quota": "K" },
+    { "code": "3BH", "label": "Category 3B — Hyderabad-Karnataka", "base": "3B", "quota": "H" },
+    { "code": "SCG", "label": "Scheduled Caste — General", "base": "SC", "quota": "G" },
+    { "code": "SCR", "label": "Scheduled Caste — Rural", "base": "SC", "quota": "R" },
+    { "code": "SCK", "label": "Scheduled Caste — Kannada medium", "base": "SC", "quota": "K" },
+    { "code": "SCH", "label": "Scheduled Caste — Hyderabad-Karnataka", "base": "SC", "quota": "H" },
+    { "code": "STG", "label": "Scheduled Tribe — General", "base": "ST", "quota": "G" },
+    { "code": "STR", "label": "Scheduled Tribe — Rural", "base": "ST", "quota": "R" },
+    { "code": "STK", "label": "Scheduled Tribe — Kannada medium", "base": "ST", "quota": "K" },
+    { "code": "STH", "label": "Scheduled Tribe — Hyderabad-Karnataka", "base": "ST", "quota": "H" }
+  ]
+}

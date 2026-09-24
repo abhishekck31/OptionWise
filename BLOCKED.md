@@ -1,0 +1,29 @@
+# Blocked items
+
+Not a stop-the-run blocker — noted here because the "Category/quota config file" task
+in `TASKS.md` explicitly says to do this when `data/docs/` has nothing to verify
+against, and to keep going. Everything still compiles and `make check` passes.
+
+## `config/categories.json` is UNVERIFIED
+
+`data/docs/` doesn't exist in this repo — there's no KEA rules/brochure document to
+check the category/quota codes against. `config/categories.json` was built by
+mechanically expanding SPEC.md's own example list ("GM, 1G, 2A, 2B, 3A, 3B, SC, ST
+with suffixes for general/rural/Kannada-medium/Hyderabad-Karnataka etc.") into the 29
+codes that pattern implies (GM standalone, plus each of 1/2A/2B/3A/3B/SC/ST × G/R/K/H).
+That's a reasonable reading of the spec and matches the general shape of real KCET
+category codes, but it is **not sourced from an official KEA document** and must not
+be trusted as authoritative — in particular:
+
+- Whether GM itself ever takes a quota suffix (GMK/GMR/etc.) in current KEA rules is
+  unknown; this file only defines bare `GM`.
+- The "etc." in SPEC.md's own wording hints at possibly more categories/quotas
+  (e.g. PWD, NCC, sports, defence, NRI) that aren't represented here at all.
+- Exact current-year label text, eligibility rules, and whether every base × suffix
+  combination is actually valid for every KEA round are all unverified.
+
+**What should happen next**: a human places a real KEA rules/brochure PDF (or similar
+official document) into `data/docs/`. A future session — or a human — should then
+re-derive `config/categories.json` from it, set `"verified": true`, and add a `source`
+field pointing at that document. Until then, nothing downstream should treat this file
+as ground truth for real students; it's a structurally-correct placeholder.
