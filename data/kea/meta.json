@@ -1,0 +1,5539 @@
+{
+  "generatedAt": "2026-09-13T13:50:53.358Z",
+  "source": "Karnataka Examinations Authority, UGCET engineering allotment cut-off reports",
+  "years": [
+    {
+      "year": 2026,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "UGCET-2026 ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2026/PROF_CODE_E_R_15072026english.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "UGCET-2026 ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2026/PROF_CODE_E_H_15072026english.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "UGCET-2026 SECOND ROUND MOCK ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": true,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2026/PROF_CODE_E_R_17082026english.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "UGCET-2026 SECOND ROUND MOCK ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": true,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2026/PROF_CODE_E_H_17082026english.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "UGCET-2026 THIRD ROUND PROVISIONAL ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": true,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2026/PROF_CODE_E_R_04092026english.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "UGCET-2026 THIRD ROUND PROVISIONAL ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": true,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2026/PROF_CODE_E_H_04092026english.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "S1G",
+        "S1K",
+        "S1R",
+        "S2G",
+        "S2K",
+        "S2R",
+        "S3G",
+        "S3K",
+        "S3R",
+        "S4G",
+        "S4K",
+        "S4R",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2025,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "UGCET-2025 ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/PROF_CODE_E_R_R1english.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "UGCET-2025 ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/PROF_CODE_E_H_R1english.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "UGCET-2025 SESSION-2 ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/PROF_CODE_E_R_30082025english.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "UGCET-2025 SESSION-2 ALLOTMENT CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/PROF_CODE_E_H_30082025english.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "UGCET-2025 THIRD ROUND CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/PROF_CODE_E_R_11092025english.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "UGCET-2025 THIRD ROUND CUT-OFF RANKS FOR Engineering",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/PROF_CODE_E_H_11092025english.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2024,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2024 - R1 ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2024/ENGG_CUTOFF_2024_GEN_R1english.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2024 - R1 ALLOTMENT ( HYD KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2024/ENGG_CUTOFF_2024_HK_R1english.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2024 - R2 ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2024/ENGG_CUTOFF_2024_GEN_R2_FIN.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2024 - R2 ALLOTMENT ( HYD KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2024/ENGG_CUTOFF_2024_HK_R2_FIN.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2024 - EXT RND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2024/ENGG_CUTOFF_2024_GEN_EXT_RNDenglish.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2024 - EXT RND ALLOTMENT ( HYD KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2024/ENGG_CUTOFF_2024_HK_EXT_RNDenglish.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2023,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2023 - 1st ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2023/ENGG_CUTOFF_2023_GENenglish.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2023 - 1st ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2023/ENGG_CUTOFF_2023_HKenglish.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2023 - 2nd ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2023/ENGG_CUTOFF_2023_R2english.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2023 - 2nd ROUND ALLOTMENT ( HK )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2023/ENGG_CUTOFF_2023_HK_R2english.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2023 - SECOND EXTENTED ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2023/ENR2_CUTGENenglish.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2022,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2022 - FIRST ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2022/R1/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2022 - FIRST ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2022/R1/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2022 - SECOND ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2022/R2/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2022 - SECOND ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2022/R2/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2022 - SECOND EXTENDED ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2022/R3/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2022 - SECOND EXTENDED ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2022/R3/engg_cutoff_hk.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2021,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2021 - FIRST ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2021/R1/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2021 - FIRST ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2021/R1/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2021 - SECOND ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2021/R2/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2021 - SECOND ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2021/R2/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2021 - SECOND EXTENDED ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2021/R3/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2021 - SECOND EXTENDED ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2021/R3/engg_cutoff_hk.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2020,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2020 - FIRST ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2020/R1/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2020 - FIRST ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2020/R1/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2020 - SECOND ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2020/R2/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2020 - SECOND ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2020/R2/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2020 - SECOND EXTENDED ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2020/R3/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2020 - SECOND EXTENDED ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2020/R3/engg_cutoff_hk.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2019,
+      "reports": [
+        {
+          "id": "MOCK-GEN",
+          "round": "MOCK",
+          "label": "Mock allotment",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - MOCK ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/mock/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "MOCK-HK",
+          "round": "MOCK",
+          "label": "Mock allotment",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - MOCK ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/mock/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - SECOND ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/R2/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - SECOND ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/R2/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - SECOND EXTENDED ROUND ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/R3/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - SECOND EXTENDED ROUND ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/R3/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R4-GEN",
+          "round": "R4",
+          "label": "Left-out seats",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - LEFT OUT SEAT ALLOTMENT ( GENERAL )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/R4/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R4-HK",
+          "round": "R4",
+          "label": "Left-out seats",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2019 - LEFT OUT SEAT ALLOTMENT ( HYD-KAR )",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2019/R4/engg_cutoff_hk.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2017,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2017 - R1 ALLOTMENT ( GENERAL ) 25-06-2017",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2017/R1/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2017 - R1 ALLOTMENT ( HYD-KAR ) 25-06-2017",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2017/R1/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2017 - R2 ALLOTMENT ( GENERAL ) 16-07-2017",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2017/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2017 - R2 ALLOTMENT ( HYD-KAR ) 16-07-2017",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2017/R2/engg_cutoff_hk.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    },
+    {
+      "year": 2016,
+      "reports": [
+        {
+          "id": "R1-GEN",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2016 - R1 ALLOTMENT ( General ) 01-07-2016",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2016/R1/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R1-HK",
+          "round": "R1",
+          "label": "Round 1",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2016 - R1 ALLOTMENT ( Hyd - Kar ) 01-07-2016",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2016/R1/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R2-GEN",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2016 - (R2 ALLOTMENT) ( General ) 17-07-2016",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2016/R2/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R2-HK",
+          "round": "R2",
+          "label": "Round 2",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2016 - (R2 ALLOTMENT) ( Hyd - Kar ) 17-07-2016",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2016/R2/engg_cutoff_hk.pdf"
+        },
+        {
+          "id": "R3-GEN",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "GEN",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2016 - R2 Extended ALLOTMENT ( General ) 26-07-2016",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2016/R3/engg_cutoff_gen.pdf"
+        },
+        {
+          "id": "R3-HK",
+          "round": "R3",
+          "label": "Round 3",
+          "pool": "HK",
+          "title": "ENGINEERING CUTOFF RANK OF CET-2016 - R2 Extended ALLOTMENT ( Hyd - Kar ) 26-07-2016",
+          "mock": false,
+          "provisional": false,
+          "url": "https://cetonline.karnataka.gov.in/keawebentry456/cet2016/R3/engg_cutoff_hk.pdf"
+        }
+      ],
+      "categories": [
+        "1G",
+        "1K",
+        "1R",
+        "2AG",
+        "2AK",
+        "2AR",
+        "2BG",
+        "2BK",
+        "2BR",
+        "3AG",
+        "3AK",
+        "3AR",
+        "3BG",
+        "3BK",
+        "3BR",
+        "GM",
+        "GMK",
+        "GMR",
+        "SCG",
+        "SCK",
+        "SCR",
+        "STG",
+        "STK",
+        "STR"
+      ]
+    }
+  ],
+  "missingYears": [
+    2018
+  ],
+  "colleges": [
+    {
+      "code": "E001",
+      "appId": "univesity-of-visvesvaraya-college-of-engineering-k",
+      "shortName": "UVCE",
+      "name": "Univesity of Visvesvaraya College of Engineering (A State Autonomous Public University on IIT Model) K R Circle, Bangalore",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E002",
+      "appId": "govt-s-ksjt-institute-of-engineering-bangalore",
+      "shortName": "SKSJTI",
+      "name": "Govt.S K S J T Institute of Engineering, Bangalore AMBEDKAR VEEDHI, K.R. CIRCLE, BANGALORE-01",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E003",
+      "appId": "b-m-s-college-of-engineering-basavanagudi",
+      "shortName": "BMSCE E003",
+      "name": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E004",
+      "appId": "dr-ambedkar-institute-of-technology-bangalore",
+      "shortName": "Dr. AIT E004",
+      "name": "Dr. Ambedkar Institute of Technology, Bangalore(AUTONOMOUS) OUTER RING ROAD,NEAR JNANA BHARATHI CAMPUS,MALLATHAHALLI,BANGALORE-560056",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E005",
+      "appId": "r-v-college-of-engineering-bangalore",
+      "shortName": "RVCE",
+      "name": "R. V. College of Engineering, Bangalore(AUTONOMOUS) R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E006",
+      "appId": "m-s-ramaiah-institute-of-technology-bangalore",
+      "shortName": "MSRIT",
+      "name": "M S Ramaiah Institute of Technology, Bangalore(AUTONOMOUS) VIDYA SOUDHA,MSR NAGAR,MSRIT POST,BANGALORE - 560054.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E007",
+      "appId": "dayananda-sagar-college-of-engineering-bangalore",
+      "shortName": "DSCE",
+      "name": "Dayananda Sagar College of Engineering, Bangalore(AUTONOMOUS) SHAVIGE MALLESHWARA HILLS, KUMARASWAMY LAYOUT, BANGALORE-560078",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E008",
+      "appId": "bangalore-institute-of-technology-k-r-road",
+      "shortName": "BIT",
+      "name": "Bangalore Institute of Technology, K.R.Road, Bangalore (AUTONOMOUS) K.R.ROAD, V.V.PURA, BANGALORE-560004",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E009",
+      "appId": "pes-university-100-feet-ring-road-banashankari",
+      "shortName": "PESU",
+      "name": "PES University 100 Feet Ring Road, Banashankari, 3rd Stage, Hosakerehalli, Near DSERT, , Bangalore KARNATAKA, pin code -560085",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E010",
+      "appId": null,
+      "shortName": null,
+      "name": "Islamia Institute of Technology, Bangalore",
+      "years": [
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E011",
+      "appId": "m-v-j-college-of-engineering-bangalore",
+      "shortName": "MVJCE",
+      "name": "M V J College of Engineering, Bangalore(AUTONOMOUS) NEAR ITPB,CHANNASANDRA,KADUGODI POST,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E012",
+      "appId": "sir-m-visvesvaraya-institute-of-technology-bangalore",
+      "shortName": "Sir MVIT",
+      "name": "Sir M.Visvesvaraya Institute of Technology, Bangalore KRISHNADEVARAYANAGAR, HUNASAMARANAHALLI, VIA YELAHANKA,BANGALORE - 562 157",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E013",
+      "appId": "ghousia-engineering-college-ramanagara",
+      "shortName": "Ghousia Engineering",
+      "name": "Ghousia Engineering College, Ramanagara BANGALORE - MYSORE ROAD,RAMANAGARA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E014",
+      "appId": "s-j-c-institute-of-technology-chickkaballapur",
+      "shortName": "SJC",
+      "name": "S J C Institute of Technology, Chickkaballapur(AUTONOMOUS) P B NO. 20, B B ROAD, CHICKBALLAPUR, CHICKBALLAPUR (DISTRICT)",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E015",
+      "appId": "dr-t-thimmaiah-institute-of-technology",
+      "shortName": "Dr T Thimmaiah",
+      "name": "Dr.T.Thimmaiah Institute of Technology, KGF 00RGAUM POST,KOLAR GOLD FIELDS - 563 120",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E016",
+      "appId": "siddaganga-institute-of-technology-tumkur-b-h",
+      "shortName": "SIT Tumakuru",
+      "name": "Siddaganga Institute of Technology, Tumkur(AUTONOMOUS) B.H.ROAD,TUMKUR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E017",
+      "appId": "sri-siddhartha-institute-of-technology",
+      "shortName": "Siddhartha",
+      "name": "Sri Siddhartha Institute of Technology MARALUR ,TUMKUR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E018",
+      "appId": "kalpatharu-institute-of-technology-tiptur",
+      "shortName": "Kalpatharu",
+      "name": "Kalpatharu Institute of Technology, Tiptur B.H.ROAD,HASSAN CIRCLE,TIPTUR-572202",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E021",
+      "appId": "sri-jayachamarajendra-college-of-engineering-mysore",
+      "shortName": "SJCE E021",
+      "name": "Sri Jayachamarajendra College of Engineering(Constituent College of JSS Science & Technology University), Mysore JSS TECHNICAL INSTITUTIONS CAMPUS,MANASAGANGOTHRI PO,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E022",
+      "appId": "the-national-institute-of-engineering-mysore",
+      "shortName": "NIE E022",
+      "name": "The National Institute of Engineering, Mysore(AUTONOMOUS) MANANDAVADI ROAD,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E023",
+      "appId": "p-e-s-college-of-engineering-mandya",
+      "shortName": "PESCE Mandya E023",
+      "name": "P E S College of Engineering, Mandya(AUTONOMOUS) MANDYA: 571 401",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E024",
+      "appId": "malnad-college-of-engineering-hassan",
+      "shortName": "MCE Hassan E024",
+      "name": "Malnad College of Engineering, Hassan(AUTONOMOUS) P.B. NO. 21, SALAGAME ROAD,HASSSAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E028",
+      "appId": "tontadarya-college-of-engineering-gadag",
+      "shortName": "Tontadarya",
+      "name": "Tontadarya College of Engineering, Gadag MUNDARAGI ROAD ,GADAG - 582101",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E029",
+      "appId": "maratha-mandal-engineering-college-belgaum",
+      "shortName": "Maratha Mandal",
+      "name": "Maratha Mandal Engineering College, Belgaum RS. NO.104, HALBHAVI VILLAGE, POST: NEW VANTMURI, VIA KAKATI, TALUKA & DIST. BELGAUM-591113",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E030",
+      "appId": null,
+      "shortName": null,
+      "name": "KLE Technological University(Formerly BVBCET), Hubli",
+      "years": [
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E031",
+      "appId": "b-v-v-sangha-s-basaveshwara-engineering",
+      "shortName": "BEC E031",
+      "name": "B V V Sangha`s Basaveshwara Engineering College , Bagalkote (AUTONOMOUS) NIJALINGAPPA ROAD,BAGALKOT 587102",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E032",
+      "appId": "r-t-e-soceity-s-rural-engineering",
+      "shortName": "RTE Soceity",
+      "name": "R.T.E. Soceity's Rural Engineering College, Hulkoti HULKOTI -582 205,GADAG",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E033",
+      "appId": "sri-taralabalu-jagadguru-institute-of-technology-ranebennur",
+      "shortName": "Taralabalu Jagadguru",
+      "name": "Sri Taralabalu Jagadguru Institute of Technology, Ranebennur P B ROAD (NH4),RANEBENNUR-581 115,HAVERI DISTRICT",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E034",
+      "appId": "sdm-college-of-engineering-dharwad",
+      "shortName": "SDMCET",
+      "name": "SDM College of Engineering, Dharwad (AUTONOMOUS) DHAVALAGIRI,KALGHATGI ROAD,DHARWAD",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E035",
+      "appId": "anjuman-institute-of-technology-management-bhatkal",
+      "shortName": "Anjuman",
+      "name": "Anjuman Institute of Technology & Management, Bhatkal ANJUMANABAD,BHATKAL,(U K DIST), PIN 581320",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E036",
+      "appId": "k-l-e-technological-univeristy-belgaum-campus",
+      "shortName": "KLE Tech",
+      "name": "K L E Technological Univeristy, Belgaum Campus (Formerly KLE Dr M.S.Sheshagiri College of Engineering and Technology) UDYAMBAGH,BELGAUM",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E037",
+      "appId": "k-l-s-gogte-institute-of-technology",
+      "shortName": "GIT Belagavi",
+      "name": "K.L.S. Gogte Institute of Technology, Belgaum.(AUTONOMOUS) \"JNANA GANGA\", UDYAMBAG,BELGAUM",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E038",
+      "appId": "bldea-s-vp-dr-p-g-hallakatti",
+      "shortName": "BLDEA s",
+      "name": "BLDEA's VP. Dr.P.G. Hallakatti College of Engineering & Technology, Bijapur ASHRAM ROAD,BIJAPUR - 586103",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E040",
+      "appId": "hira-sugar-institute-of-technology-nidasoshi",
+      "shortName": "Hira Sugar",
+      "name": "Hira Sugar Institute of Technology, Nidasoshi NIDAOSHI,TALUKA: HUKERI,DISTRICT: BELGAUM",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E041",
+      "appId": "p-d-a-college-of-engineering-gulbarga",
+      "shortName": "PDACE E041",
+      "name": "P D A College of Engineering, Gulbarga(AUTONOMOUS) AIWAN-E-SHAHI AREA,STATION ROAD,GULBARGA-585102",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E042",
+      "appId": "khaja-bandanawaz-university-kbn-university-street-khaja",
+      "shortName": "Khaja Bandanawaz",
+      "name": "Khaja Bandanawaz University KBN University Street, Khaja Colony, Kalaburagi, Karnataka 585104",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E043",
+      "appId": "gurunanak-dev-engineering-college-bidar",
+      "shortName": "Gurunanak Dev",
+      "name": "Gurunanak Dev Engineering College, Bidar MAILOOR ROAD,BIDAR 585403",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E044",
+      "appId": "bheemanna-khandre-institute-of-technology-bhalki",
+      "shortName": "Bheemanna Khandre",
+      "name": "Bheemanna Khandre Institute of Technology, Bhalki BHALKI-HUMNABAD ROAD,BHALKI- 585328,DIST. BIDAR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E045",
+      "appId": "rao-bahadur-y-mahabaleswarappa-engineering-college-bellary",
+      "shortName": "Rao Bahadur",
+      "name": "Rao Bahadur Y.Mahabaleswarappa Engineering College, Bellary CONTONMENT, BELLARY-583104",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E046",
+      "appId": "h-k-e-s-society-s-sir",
+      "shortName": "HKES Society",
+      "name": "H K E's Society's Sir M Visvesvaraya College of Engineering, Raichur YERAMARUS CAMP,RAICHUR-584 135,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E047",
+      "appId": "malnad-college-of-engineering-hassan-e047",
+      "shortName": "MCE Hassan E047",
+      "name": "Malnad College of Engineering, Hassan(AUTONOMOUS) P.B. NO. 21, SALAGAME ROAD,HASSSAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E048",
+      "appId": "b-m-s-college-of-engineering-basavanagudi-e048",
+      "shortName": "BMSCE E048",
+      "name": "B M S College of Engineering, Basavanagudi, Bangalore (AUTONOMOUS) POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E049",
+      "appId": "b-v-v-sangha-s-basaveshwara-engineering-e049",
+      "shortName": "BEC E049",
+      "name": "B V V Sangha`s Basaveshwara Engineering College , Bagalkote (AUTONOMOUS) NIJALINGAPPA ROAD,BAGALKOT 587102",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E053",
+      "appId": null,
+      "shortName": null,
+      "name": "N M A M Institutute of Technology, Nitte",
+      "years": [
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E054",
+      "appId": "k-v-g-college-of-engineering-sullia",
+      "shortName": "KVG",
+      "name": "K V G College of Engineering, Sullia KURUNJIBHAG,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E055",
+      "appId": "p-a-college-of-engineering-kairangal-bantwala",
+      "shortName": "PA",
+      "name": "P A College of Engineering, Kairangal, Bantwala Tq,. Mangalore NADUPADAV, NEAR MANGALORE UNIVERSITY,MONTEPADAV POST, KAIRANGALA VILLAGE,BANTWAL-MANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E056",
+      "appId": "the-national-institute-of-engineering-mysore-e056",
+      "shortName": "NIE E056",
+      "name": "The National Institute of Engineering, Mysore(AUTONOMOUS) MANANDAVADI ROAD,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E057",
+      "appId": "jss-science-and-technology-university",
+      "shortName": "JSS Science",
+      "name": "JSS Science and Technology University JSS TECHNICAL INSTITUTIONS CAMPUS, MANASAGANGOTHRI, MYSURU 570006",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E058",
+      "appId": "p-e-s-college-of-engineering-mandya-e058",
+      "shortName": "PESCE Mandya E058",
+      "name": "P E S College of Engineering, Mandya(AUTONOMOUS) MANDYA: 571 401",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E059",
+      "appId": "p-d-a-college-of-engineering-gulbarga-e059",
+      "shortName": "PDACE E059",
+      "name": "P D A College of Engineering, Gulbarga(AUTONOMOUS) AIWAN-E-SHAHI AREA,STATION ROAD,GULBARGA-585102",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E060",
+      "appId": "dr-ambedkar-institute-of-technology-bangalore-e060",
+      "shortName": "Dr. AIT E060",
+      "name": "Dr. Ambedkar Institute of Technology, Bangalore(AUTONOMOUS) OUTER RING ROAD,NEAR JNANA BHARATHI CAMPUS,MALLATHAHALLI,BANGALORE-560056",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E061",
+      "appId": "university-b-d-t-college-of-engineering",
+      "shortName": "University BDT E061",
+      "name": "University B.D.T College of Engineering, Davanagere P J EXTENSION,HADADI ROAD,DAVENGERE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E062",
+      "appId": "bapuji-institute-of-engineering-technology-davangere",
+      "shortName": "Bapuji",
+      "name": "Bapuji Institute of Engineering & Technology, Davangere (AUTONOMOUS) BAPUJI INSTITUTE OF ENGINEERING & TECHNOLOGY,P.B. NO.325,SHAMANUR ROAD,DAVANGERE-577 004",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E063",
+      "appId": "sri-jagadguru-murugharajendra-university",
+      "shortName": "Jagadguru",
+      "name": "Sri Jagadguru Murugharajendra University (SJM Institute of Technology)",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E064",
+      "appId": "adhichunchanagiri-institute-of-technology-chickamagalur",
+      "shortName": "Adhichunchanagiri E064",
+      "name": "Adhichunchanagiri Institute of Technology, Chickamagalur ADICHUNCHANAGIRI EXTENTION,JYOTHINAGAR,CHIKMAGALUR - 577102",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E065",
+      "appId": "jawaharlal-nehru-new-college-of-engineering-shimoga",
+      "shortName": "Jawaharlal Nehru",
+      "name": "Jawaharlal Nehru New College of Engineering, Shimoga P.B. NO. 128,NAVULE, SHIMOGA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E066",
+      "appId": "university-b-d-t-college-of-engineering-e066",
+      "shortName": "University BDT E066",
+      "name": "University B.D.T College of Engineering, Davanagere P J EXTENSION,HADADI ROAD,DAVENGERE",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E070",
+      "appId": "bahubali-college-of-engineering-shravanabelagola-hassan",
+      "shortName": "Bahubali",
+      "name": "Bahubali College of Engineering, Shravanabelagola, Hassan GOMMATANAGARA,SHRAVANABELAGOLA - 573135 HASSAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E071",
+      "appId": "vidya-vardhaka-college-of-engineering-mysore",
+      "shortName": "Vidya Vardhaka",
+      "name": "Vidya Vardhaka College of Engineering, Mysore(AUTONOMOUS) P.B.NO.206,GOKULAM 3RD STAGE,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E075",
+      "appId": "ballari-institute-of-technology-management-bellary",
+      "shortName": "Ballari",
+      "name": "Ballari Institute of Technology & Management, Bellary(AUTONOMOUS) \"JNANA GANGOTRI\" CAMPUS, #873/2 OF KOLAGAL VILLAGE,BELLARY-HOSPET ROAD, ALLIPUR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E076",
+      "appId": "proudadevaraya-institute-of-technology-hospet",
+      "shortName": "Proudadevaraya",
+      "name": "Proudadevaraya Institute of Technology, Hospet SHAH BHAVARLAL BABULAL NAHAR CAMPUS,T.B.DAM ROAD, BESIDE TSP LIMITED,HOSPET - 583225,BELLARY DISTRICT",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E077",
+      "appId": "vidya-vikas-institute-of-engineering-technology-mysore",
+      "shortName": "Vidya Vikas",
+      "name": "Vidya Vikas Institute of Engineering & Technology, Mysore #127,ALANAHALLY,ALANAHALLY POST,MYSORE-BANNUR ROAD,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E078",
+      "appId": "the-oxford-college-of-engineering-bangalore",
+      "shortName": "Oxford",
+      "name": "The Oxford College of Engineering, Bangalore HOSUR ROAD,BOMMANAHALLI,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E079",
+      "appId": "acharya-institute-of-technology-soldevanahalli-chikkabanavara-post",
+      "shortName": "Acharya",
+      "name": "Acharya Institute of Technology, Soldevanahalli,Chikkabanavara post, Bangalore SOLDEVANAHALLI, HESARAGHATTA MAIN ROAD, CHIKKABANAVARA POST,BANGALORE URBAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E081",
+      "appId": "sri-siddhartha-school-of-engineering-tumkur-nh",
+      "shortName": "SIDDHARTHA",
+      "name": "SRI SIDDHARTHA SCHOOL OF ENGINEERING, TUMKUR NH-4, KESARAMADU POST, KYATHASANDRA,TUMKUR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E082",
+      "appId": "j-s-s-academy-of-technical-education",
+      "shortName": "JSS",
+      "name": "J S S Academy of Technical Education, Bangalore JSSATE CAMPUS,UTTARAHALLI-KENGERI ROAD ,BANGALORE 560060",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E083",
+      "appId": "h-k-b-k-college-of-engineering",
+      "shortName": "HKBK",
+      "name": "H.K.B.K.College of Engineering, Bangalore # 22/1, NAGAWARA, BANGALORE-560045",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E085",
+      "appId": "aps-college-of-engineering-somanahalli-bangalore",
+      "shortName": "APS",
+      "name": "APS College of Engineering, Somanahalli, Bangalore 26 KM KANAKAPURA ROAD BANGALORE 82,BANGALORE URBAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E086",
+      "appId": "sri-sairam-college-of-engineering-anekal-bangalore",
+      "shortName": "Sairam",
+      "name": "Sri Sairam College Of Engineering, Anekal, Bangalore SAI LEO NAGAR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E087",
+      "appId": "vivekananada-institute-of-technology-kengeri-bangalore",
+      "shortName": "Vivekananada E087",
+      "name": "Vivekananada Institute of Technology, Kengeri, Bangalore GUDIMAVU VILLAGE ,KENGERI(HOBLI)NEAR KUMBALAGODU,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E088",
+      "appId": null,
+      "shortName": null,
+      "name": "Bangalore College of Engineering and Technology, Chandapura, Bangalore",
+      "years": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E089",
+      "appId": null,
+      "shortName": null,
+      "name": "B T L Institute of Technology and Management, Bangalore",
+      "years": [
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E090",
+      "appId": "sri-revana-siddeswara-institute-of-technology-bangalore",
+      "shortName": "Revana Siddeswara",
+      "name": "Sri Revana Siddeswara Institute of Technology, Bangalore CHOKKANAHALLI, CHIKKAJALA,BANGALORE NORTH - 562157",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E091",
+      "appId": "k-s-institute-of-technology-raghuvanahalli-bangalore",
+      "shortName": "KS E091",
+      "name": "K S Institute of Technology, Raghuvanahalli, Bangalore(AUTONOMOUS) #14,RAGUVANAHALLI, KANAKAPURA MAIN ROAD,BANGALORE - 560 062.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E092",
+      "appId": "vemana-institute-of-technology-bangalore",
+      "shortName": "Vemana",
+      "name": "Vemana Institute of Technology, Bangalore #1, MAHAYOGI VEMANA ROAD, 3RD BLOCK, KORMANGALA, BANGALORE -560034.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E093",
+      "appId": "basavakalyana-engineering-college-basavakalyana-bidar-district",
+      "shortName": "Basavakalyana",
+      "name": "Basavakalyana Engineering College, Basavakalyana, Bidar District N.H.9 ,BASAVAKALYAN-585327,DIST. BIDAR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E094",
+      "appId": "coorg-institute-of-technology-kunda-ponnampet",
+      "shortName": "Coorg",
+      "name": "Coorg Institute of Technology, Kunda, Ponnampet POST BOX NO.11,COORG",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E095",
+      "appId": "amc-engineering-college-bannerghatta-road-bangalore",
+      "shortName": "AMC Engineering",
+      "name": "AMC Engineering College, Bannerghatta Road, Bangalore(AUTONOMOUS) 18KM,BANNERAGHATTA ROAD,KALKERE,BANGALORE-560083,BANGALORE URBAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E096",
+      "appId": "east-point-college-of-engineering-technology-bangalore",
+      "shortName": "East Point",
+      "name": "East Point College of Engineering & Technology, Bangalore(AUTONOMOUS) JNANA PRABHA, BIDARAHALLI,VIRGONAGAR POST,BANGALORE.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E097",
+      "appId": "c-m-r-institute-of-technology-kundala",
+      "shortName": "CMR E097",
+      "name": "C M R Institute of Technology, Kundala Halli village, Bangalore # 132, KUNDALAHALLI VILLAGE,IT PARK ROAD,BANGALORE - 560 037",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E098",
+      "appId": "atria-institute-of-technology-anand-nagar-hebbal",
+      "shortName": "Atria",
+      "name": "Atria Institute of Technology, Anand Nagar, Hebbal PO, Bangalore (AUTONOMOUS) ASKB CAMPUS, AG'S COLONY, 1ST MAIN, ANANDNAGAR,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E099",
+      "appId": "new-horizon-college-of-engineering-varthur-bangalore",
+      "shortName": "New Horizon",
+      "name": "New Horizon College of Engineering, Varthur, Bangalore(AUTONOMOUS) RING ROAD, NEAR MARATHALLI, BELLANDUR POST,KADUBHISANAHALLI,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E100",
+      "appId": "k-n-s-institute-of-technology-bangalore",
+      "shortName": "KNS",
+      "name": "K N S Institute of Technology, Bangalore THIRUMENAHALLI, HEGGADENAGAR-KOGILU ROAD, YELAHANKA, BANGALORE-560064",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E101",
+      "appId": "channabasaveshwara-institute-of-technology-gubbi-herur-tumkur",
+      "shortName": "Channabasaveshwara",
+      "name": "Channabasaveshwara Institute of Technology, Gubbi Herur, Tumkur NH 206 (BH ROAD), GUBBI, TUMKUR. KARNATAKA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E102",
+      "appId": "donbosco-institute-of-technology-bangalore",
+      "shortName": "DONBOSCO",
+      "name": "DONBOSCO Institute of Technology, Bangalore(AUTONOMOUS) KUMBALAGODU, MYSORE ROAD, KENGERI HOBLI,BANGALORE-560074",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E103",
+      "appId": "global-academy-of-technology-bangalore",
+      "shortName": "Global",
+      "name": "Global Academy of Technology, Bangalore(AUTONOMOUS) IDEAL HOMES TOWNSHIP,RAJARAJESHWARINAGAR,BANGALORE-560098",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E104",
+      "appId": "nagarjuna-college-of-engineering-technology-venkatagiri-kote",
+      "shortName": "Nagarjuna",
+      "name": "Nagarjuna College of Engineering & Technology,venkatagiri Kote, Devanahalli, Bangalore Rural.(AUTONOMOUS) MUDUGURKIVENKATAGIRI KOTE DEVANAHALLI,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E105",
+      "appId": null,
+      "shortName": null,
+      "name": "Nitte Meenakshi Institutute of Technology, Bangalore",
+      "years": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E106",
+      "appId": "east-west-institute-of-technology-bangalore",
+      "shortName": "East West E106",
+      "name": "East West Institute Of Technology,Bangalore(AUTONOMOUS) SY. NO.63, OFF MAGADI MAIN ROAD, VISHWANEEDAM POST,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E107",
+      "appId": "b-n-m-institute-of-technology-bangalore",
+      "shortName": "BNM",
+      "name": "B N M Institute of Technology, Bangalore (AUTONOMOUS) 12TH MAIN, 27TH CROSS, BSK SECOND STAGE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E108",
+      "appId": "sapthagiri-nps-university-14-5-chikkasandra-hesaraghatta",
+      "shortName": "SAPTHAGIRI NPS",
+      "name": "SAPTHAGIRI NPS UNIVERSITY #14/5, CHIKKASANDRA,HESARAGHATTA MAIN ROAD,BANGALURU",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E109",
+      "appId": "city-engineering-college-doddakalisandra-bangalore-south",
+      "shortName": "City Engineering",
+      "name": "City Engineering College,Doddakalisandra, Bangalore South DODDAKALLASANDRA, KANAKAPURA ROAD, BANGALORE.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E110",
+      "appId": null,
+      "shortName": null,
+      "name": "Yellamma Dasappa Institute of Technology, Bangalore",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E111",
+      "appId": "sri-venkateshwara-college-of-engineering-bangalore",
+      "shortName": "Venkateshwara",
+      "name": "Sri Venkateshwara College of Engineering, Bangalore (Autonomous) VIDYANAGAR, BENGALURU INTERNATIONAL AIRPORT ROAD,BETTAHALASUR POST,BENGALURU NORTH,BENGALURU - 562 157",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E112",
+      "appId": "sri-krishna-institute-of-technology-bangalore",
+      "shortName": "Krishna",
+      "name": "Sri Krishna Institute of Technology, Bangalore NO. 29, HESARAGHATTA MAIN ROAD,CHIMNEY HILLS, CHIKKABANAVARA POST,BANGALORE - 560090",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E113",
+      "appId": "sambhram-institute-of-technology-bangalore",
+      "shortName": "Sambhram",
+      "name": "Sambhram Institute of Technology, Bangalore AMBABHAVANI TEMPLE ROAD,M.S.PALYA, JALAHALLI EAST,VIDYARANYAPURA POST,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E114",
+      "appId": "g-m-institute-of-technology-davanagere",
+      "shortName": "GM E114",
+      "name": "G M Institute of Technology, Davanagere POST BOX. NO. 4, P.B.ROAD.DAVANGERE.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E115",
+      "appId": "sjb-institute-of-technology-bangalore",
+      "shortName": "SJB",
+      "name": "SJB Institute of Technology, Bangalore (AUTONOMOUS) BGS HEALTH & EDUCATION CITY,NO 67, UTTARAHALLI ROAD.KENGERI, BANGALORE -60",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E116",
+      "appId": "r-l-jalappa-institute-of-technology-doddaballapura",
+      "shortName": "RL Jalappa",
+      "name": "R.L.Jalappa Institute of Technology, Doddaballapura KODIGEHALLI, DODDABALLAPUR-561203, BANGALORE RURAL",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E117",
+      "appId": null,
+      "shortName": null,
+      "name": "Alpha College Engineering, Kannur Post, Bangalore",
+      "years": [
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E118",
+      "appId": "rns-institute-of-technology-bangalore",
+      "shortName": "RNS",
+      "name": "RNS Institute of Technology, Bangalore (AUTONOMOUS) CHANNASANDRA,UTTARAHALLI -KENGERI MAIN ROAD,SUBRAMANYAPURA POST,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E119",
+      "appId": "k-c-t-engineering-college-gulbarga",
+      "shortName": "KCT Engineering",
+      "name": "K C T Engineering College, Gulbarga KCT CAMPUS",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E120",
+      "appId": "jnanavikasa-institute-of-technology-bidadi-ramanagar",
+      "shortName": "Jnanavikasa",
+      "name": "Jnanavikasa Institute of Technology, Bidadi,Ramanagar VIDYA SOUDHA, 32ND K.M.BANGALORE - MYSORE HIGH WAY,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E121",
+      "appId": "vivekananada-college-of-engineering-technology-puttur",
+      "shortName": "Vivekananada E121",
+      "name": "Vivekananada College of Engineering Technology, Puttur NEHARU NAGARA,PUTTUR TALUK,DAKSHINA KANNADA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E123",
+      "appId": "canara-engineering-college-bantwal",
+      "shortName": "Canara Engineering",
+      "name": "Canara Engineering College Bantwal, BENJANAPADAVU,BANTWAL,PIN 574219,DAKSHINA KANNADA DIST,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E124",
+      "appId": "rajiv-gandhi-institute-of-technology-bangalore",
+      "shortName": "Rajiv Gandhi",
+      "name": "Rajiv Gandhi Institute of Technology, Bangalore CHOLANGAR,R.T.NAGAR POST, HEBBAL,BANGALORE-560032",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E126",
+      "appId": "b-m-s-institute-of-technology-management",
+      "shortName": "BMSIT&M",
+      "name": "B M S Institute of Technology & Management, Yelahanka, Bangalore(AUTONOMOUS) POST BOX NO.6443, AVALAHALLI,DODDABALLAPURA MAIN ROAD,YELAHANKA, BANGALORE - 560064.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E127",
+      "appId": "m-s-engineering-college-bangalore",
+      "shortName": "MS Engineering",
+      "name": "M S Engineering College, Bangalore NAVARATHNA AGRAHARA, SADAHALLIPOST, NEAR BIAL, BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E128",
+      "appId": "sharanbasava-university",
+      "shortName": "Sharanbasava E128",
+      "name": "Sharanbasava University (Formerly Appa Institute of Engineering and Tech) SHARNBASVESHWARA INSTITUTIONS CAMPUS , KALABURAGI ( GULBARGA) -585103 , KARNATAKA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E129",
+      "appId": "st-joseph-engineering-college-mangalore-mangalore",
+      "shortName": "St Joseph",
+      "name": "St.Joseph Engineering College, Mangalore(AUTONOMOUS) MANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E130",
+      "appId": "shridevi-institute-of-engineering-technology-tumkur",
+      "shortName": "Shridevi",
+      "name": "Shridevi Institute of Engineering & Technology, Tumkur MARELENAHALLY,SIRA ROAD ,TUMKUR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017
+      ]
+    },
+    {
+      "code": "E131",
+      "appId": null,
+      "shortName": null,
+      "name": "Basava Academy of Engineering, Bangalore",
+      "years": [
+        2016
+      ]
+    },
+    {
+      "code": "E132",
+      "appId": "secab-institute-of-engineering-technology-bijapur",
+      "shortName": "Secab",
+      "name": "Secab Institute of Engineering & Technology, Bijapur 424, NAURASPUR, BAGALKOT ROAD, HUDCO CROSS,BIJAPUR-586101",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E133",
+      "appId": "g-s-s-s-institute-of-engineering",
+      "shortName": "GSSS",
+      "name": "G S S S Institute of Engineering & Technology for Women, Mysore K.R.S. ROAD, METAGALLI INDUSTRIAL AREA, MYSORE-16",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E134",
+      "appId": "smt-kamala-sri-venkappa-m-agadi-college",
+      "shortName": "Kamala &",
+      "name": "Smt. Kamala & Sri Venkappa M.Agadi College of Engineering & Technology, Gadag SAVANUR ROAD, GULAGANJIKOPPA,LAXMESHWAR DIST: GADAG",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E135",
+      "appId": "k-l-s-viswanathrao-deshpande-institute-of",
+      "shortName": "KLS Viswanathrao",
+      "name": "K L S Viswanathrao Deshpande Institute of Technology, Haliyal UDYOG VIDYA NAGAR,DANDELI ROAD, HALIYAL-581329",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E136",
+      "appId": "moodalakatte-institute-of-technology-kundapura-udupi",
+      "shortName": "Moodalakatte",
+      "name": "Moodalakatte Institute of Technology, Kundapura, Udupi MOODLAKATTE,KUNDAPURA TALUK,UDUPI DISTRICT",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E137",
+      "appId": null,
+      "shortName": null,
+      "name": "Nadgir Institute of Engineering and Technology, Jindal Nagar,",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E139",
+      "appId": "impact-college-of-engineering-applied-sciences-bangalore",
+      "shortName": "Impact",
+      "name": "Impact College of Engineering & Applied Sciences, Bangalore KODIGEHALLI,SAHAKARANAGAR SOUTH BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E141",
+      "appId": "pes-university-hosur-rd-konappana-agrahara-electronic",
+      "shortName": "PES EC",
+      "name": "PES UNIVERSITY(Electronic City Campus) Hosur Rd, Konappana Agrahara, Electronic City, Bengaluru, Karnataka 560100",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E142",
+      "appId": "adhichunchanagiri-university",
+      "shortName": "Adhichunchanagiri E142",
+      "name": "Adhichunchanagiri University (Formerly B G S Institute of Technology) B.G.NAGARA ,NAGAMANGALA TALUK,MANDYA DISTRICT -571448",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E144",
+      "appId": "srinivas-institute-of-technology-mangalore",
+      "shortName": "Srinivas E144",
+      "name": "Srinivas Institute of Technology, Mangalore(Constituent College of Srinivasa University (Private University)) SRINIVAS CAMPUS",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E145",
+      "appId": "rajarajeswari-college-of-engineering-bangalore",
+      "shortName": "Rajarajeswari",
+      "name": "Rajarajeswari College of Engineering, Bangalore (AUTONOMOUS) #14, RAMOHOLLI CROSS,KUMBALGODU, MYSORE ROAD,BANGALORE - 560074",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E146",
+      "appId": "shreedevi-institute-of-technology-mangalore",
+      "shortName": "Shreedevi",
+      "name": "Shreedevi Institute of Technology, Mangalore AIRPORT ROAD, KENJAR VILLAGE,MALAVOOR PANCHAYAT,DAKSHINA KANNADA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E147",
+      "appId": "t-john-institute-of-technology-bangalore",
+      "shortName": "T John",
+      "name": "T.John Institute of technology, Bangalore #86/1, KAMMANAHALLI,GOTTIGERE,BANNERUGATTA ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E148",
+      "appId": null,
+      "shortName": null,
+      "name": "Nandi Institute of Technology and Management Sciences",
+      "years": [
+        2016
+      ]
+    },
+    {
+      "code": "E149",
+      "appId": "cambridge-institutute-of-technology-k-r-puram",
+      "shortName": "CIKRPB",
+      "name": "Cambridge Institutute of Technology, K.R.Puram, Bangalore(AUTONOMOUS) K R PURAM,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E150",
+      "appId": "p-e-s-institute-of-technology-management",
+      "shortName": "PES",
+      "name": "P E S Institute of Technology & Management, Shimoga GUDDADAARAKERE, KOTEGANGOORSAGAR ROAD,SHIMOGA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E151",
+      "appId": "mangalore-institute-of-technology-engineering-moodabidri-mangalore",
+      "shortName": "Mangalore",
+      "name": "Mangalore Institute of Technology & Engineering, Moodabidri, Mangalore(AUTONOMOUS) BADAGA MIJAR,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E152",
+      "appId": "s-d-m-institute-of-tech-ujire",
+      "shortName": "SDM",
+      "name": "S D M Institute of Tech., Ujire, Dakshina Kannada UJIRE-574240 DAKSHINA KANNADA KARNATAKA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E153",
+      "appId": "s-e-a-college-of-engineering-technology",
+      "shortName": "SEA",
+      "name": "S E A College of Engineering & Technology, Virgonagar, Bangalore EKTA NAGAR, BASAVANAPURA, VIRGO NAGAR POST, BANGALORE - 560 049.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E154",
+      "appId": "government-engineering-college-chamarajanagara",
+      "shortName": "GEC Chamarajanagara",
+      "name": "Government Engineering College, Chamarajanagara GOVERNMENT POLYTECHNIC CAMPUS,NANJANGUD ROAD,CHAMARAJANAGARA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E155",
+      "appId": "government-engineering-college-hassan",
+      "shortName": "GEC Hassan E155",
+      "name": "Government Engineering College, Hassan DAIRY CIRCLE, B M ROAD, HASSAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E156",
+      "appId": "k-r-pet-krishna-government-engineering-colleges",
+      "shortName": "KR PET",
+      "name": "K R PET KRISHNA, GOVERNMENT ENGINEERING COLLEGES, K R PET, MANDYA KRISHNARAJPET, MANDYA DIST. - 571 426,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E157",
+      "appId": "government-engineering-college-ramanagaram",
+      "shortName": "GEC Ramanagara",
+      "name": "Government Engineering College, Ramanagaram DODDAMANNUGUDDE, RAMANAGAR, RAMANAGAR DISTRICT - 571 511",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E158",
+      "appId": "maharaja-institute-of-technology-mysore-belawadi-srirangapatna",
+      "shortName": "Maharaja E158",
+      "name": "Maharaja Institute of Technology Mysore,Belawadi,Srirangapatna,Mandya(AUTONOMOUS) BEHIND K R MILLS,BELAWADI VILLAGE,NAGUVANAHALLI PANCHAYAT,SRIRANGAPATNA TALUK,MANDYA DISTRICT",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E159",
+      "appId": "karavali-institute-of-technology-neermarga-mangalore",
+      "shortName": "Karavali",
+      "name": "Karavali Institute of Technology, Neermarga, Mangalore PADU POST, VIA PEDUMALE,NEERUMARGA,MANGALORE -575029",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E160",
+      "appId": "sahyadri-college-of-engineering-management-adyar-mangalore",
+      "shortName": "Sahyadri",
+      "name": "Sahyadri College Of Engineering & Management, Adyar, Mangalore(AUTONOMOUS) 'SAHYADRI CAMPUS'N.H-48, ADYAR,MANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E161",
+      "appId": "government-engineering-college-kushalanagar",
+      "shortName": "GEC Madikeri",
+      "name": "Government Engineering College, Kushalanagar MEDIKERI ROAD,MADAPATNA,KUSHALANAGAR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E162",
+      "appId": "government-engineering-college-raichur",
+      "shortName": "GEC Raichur",
+      "name": "Government Engineering College, Raichur RAICHUR-HYDERABAD ROAD YERAMARUS,RAICHUR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E163",
+      "appId": "government-engineering-college-haveri-devagiri-haveri",
+      "shortName": "GEC Ranebennur",
+      "name": "Government Engineering College, Haveri DEVAGIRI,HAVERI",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E164",
+      "appId": "government-engineering-college-hoovina-hadagali",
+      "shortName": "GEC Ballari",
+      "name": "Government Engineering College, Hoovina Hadagali HUVINAHADAGALI 583219,DIST: VIJAYANAGARA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E165",
+      "appId": "yenepoya-institute-of-technology-mangalore",
+      "shortName": "Yenepoya",
+      "name": "Yenepoya Institute Of Technology, Mangalore VIDYANAGAR N.H 13THODAR MIJAR POST MOODBIDRI MANGALORE TQ",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E166",
+      "appId": null,
+      "shortName": null,
+      "name": "K L E Institute of Technology, Hubli",
+      "years": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E167",
+      "appId": "k-l-e-s-s-k-l",
+      "shortName": "KLES s KLE",
+      "name": "K L E S's K L E College of Engineering & Technology, Chikkodi, Belgaum Dist. BANANTIKODI ROAD CHIKODI,BELGAUM -591 201,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E168",
+      "appId": "amruta-institute-of-engineering-management-science-ramanagar",
+      "shortName": "Amruta",
+      "name": "Amruta Institute of Engineering & Management Science (AIEMS), Ramanagar BIDADI INDUSTRIAL AREA, OFF MYSORE ROAD, NEAR TOYOTA KIRLOSKAR MOTORS, BMRDA REGION, BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E169",
+      "appId": "alva-s-institute-of-engineering-technology-moodabidre",
+      "shortName": "Alva",
+      "name": "Alva's Institute of Engineering & Technology, Moodabidre, D.K (AUTONOMOUS) SHOBHAVANA CAMPUS,MIJAR,MOODBIDRI - 574225,MANGALORE TALUK,DHAKSHINA KANNADA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E171",
+      "appId": "brindavan-college-of-engineering-yelahanaka-bangalore",
+      "shortName": "Brindavan",
+      "name": "Brindavan College of Engineering, Yelahanaka, Bangalore DWARAKANAGARA, BAGALUR MAIN ROAD,YELAHANKA, BANGALORE - 560 063",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E172",
+      "appId": "r-r-institute-of-technology-chikkabanavara-bangalore",
+      "shortName": "RR",
+      "name": "R.R. Institute of Technology, Chikkabanavara, Bangalore(AUTONOMOUS) NO. 67, RAJA REDDY LAYOUT,NEAR CHIKKABANAVARA RAILWAY STATION,CHIKKABANAVARA,BANGALORE - 560090",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E173",
+      "appId": "sai-vidya-institute-of-technology-rajanakunte-bangalore",
+      "shortName": "Sai Vidya",
+      "name": "Sai Vidya Institute of Technology, Rajanakunte, Bangalore RAJANUKUNTE,DODDBALLAPURA ROAD ,VIA: YELAHANKA,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E174",
+      "appId": "dr-sri-sri-sri-shivakumara-mahaswamyji-college",
+      "shortName": "Dr Sri",
+      "name": "Dr. Sri Sri Sri Shivakumara Mahaswamyji College of Engineering, Byranayakanahalli, Bangalore Rural BYARANAYAKANAHALLI,DODDABALE POST,NELAMANGALA TALUK,BANGALORE RURAL DISTRICT",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E175",
+      "appId": "s-s-e-t-s-s-g",
+      "shortName": "SSET SSG",
+      "name": "S.S.E.T.S.S.G.Balekundri Institute of Technology, Shivabasavanagar, Belgaum SHIVABASAVA NAGAR, BELGAUM - 590010",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E176",
+      "appId": "navodaya-institute-of-technology-raichur",
+      "shortName": "Navodaya",
+      "name": "Navodaya Institute of Technology, Raichur(AUTONOMOUS) NAVODAYA NAGAR, MANATRALAYAM ROAD, RAICHUR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E177",
+      "appId": "rajeev-institute-of-technology-hassan",
+      "shortName": "Rajeev",
+      "name": "Rajeev Institute of Technology, Hassan(Autonomous) PLOT 1-D(P-1), GROWTH CENTRE, INDUSTRIAL AREA, BANGALORE MANGALORE BYPASS ROAD",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E178",
+      "appId": "the-national-institute-of-engineering-mysore-e178",
+      "shortName": "NIE E178",
+      "name": "The National Institute of Engineering, Mysore(AUTONOMOUS) MANANDAVADI ROAD,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E179",
+      "appId": null,
+      "shortName": null,
+      "name": "P N S Institute of Technology, Bangalore",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E180",
+      "appId": "beary-s-institute-of-technology-boliar-village",
+      "shortName": "Beary",
+      "name": "Beary's Institute of Technology, Boliar Village,Bantwal Tq, Mangalore LANDS END, INNOLI,BOLIYAR VILLAGE,NEAR MANGALORE UNIVERSITY,MANGALORE-574 153",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E181",
+      "appId": "sri-basaveswara-institute-of-technology-madenur-gate",
+      "shortName": "Basaveswara",
+      "name": "Sri Basaveswara Institute of Technology, Madenur Gate, B.H. Road, Tiptur",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2020,
+        2019,
+        2017
+      ]
+    },
+    {
+      "code": "E182",
+      "appId": null,
+      "shortName": null,
+      "name": "Shaikh College of Engineering and Technology, Bhootramanatti, Belgaum",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E183",
+      "appId": null,
+      "shortName": null,
+      "name": "Sha-Shib College of Engineering, Chickballapur",
+      "years": [
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E184",
+      "appId": "c-byre-gowda-institute-of-technology-thoradevandahalli",
+      "shortName": "C Byre Gowda",
+      "name": "C Byre Gowda Institute of Technology, Thoradevandahalli Village, Kolar SRINIVASPURA ROAD, THORADEVANDAHALLI, KOLAR-563101",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E185",
+      "appId": "angadi-institute-of-technology-and-management-savgoan",
+      "shortName": "Angadi",
+      "name": "Angadi Institute of Technology and Management , Savgoan Rd., Belgaum SAVAGAON ROAD BELGAUM",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E186",
+      "appId": "dr-acs-college-of-engineering-mysore-road",
+      "shortName": "Dr ACS",
+      "name": "Dr. ACS College of Engineering, Mysore Road, Bangalore 207,KAMBIPURA, MYSORE ROAD, KENGERI HOBLI,BANGALORE - 560074.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E187",
+      "appId": null,
+      "shortName": null,
+      "name": "Prasanna College of Engineering and Technology, D.K Dist",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E188",
+      "appId": "vijaya-vittala-institute-of-technology-doddagubbi-hennur",
+      "shortName": "Vijaya Vittala",
+      "name": "Vijaya Vittala Institute of Technology, Doddagubbi, Hennur Bagalur Road, Bangalore #35/1, DODDA GUBBI POST, HENNUR-BAGALURU ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E189",
+      "appId": "navkis-college-of-engineering-kiadb-industrial-area",
+      "shortName": "NAVKIS",
+      "name": "NAVKIS COLLEGE OF ENGINEERING, KIADB Industrial Area,Thimmanahally, Hassan P.B.NO. 55, NH-48, KIADB INDUSTRIAL AREA, THIMMANAHALLY, HASSAN-573201",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E190",
+      "appId": null,
+      "shortName": null,
+      "name": "Acharya N R V School of Architecture, Hesarghatta Main Road Banglore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E191",
+      "appId": "akshaya-institute-of-technology-lingapura-tumkur-dist",
+      "shortName": "Akshaya",
+      "name": "Akshaya Institute of Technology, Lingapura, Tumkur Dist. LINGAPURA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E193",
+      "appId": "srinivas-university-srinivas-campus-mukka-mangaluru",
+      "shortName": "Srinivas E193",
+      "name": "Srinivas University SRINIVAS CAMPUS MUKKA MANGALURU",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E194",
+      "appId": "government-engineering-college-karwar",
+      "shortName": "GEC Karwar",
+      "name": "Government Engineering College, Karwar MAJALI VILLAGE, KARWAR TALUK, UTTARA KANNADA DIST, KARNATAKA -PIN 581345",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E195",
+      "appId": null,
+      "shortName": null,
+      "name": "Ekalavya Institute of Teachnology, Chamaraja Nagar Tq.",
+      "years": [
+        2020,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E196",
+      "appId": "jain-college-of-engineering-machche-belgaum",
+      "shortName": "Jain E196",
+      "name": "Jain College of Engineering,Machche, Belgaum T.S. NAGAR,HUNCHANHATTI ROAD,MACCHE, BELGAUM- 590014.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E197",
+      "appId": "veerappa-nisty-engineering-college-shorapur-yadigir",
+      "shortName": "Veerappa Nisty",
+      "name": "Veerappa Nisty Engineering College, Shorapur, Yadigir POST:HASNAPUR, TQ:SHORAPUR, DIST: YADGIR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E198",
+      "appId": "sharanbasava-university-e198",
+      "shortName": "Sharanbasava E198",
+      "name": "Sharanbasava University (Exclusively for Women) (Formerly Goduati Engineering College For Women) SHARNBASVESHWARA INSTITUTIONS CAMPUS , KALABURAGI ( GULBARGA) -585103 , KARNATAKA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E199",
+      "appId": "agm-rural-engineering-college-varur-hubli",
+      "shortName": "AGM Rural",
+      "name": "AGM Rural Engineering College, Varur, Hubli NH-4, P.B. ROAD OPP VRL HEAD OFFICE VARUR.,DHARWAD",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E201",
+      "appId": "gopalan-college-of-engineering-management-k-r",
+      "shortName": "Gopalan",
+      "name": "Gopalan College of Engineering & Management, K.R. Puram, Bangalore(Autonomous) SONNENAHALLI, HOODI VILLAGE, ITPL ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E202",
+      "appId": "sampoorna-group-of-institutions-channapatana-bangalore-south",
+      "shortName": "SGICBS",
+      "name": "Sampoorna Group of Institutions, Channapatana, Bangalore South Channapatana, Bangalore South",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E203",
+      "appId": "k-s-school-of-engineering-management-mallasandra",
+      "shortName": "KS E203",
+      "name": "K S School of Engineering & Management, Mallasandra, Bangalore #15/1, MALLASANDRA, OFF KANAKAPURA ROAD, BANGALORE - 560062",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E204",
+      "appId": "bangalore-technological-institute-sarjapura-road-bangalore",
+      "shortName": "Bangalore",
+      "name": "Bangalore Technological Institute, Sarjapura Road, Bangalore SY NO.66/6,66/5,67/6,&67/5, KODATHI VILLAGE, VARTHOOR HOBLI,BANGALORE EAST TQ BANGALORE URBAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E205",
+      "appId": "atme-college-of-engineering-mysore",
+      "shortName": "ATME",
+      "name": "ATME College of Engineering, Mysore SY.NO.1002, HAROHALLI (MELLAHALLI),MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E206",
+      "appId": "shri-madhwa-vadiraja-institute-of-technology-and",
+      "shortName": "Madhwa Vadiraja",
+      "name": "Shri Madhwa Vadiraja Institute of Technology and Management, Udupi (Autonomous) VISHWOTHAMA NAGAR,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E207",
+      "appId": "v-s-m-s-somashekhar-r-kothiwale",
+      "shortName": "VSMS Somashekhar",
+      "name": "V S M`s Somashekhar R Kothiwale Institute of Technology,Nippani, Belgaum. BASAV-VIDYA NAGAR,BELGAUM",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E208",
+      "appId": null,
+      "shortName": null,
+      "name": "Achutha Institute of Technology, Bangalore",
+      "years": [
+        2023,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E209",
+      "appId": "jyothi-institute-of-technology-kanakapura-road-bangalore",
+      "shortName": "Jyothi",
+      "name": "Jyothi Institute of Technology, Kanakapura Road,Bangalore ,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E210",
+      "appId": "g-madegowda-institute-of-technology-bharathinagara-maddur",
+      "shortName": "G Madegowda",
+      "name": "G Madegowda Institute of Technology, Bharathinagara, Maddur, Mandya BHARATHINAGARA (K M DODDY) MADDUR TQ,MANDYA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E211",
+      "appId": "jain-institute-of-technology-davanagere",
+      "shortName": "Jain E211",
+      "name": "Jain Institute of Technology, Davanagere 323, BADA CROSS NEAR BLIND SCHOOL AVARAGERE DAVANGERE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E212",
+      "appId": "dayananda-sagar-academy-of-technology-management-technical",
+      "shortName": "Dayananda Sagar E212",
+      "name": "Dayananda Sagar Academy of Technology & Management Technical Campus, Bangalore(AUTONOMOUS) UDAYAPURA,KANAKAPURA ROAD,BANGALORE URBAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E213",
+      "appId": "lingarajappa-engineering-college-bidar",
+      "shortName": "Lingarajappa",
+      "name": "Lingarajappa Engineering College, Bidar SURVEY NO. 25/1, GORNALLI ,BIDAR",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E215",
+      "appId": null,
+      "shortName": null,
+      "name": "B M S School of Architecture, Yalahanka, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E216",
+      "appId": "shetty-institute-of-technology-gulbarga",
+      "shortName": "Shetty",
+      "name": "Shetty Institute of Technology,Gulbarga 5TH KM RAJAPUR SHAHABAD ROAD GULBARGA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E217",
+      "appId": null,
+      "shortName": null,
+      "name": "Girijabai Sail Institute of Technology, Majali Village, Karwar",
+      "years": [
+        2021,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E218",
+      "appId": null,
+      "shortName": null,
+      "name": "Sri Pillappa College of Engineering, Hesaraghatta,Bangalore",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E219",
+      "appId": null,
+      "shortName": null,
+      "name": "Mangalore Marine College and Technology, Mangalore",
+      "years": [
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E220",
+      "appId": "alliance-university-central-campus-chikkahadage-cross-chandapura",
+      "shortName": "ALLIANCE",
+      "name": "ALLIANCE University Central Campus, Chikkahadage Cross Chandapura-Anekal, Main Road, Bengaluru, Karnataka 562106",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E221",
+      "appId": "biluru-gurubasava-mahaswamiji-institute-of-technology-mudhol",
+      "shortName": "Biluru Gurubasava",
+      "name": "Biluru Gurubasava Mahaswamiji Institute of Technology,Mudhol,Bagalkote. MANTUR ROAD, MUDHOL,BAGALKOTE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E222",
+      "appId": "cambridge-institute-of-technology-north-campus-devanahalli",
+      "shortName": "Cambridge",
+      "name": "Cambridge Institute Of Technology, North Campus, Devanahalli, Bangalore SURVEY NO. 73, LINGADHEERA GOLLAHALLI, KUNDANA POST, DEVANAHALLI TALUK",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E223",
+      "appId": null,
+      "shortName": null,
+      "name": "Sri Vidya Vinayaka Institute of Technology",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E224",
+      "appId": null,
+      "shortName": null,
+      "name": "Impact School of Architecture, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E225",
+      "appId": null,
+      "shortName": null,
+      "name": "SJB School of Achitecture & Planning, Uthrahalli Road, Kengeri, Bangalore 67 BGS Health and Education City, Uttarahalli Road, Kengeri, Bangalore",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023
+      ]
+    },
+    {
+      "code": "E227",
+      "appId": "cauvery-institute-of-technology-koppalu-gate-sundahally",
+      "shortName": "Cauvery",
+      "name": "Cauvery institute of Technology, Koppalu gate, Sundahally, Mandya SUNDAHALLI, SIDDAIAHNA KOPPALU GATE, YELIHUR POST, KOTHATHI HOBLI, MANDYA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E228",
+      "appId": null,
+      "shortName": null,
+      "name": "Mysore School of Architecture, Lingabodi,Mysore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E229",
+      "appId": null,
+      "shortName": null,
+      "name": "Gopalan School of Architecture and Planning, Whitefield , Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E230",
+      "appId": null,
+      "shortName": null,
+      "name": "R R School of Architecture, Chikkabanvara, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E232",
+      "appId": "reva-university-rukmini-knowledge-park-kattigenahalli-yelahanka",
+      "shortName": "REVA",
+      "name": "REVA University RUKMINI KNOWLEDGE PARK, KATTIGENAHALLI, YELAHANKA,BANGALORE - 560064,",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E233",
+      "appId": null,
+      "shortName": null,
+      "name": "Jain Acharya Gundharnandi Maharaj Institute of Technology, Jamkhandi, Bagalkot Dist",
+      "years": [
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E235",
+      "appId": "m-s-ramaiah-university-of-applied-sciences",
+      "shortName": "MS Ramaiah",
+      "name": "M . S . Ramaiah University of Applied Sciences UNIVERSITY HOUSE, GNANAGANGOTHRI CAMPUS, NEW BEL ROAD, MSR ROAD, BANGALORE - 560054",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E236",
+      "appId": null,
+      "shortName": null,
+      "name": "Sri Vinayaka Institute of Technology, Coromandel Post,K.G.F",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E237",
+      "appId": "presidency-university-itgalpura-rajanukunte-yelahanka-bengaluru-560",
+      "shortName": "PRESIDENCY",
+      "name": "PRESIDENCY University ITGALPURA, RAJANUKUNTE, YELAHANKA, BENGALURU - 560 064",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E238",
+      "appId": "mysuru-royal-institute-of-technology-lakshmipura-road",
+      "shortName": "Mysuru Royal",
+      "name": "Mysuru Royal Institute Of Technology,Lakshmipura road,Mysuru LAKSHMIPURA ROAD, OFF MYSURU -BENGALURU HIGHWAY,MANDYA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E239",
+      "appId": "east-west-college-of-engineering-yelahanka-bangalore",
+      "shortName": "East West E239",
+      "name": "East West College Of Engineering, Yelahanka,Bangalore NO.13 SECTOR \"A\", YELAHANKA NEW TOWN,YELAHANKA, BANGALORE-560064",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E240",
+      "appId": "dayananda-sagar-university-devarakaggalahalli-village-harohalli-kanakapura",
+      "shortName": "Dayananda Sagar E240",
+      "name": "Dayananda Sagar University DEVARAKAGGALAHALLI VILLAGE, HAROHALLI, KANAKAPURA MAIN ROAD, RAMANAGAR DIST",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E241",
+      "appId": "kle-technological-university-bvbhoomaraddi-college-campus-vidyanagar",
+      "shortName": "KLE Technological",
+      "name": "KLE Technological University(Formerly (BVBCET) BVBHOOMARADDI COLLEGE CAMPUS, VIDYANAGAR, HUBBALLI",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E243",
+      "appId": null,
+      "shortName": null,
+      "name": "Adithya Academy of Architecture and Design, Yalahanka, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E244",
+      "appId": null,
+      "shortName": null,
+      "name": "R V College of Architecture, Chikkegowdanapally,Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E245",
+      "appId": null,
+      "shortName": null,
+      "name": "CMR University School of Architecture, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E246",
+      "appId": null,
+      "shortName": null,
+      "name": "The Oxford School of Architecture, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E248",
+      "appId": null,
+      "shortName": null,
+      "name": "Wadiyar Centre For Architecture, Mysuru",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E250",
+      "appId": null,
+      "shortName": null,
+      "name": "K S School of Architecture, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E252",
+      "appId": "mysore-college-of-engineering-and-management-mysore",
+      "shortName": "Mysore",
+      "name": "Mysore College Of Engineering and Management,Mysore CHIKAHALLI, VARUNA HOBALI, NEAR BIG BANYAN TREE, TN ROAD,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E254",
+      "appId": "a-j-institute-of-engineering-and-technology",
+      "shortName": "AJ",
+      "name": "A J Institute Of Engineering And Technology.Kottar chowki Boloor Village Mangalore KOTTARA CHOWKI BOLOOR VILLAGE,DAKSHINA KANNADA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E255",
+      "appId": "gandhi-institute-of-technology-and-management-gitam",
+      "shortName": "GANDHI",
+      "name": "GANDHI INSTITUTE OF TECHNOLOGY AND MANAGEMENT GITAM OFF CAMPUS BENGALURU NH 207, Nagadenehalli Doddaballapur taluk. Bengaluru-561203",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E256",
+      "appId": "rai-technological-university-11th-mile-gallu-doddaballapur",
+      "shortName": "RAI TECHNOLOGICAL",
+      "name": "RAI TECHNOLOGICAL UNIVERSITY 11TH MILE GALLU, DODDABALLAPUR - NELAMANGALA ROAD, MALLOHALLI VILLAGE KADANUR, DODDABALLAPUR TALUK, BENGALURU",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E257",
+      "appId": "cmr-university-main-campus-off-hennur-bagalur",
+      "shortName": "CMR E257",
+      "name": "CMR University Main Campus, Off Hennur Bagalur Main Road, Chagalatti, Bangalore",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E258",
+      "appId": "maharaja-institute-of-technology-tandavapura-mysore",
+      "shortName": "Maharaja E258",
+      "name": "Maharaja Institute of Technology,Tandavapura,Mysore THANDAVAPURA VILLAGA,ON NATIONAL HIGHWWAYNANJANAGUD TALUK,MYSORE DISTRICT",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E259",
+      "appId": null,
+      "shortName": null,
+      "name": "Sir M V School of Architecture,Hunasamaranahalli, Bangalore KRISHNADEVARAYANAGAR,HUNASAMARANAHALLI,VIA YELAHANKA,BANGALORE - 562 157",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E260",
+      "appId": null,
+      "shortName": null,
+      "name": "Nitte School of Architecture, YELAHANKA BANGALORE",
+      "years": [
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019
+      ]
+    },
+    {
+      "code": "E261",
+      "appId": null,
+      "shortName": null,
+      "name": "Angadi School of Architecture, BELAGAVI",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E263",
+      "appId": null,
+      "shortName": null,
+      "name": "School of Planning and Architecture, University of Mysore 2nd Floor, Senate Bhavan, Manasagangotri P.O., Mysore",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021
+      ]
+    },
+    {
+      "code": "E264",
+      "appId": "basav-engineering-school-of-technology-vijayapura",
+      "shortName": "BASAV ENGINEERING",
+      "name": "BASAV ENGINEERING SCHOOL OF TECHNOLOGY, VIJAYAPURA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2020,
+        2019,
+        2017
+      ]
+    },
+    {
+      "code": "E265",
+      "appId": "jain-college-of-engineering-and-technology-hubballi",
+      "shortName": "Jain E265",
+      "name": "Jain College of Engineering and Technology,Hubballi 404/4, 404/5, SAI NAGAR, UNKAL, HUBLI",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2017
+      ]
+    },
+    {
+      "code": "E266",
+      "appId": null,
+      "shortName": null,
+      "name": "B M S College of Architecture, Design and Planning ,Basavangudi, Bangalore POST BOX NO 1908, BULL TEMPLE ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E269",
+      "appId": "jain-college-of-engineering-and-research-belgaum",
+      "shortName": "Jain E269",
+      "name": "Jain College Of Engineering and Research, Belgaum SHREYAS CTS 1598 ADAJCENT TO TO FOUNDRY CLUSTER NEAR DUTCH INDUSTRIAL ESTATE CHANNAMMA NAGAR ANAGOL BELGAVI",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019
+      ]
+    },
+    {
+      "code": "E271",
+      "appId": null,
+      "shortName": null,
+      "name": "East West School of Architecture, Near Anjanagar,Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E272",
+      "appId": "government-engineering-college-talakal-koppal",
+      "shortName": "GEC Koppal E272",
+      "name": "Government Engineering College, Talakal, Koppal TALAKAL,TALUKA: YALABURGA, DIST: KOPPAL, KARNATAKA, PIN 583238",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019
+      ]
+    },
+    {
+      "code": "E273",
+      "appId": "government-engineering-college-viprasinagar-gangavathi",
+      "shortName": "GEC Koppal E273",
+      "name": "Government Engineering College, Viprasinagar, Gangavathi VIPRASAI NAGAR,GANGAVATHI,KOPPAL",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019
+      ]
+    },
+    {
+      "code": "E274",
+      "appId": "government-engineering-college-mosale-hosahalli-hassan",
+      "shortName": "GEC Hassan E274",
+      "name": "Government Engineering College, Mosale Hosahalli, Hassan MOSALEHOSAHALLI, HASSAN",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019
+      ]
+    },
+    {
+      "code": "E275",
+      "appId": "r-v-institute-of-technology-and-management",
+      "shortName": "RV E275",
+      "name": "R V Institute Of Technology and Management, Bengaluru KOTHANUR, 8TH PHASE J.P.NAGAR, BENGALURU-560 078.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019
+      ]
+    },
+    {
+      "code": "E276",
+      "appId": null,
+      "shortName": null,
+      "name": "Dayananda Sagar College of Architecture, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E278",
+      "appId": "visvesvaraya-technological-university-belagavi-viat-muddenahalli-campus",
+      "shortName": "VISVESVARAYA E278",
+      "name": "VISVESVARAYA TECHNOLOGICAL UNIVERSITY, BELAGAVI, VIAT, MUDDENAHALLI CAMPUS, CHIKKABALLAPUR Muddenahalli campus,Chickkaballapur",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ]
+    },
+    {
+      "code": "E279",
+      "appId": "visvesvaraya-technological-university-belagavi-campus-belagavi-jnana",
+      "shortName": "VISVESVARAYA E279",
+      "name": "VISVESVARAYA TECHNOLOGICAL UNIVERSITY, BELAGAVI CAMPUS, BELAGAVI JNANA SANGAMA, MACHHE, BELAGAVI",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020
+      ]
+    },
+    {
+      "code": "E280",
+      "appId": null,
+      "shortName": null,
+      "name": "G S S S School of Architecture for Women, Mysore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E281",
+      "appId": "government-engineering-college-challakere-chitradurga",
+      "shortName": "GEC Chitradurga",
+      "name": "Government Engineering College, Challakere, Chitradurga BALLARI ROAD CHALLAKERE,CHITRADURGA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021
+      ]
+    },
+    {
+      "code": "E283",
+      "appId": "university-of-mysuru-b-n-bahadur-institute",
+      "shortName": "University of E283",
+      "name": "University of Mysuru B.N.BAHADUR INSTITUTE OF MANAGEMENT SCIENCES, (DOS IN BUSSINESS ADMINISTRATION)UNIVERSITY OF MYSORE, MANASAGANGOTRI,HUNSUR ROAD,MYSORE.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021
+      ]
+    },
+    {
+      "code": "E284",
+      "appId": "sri-jayachamarajendra-college-of-engineering-mysore-e284",
+      "shortName": "SJCE E284",
+      "name": "Sri Jayachamarajendra College of Engineering(Constituent College of JSS Science & Technology University), Mysore JSS TECHNICAL INSTITUTIONS CAMPUS,MANASAGANGOTHRI PO,MYSORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021
+      ]
+    },
+    {
+      "code": "E285",
+      "appId": "rv-university-bangalore",
+      "shortName": "RV E285",
+      "name": "RV University , Bangalore R.V. VIDYANIKETAN POST, MYSORE ROAD,BANGALORE",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E286",
+      "appId": "bgs-college-of-engineering-technology-bangalore",
+      "shortName": "BGS",
+      "name": "BGS College of Engineering & Technology,Bangalore",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E287",
+      "appId": "vidyashilp-university-125-bettenahalli-kundana-hobli-chapparkallu",
+      "shortName": "Vidyashilp",
+      "name": "Vidyashilp University #125, Bettenahalli, Kundana Hobli, Chapparkallu Rd, Bengaluru, Karnataka 562110",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E288",
+      "appId": "garden-city-university-16th-km-old-madras",
+      "shortName": "Garden City",
+      "name": "Garden City University 16th KM, Old Madras Road (Near K R Puram), Bangalore, Karnataka, 560049.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E289",
+      "appId": "visvesvaraya-technological-university-vtu-cpgs-kalburgi",
+      "shortName": "Visvesvaraya E289",
+      "name": "Visvesvaraya Technological University,VTU,CPGS,Kalburgi.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E290",
+      "appId": "visvesvaraya-technological-university-vtu-cpgs-mysuru",
+      "shortName": "Visvesvaraya E290",
+      "name": "Visvesvaraya Technological University,VTU,CPGS,Mysuru.",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E291",
+      "appId": "government-engineering-college-naragund-gadag",
+      "shortName": "GEC Gadag",
+      "name": "Government Engineering College,Naragund,Gadag",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E292",
+      "appId": "government-engineering-college-mailur-bidar",
+      "shortName": "GEC Bidar",
+      "name": "Government Engineering College,Mailur,Bidar",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022
+      ]
+    },
+    {
+      "code": "E293",
+      "appId": null,
+      "shortName": null,
+      "name": "Poojya Dr.Shivakumar Swamiji School of Architecture, Gulbarga",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E294",
+      "appId": null,
+      "shortName": null,
+      "name": "School of Architecture, Srinivas Institute of Technology, Mangalore.",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E295",
+      "appId": null,
+      "shortName": null,
+      "name": "School of Architecture,K.L`S Gogte Inst. of Technology, Belgaum, Belgaum",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E296",
+      "appId": null,
+      "shortName": null,
+      "name": "School of Architecture,Siddaganga Institute of Technology, Tumkur, Tumkur",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E297",
+      "appId": "aditya-college-of-engineering-and-technology-survey",
+      "shortName": "ADITYA",
+      "name": "ADITYA COLLEGE OF ENGINEERING AND TECHNOLOGY SURVEY NO 2/8 2/9 AND 2/2, KAMAKSHIPURA, SONNENAHALLI PANCHAYATH, HESARAGHATTA HOBLI, YELAHANKA",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023
+      ]
+    },
+    {
+      "code": "E298",
+      "appId": null,
+      "shortName": null,
+      "name": "School of Architecture,M S Ramaiah Inst. of Technology, Bangalore, Bangalore",
+      "years": [
+        2024
+      ]
+    },
+    {
+      "code": "E299",
+      "appId": "ghousia-institute-of-technology-for-women-bangalore",
+      "shortName": "Ghousia",
+      "name": "Ghousia Institute of Technology for Women, Bangalore Hosur Road, DRC Post, Bangalore-29",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023
+      ]
+    },
+    {
+      "code": "E300",
+      "appId": "akash-intitute-of-engineering-and-technology-prasannahalli",
+      "shortName": "AIPMRA",
+      "name": "AKASH INTITUTE OF ENGINEERING AND TECHNOLOGY PRASANNAHALLI MAIN RAOD, AKKUPETE VILLAGE, KASABA HOBLI",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023
+      ]
+    },
+    {
+      "code": "E301",
+      "appId": "kishkinda-university-mount-view-campus-gp-no",
+      "shortName": "KISHKINDA",
+      "name": "KISHKINDA UNIVERSITY MOUNT VIEW CAMPUS, GP NO 735, HAGALURU, Hosalli Gram Panchayath, Near Sindhigeri, Off. 28 KM, Ballari – Siruguppa Road, Siruguppa Taluk – 583120,Ballari District, Karnataka, India",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023
+      ]
+    },
+    {
+      "code": "E302",
+      "appId": "amity-university-national-highway-648-devanahalli-doddaballapur",
+      "shortName": "AMITY",
+      "name": "AMITY UNIVERSITY National Highway 648 (old 207), Devanahalli - Doddaballapur Road",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023
+      ]
+    },
+    {
+      "code": "E303",
+      "appId": "gm-university-karur-village-kasaba-hobli-davangere",
+      "shortName": "GM E303",
+      "name": "GM University KARUR VILLAGE, KASABA HOBLI, DAVANGERE TALUK AND DISTRICT",
+      "years": [
+        2026,
+        2025,
+        2024,
+        2023
+      ]
+    },
+    {
+      "code": "E304",
+      "appId": "anuvartik-mirji-bharatesh-institute-of-technology-chandragiri",
+      "shortName": "ANUVARTIK MIRJI",
+      "name": "ANUVARTIK MIRJI BHARATESH INSTITUTE OF TECHNOLOGY Chandragiri Campus, Basavan Kudachi Extension,Belagavi",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E305",
+      "appId": "h-n-n-college-of-engineering-bengaluru",
+      "shortName": "HNN",
+      "name": "H N N COLLEGE OF ENGINEERING BENGALURU",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E306",
+      "appId": "the-chanakya-university-no-29-haraluru-devanahalli",
+      "shortName": "CHANAKYA",
+      "name": "THE CHANAKYA UNIVERSITY NO 29 HARALURU, DEVANAHALLI TALUK (NEAR BENGALURU INTERNATIONLA AIRPORT)",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E307",
+      "appId": "seshadripuram-institute-of-technology-mysuru-plot-no",
+      "shortName": "SESHADRIPURAM",
+      "name": "SESHADRIPURAM INSTITUTE OF TECHNOLOGY MYSURU Plot No. 4, 5, 6A,6B & 7B, Kadakola Industrial Area, Kadakola, Jayapura Hobli, Mysuru-571311, Karnataka, India",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E308",
+      "appId": "constituent-college-of-vtu-chintamani-chikaballapura-dist",
+      "shortName": "CONSTITUENT E308",
+      "name": "CONSTITUENT COLLEGE OF VTU, CHINTAMANI CHIKABALLAPURA DIST CHIKBALLAPURA",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E309",
+      "appId": "constituent-college-of-vtu-chintamani-chikaballapura-dist-e309",
+      "shortName": "CONSTITUENT E309",
+      "name": "CONSTITUENT COLLEGE OF VTU, CHINTAMANI CHIKABALLAPURA DIST CHIKBALLAPURA",
+      "years": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "code": "E310",
+      "appId": "government-engineering-college-arasikere-arasikere-hassan-district",
+      "shortName": "GEC Hassan E310",
+      "name": "GOVERNMENT ENGINEERING COLLEGE, ARASIKERE ARASIKERE, HASSAN DISTRICT",
+      "years": [
+        2026,
+        2025
+      ]
+    },
+    {
+      "code": "E311",
+      "appId": "rathinam-institute-of-technology-doddakammanahally-village-begur",
+      "shortName": "RATHINAM",
+      "name": "RATHINAM INSTITUTE OF TECHNOLOGY DODDAKAMMANAHALLY VILLAGE, BEGUR HOBLI,",
+      "years": [
+        2026,
+        2025
+      ]
+    },
+    {
+      "code": "E312",
+      "appId": "new-ebenezer-institute-of-technology-hennur-bagalur",
+      "shortName": "NEW EBENEZER",
+      "name": "NEW EBENEZER INSTITUTE OF TECHNOLOGY HENNUR BAGALUR MAIN ROAD, KOTHNUR POST,",
+      "years": [
+        2026,
+        2025
+      ]
+    },
+    {
+      "code": "E313",
+      "appId": "harsha-institute-of-technology-varadanayakana-hally-village",
+      "shortName": "HARSHA",
+      "name": "HARSHA INSTITUTE OF TECHNOLOGY VARADANAYAKANA HALLY VILLAGE, NELAMANGALA TALUK,",
+      "years": [
+        2026,
+        2025
+      ]
+    },
+    {
+      "code": "E314",
+      "appId": "cauvery-college-of-engineering-kbl-layout-alanahally",
+      "shortName": "CAUVERY",
+      "name": "CAUVERY COLLEGE OF ENGINEERING KBL LAYOUT, ALANAHALLY MYSORE",
+      "years": [
+        2026,
+        2025
+      ]
+    },
+    {
+      "code": "E315",
+      "appId": "vtu-constituent-engineering-college-gokak-gokak",
+      "shortName": "VTU Belagavi E315",
+      "name": "VTU Constituent Engineering College, Gokak GOKAK",
+      "years": [
+        2026,
+        2025
+      ]
+    },
+    {
+      "code": "E316",
+      "appId": "rv-university-nanjanagudu-polt-no-46-47",
+      "shortName": "RV E316",
+      "name": "RV University , NANJANAGUDU POLT NO 46,47,60,610P,KIADB INDUSTRIAL AREA, NANJANAGUDU, KARNATAKA 571302",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E317",
+      "appId": "vtu-constituent-engineering-college-gokak-gokak-e317",
+      "shortName": "VTU Belagavi E317",
+      "name": "VTU Constituent Engineering College, Gokak GOKAK",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E318",
+      "appId": "bms-university-bull-temple-road-bangalore",
+      "shortName": "BMS",
+      "name": "BMS UNIVERSITY BULL TEMPLE ROAD, BANGALORE",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E319",
+      "appId": "ramaiah-university-college-of-engineering-no-15",
+      "shortName": "RAMAIAH",
+      "name": "RAMAIAH UNIVERSITY COLLEGE OF ENGINEERING (A CONSTITUENT COLLEGE OF M.S. RAMAIAH UNIVESITY OF APPLIED SCIENCES) NO 15, KIADB, INDUSTRIAL AREA, BOMMASANDRA JIGANI LINK ROAD, BANGALURU-560105",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E320",
+      "appId": "koshys-institute-of-technology-bengaluru",
+      "shortName": "KOSHYS",
+      "name": "KOSHYS INSTITUTE OF TECHNOLOGY BENGALURU",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E321",
+      "appId": "university-of-mysuru-b-n-bahadur-institute-e321",
+      "shortName": "University of E321",
+      "name": "University of Mysuru B.N.BAHADUR INSTITUTE OF MANAGEMENT SCIENCES, (DOS IN BUSSINESS ADMINISTRATION)UNIVERSITY OF MYSORE, MANASAGANGOTRI,HUNSUR ROAD,MYSORE.",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E322",
+      "appId": "c-m-n-institute-of-technology",
+      "shortName": "CMN",
+      "name": "C M N Institute Of Technology #18, LINGADHIRANAHALLI, D GROUP EMPLOYEES LAYOUT, VISHWANEEDSM POST, OFF MAGADI ROAD, HEROHALLI, BANGALORE - 560091",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E323",
+      "appId": "future-forge-engineering-academy",
+      "shortName": "Future Forge",
+      "name": "Future Forge Engineering Academy VIDYANAGAR, HUBLI",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E324",
+      "appId": "isbr-college-of-engineering-and-technology",
+      "shortName": "ISBR",
+      "name": "ISBR College of Engineering and Technology 29-P1 AND 30, ELECTRONIC CITY, PHASE-2, BANGALORE-560100",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E325",
+      "appId": "dhanwantari-institute-of-technology",
+      "shortName": "Dhanwantari",
+      "name": "Dhanwantari Institute of Technology 39/1, VINAYAKA NAGAR, NEAR CHIKKABANAVARA RAILWAY STATION HESARAGATTA ROAD, CHIKKASANDRA, CHIKKABANAVARA, BANGALORE-560090",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E326",
+      "appId": "krupanidhi-institute-of-technology",
+      "shortName": "Krupanidhi",
+      "name": "Krupanidhi Institute of Technology NO 12/1, CHIKKABELLANDUR, CARMELARAM POST, VARTHUR HOBLI, OFF SARJAPUR ROAD",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E327",
+      "appId": "agm-college-of-engineering-and-technology-belgaum",
+      "shortName": "AGM",
+      "name": "AGM College of Engineering and Technology,Belgaum BELAGAVI",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E328",
+      "appId": "shri-swami-nagabhushan-gurukul-college-of-engineering",
+      "shortName": "Swami Nagabhushan",
+      "name": "Shri Swami Nagabhushan Gurukul College of Engineering and Technology Post Halasangi Taluka, Chadachana, Vijayapura",
+      "years": [
+        2026
+      ]
+    },
+    {
+      "code": "E504",
+      "appId": null,
+      "shortName": null,
+      "name": "Sambhram Institute of Technology, Bangalore (IInd Shift)",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E505",
+      "appId": null,
+      "shortName": null,
+      "name": "Shreedevi Institute of Technology, Kenjar, Mangalore (IInd Shift)",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E506",
+      "appId": null,
+      "shortName": null,
+      "name": "Srinivas Institute of Technology, Mangalore (IInd Shift)",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E507",
+      "appId": null,
+      "shortName": null,
+      "name": "New Horizon College of Engineering, Bangalore (IInd Shift)",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E508",
+      "appId": null,
+      "shortName": null,
+      "name": "Jain College of Engineering, Belgaum (IInd Shift)",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E509",
+      "appId": null,
+      "shortName": null,
+      "name": "A Shama Rao Foundation,, Srinivas School of Engineering, Mukka,",
+      "years": [
+        2016
+      ]
+    },
+    {
+      "code": "E510",
+      "appId": null,
+      "shortName": null,
+      "name": "Dayananda Sagar College of Engineering, Bangalore (IInd Shift)",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E511",
+      "appId": null,
+      "shortName": null,
+      "name": "Alva`s Institute of Engineering and Technology, Moodabidri,, (IInd Shift)",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E512",
+      "appId": null,
+      "shortName": null,
+      "name": "M V J College of Engineering, Bangalore (IInd Shift)",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E513",
+      "appId": null,
+      "shortName": null,
+      "name": "P A College of Engineering, Mangalore (IInd Shift)",
+      "years": [
+        2019,
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E514",
+      "appId": null,
+      "shortName": null,
+      "name": "St. Joseph Engineering College, Mangalore",
+      "years": [
+        2017,
+        2016
+      ]
+    },
+    {
+      "code": "E515",
+      "appId": null,
+      "shortName": null,
+      "name": "AGM Rural College OF Engineering & Technology, Hubli, Darward",
+      "years": [
+        2017,
+        2016
+      ]
+    }
+  ]
+}

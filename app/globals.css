@@ -604,6 +604,226 @@
 }
 
 /* ============================================================
+   Editorial layout system
+
+   .wrap   — the page measure: 1120px of content inside 80px
+             margins on desktop, 40px on tablet, 20px on phones.
+   .grid-editorial — 4 / 8 / 12 columns under the same breakpoints.
+
+   Every section breaks this grid at least once on purpose: a
+   watermark that bleeds off the edge, a band that runs full
+   width, a card that hangs into the margin.
+   ============================================================ */
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: calc(1120px + 160px);
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  .grid-editorial {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 12px;
+  }
+
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 40px;
+    }
+    .grid-editorial {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      column-gap: 16px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .wrap {
+      padding-inline: 80px;
+    }
+    .grid-editorial {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 20px;
+    }
+  }
+}
+
+/* Everything below sits in the components layer, so a utility on the same
+   element (a position, a colour, an animation delay) still wins. */
+@layer components {
+/* A huge word or number set behind a section. Pure texture: it is hidden
+   from assistive tech wherever it is used and never takes a click. */
+.watermark {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+}
+
+/* ── Hero blobs ──
+   Irregular shapes that slowly change outline. Transform rides along
+   with the radius so the drift is mostly compositor work; phones get a
+   still shape, since a blurred layer repainting every frame is the one
+   expensive thing on the page. */
+@keyframes blob-morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+    transform: translate3d(-3%, 4%, 0) rotate(20deg) scale(1.05);
+  }
+  66% {
+    border-radius: 28% 72% 38% 62% / 58% 34% 66% 42%;
+    transform: translate3d(3%, -2%, 0) rotate(-12deg) scale(0.97);
+  }
+}
+
+.blob {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  animation: blob-morph 22s var(--ease-in-out) infinite;
+}
+
+.blob-reverse {
+  animation-direction: reverse;
+  animation-duration: 26s;
+}
+
+@media (max-width: 767px) {
+  .blob {
+    animation: none;
+  }
+}
+
+/* ── Marquee: a band of real closing ranks that never stops ── */
+@keyframes marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── Bento: hovering one cell quiets the rest ── */
+@media (hover: hover) {
+  .bento:has(.bento-cell:hover) .bento-cell:not(:hover) {
+    opacity: 0.7;
+  }
+}
+
+.bento-cell {
+  transition:
+    opacity 250ms var(--ease-in-out),
+    transform 200ms var(--ease-in-out),
+    border-color 200ms var(--ease-in-out);
+}
+
+@media (hover: hover) {
+  .bento-cell:hover {
+    transform: scale(1.01);
+  }
+}
+
+/* ── Live badge ── */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s var(--ease-out) infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 400%, 0);
+  }
+}
+
+.scanline {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 35%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.04) 60%,
+    rgba(255, 255, 255, 0.09) 98%,
+    transparent
+  );
+  animation: scanline 4.5s linear infinite;
+}
+
+/* ── Loading: three dots that pass a beat along ── */
+@keyframes dot-beat {
+  0%,
+  80%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.dot-beat {
+  animation: dot-beat 0.9s var(--ease-in-out) infinite;
+}
+
+/* ── Blur-in loading: the content stays, soft, until it is ready ── */
+.blur-load {
+  transition:
+    filter 300ms var(--ease-out),
+    opacity 300ms var(--ease-out);
+}
+
+.blur-load[data-loading="true"] {
+  filter: blur(8px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ── Marks gauge: an arc that fills from the corner as the mark climbs ── */
+.gauge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition:
+    clip-path 500ms var(--ease-out),
+    background-color 400ms var(--ease-in-out);
+}
+}
+
+/* ============================================================
    Project utilities
    ============================================================ */
 

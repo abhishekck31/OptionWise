@@ -1,17 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
-import { AlertTriangle, CheckCircle2, Info } from "lucide-react";
-import {
-  Bar,
-  BarChart,
-  Cell,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { AlertTriangle, CheckCircle2, ChevronDown, Info } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -20,15 +11,15 @@ import {
 } from "@/components/ui/accordion";
 import { generateOptionEntryStrategy } from "@/lib/predict";
 import { useKCETHydration, useOptionList } from "@/hooks/useKCETStore";
+import { EASE_OUT } from "@/lib/motion";
+import type { OptionEntry, Tier } from "@/types";
 import { cn } from "@/lib/utils";
 
-const DM_MONO = "var(--font-dm-mono), monospace";
-
-const TIER_COLOR = {
+const TIER_COLOR: Record<Tier, string> = {
   Aspirational: "#CC3D2E",
   Moderate: "#F59E0B",
   Safe: "#10B981",
-} as const;
+};
 
 const TIPS = [
   {
@@ -48,162 +39,181 @@ const TIPS = [
   },
 ];
 
+const average = (entries: OptionEntry[]) =>
+  entries.length
+    ? entries.reduce((sum, e) => sum + e.prediction.avgPackage, 0) / entries.length
+    : 0;
+
+/* ─── Donut ───────────────────────────────────────────────────────────────── */
+
+function Donut({ segments }: { segments: { tier: Tier; count: number }[] }) {
+  const size = 120;
+  const stroke = 12;
+  const radius = (size - stroke) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const total = segments.reduce((n, s) => n + s.count, 0);
+  const largest = segments.reduce((a, b) => (b.count > a.count ? b : a), segments[0]);
+  const gap = total > 0 && segments.filter((s) => s.count > 0).length > 1 ? 4 : 0;
+
+  let offset = 0;
+  return (
+    <div className="relative mx-auto size-[120px]">
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="-rotate-90" aria-hidden>
+        <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth={stroke} />
+        {total > 0 &&
+          segments.map((segment) => {
+            const length = (segment.count / total) * circumference;
+            const dash = Math.max(0, length - gap);
+            const circle = (
+              <motion.circle
+                key={segment.tier}
+                cx={size / 2}
+                cy={size / 2}
+                r={radius}
+                fill="none"
+                stroke={TIER_COLOR[segment.tier]}
+                strokeWidth={stroke}
+                initial={false}
+                animate={{ strokeDasharray: `${dash} ${circumference}`, strokeDashoffset: -offset }}
+                transition={{ duration: 0.6, ease: EASE_OUT }}
+              />
+            );
+            offset += length;
+            return circle;
+          })}
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="font-mono text-[24px] font-medium leading-none text-white">
+          {total > 0 ? largest.count : 0}
+        </span>
+        <span className="mt-1 text-[10px] uppercase tracking-[0.1em] text-white/40">
+          {total > 0 ? (largest.tier === "Aspirational" ? "reach" : largest.tier) : "empty"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ─── The dashboard ───────────────────────────────────────────────────────── */
+
 export function StrategyPanel() {
   const hydrated = useKCETHydration();
   const optionList = useOptionList();
+  const [open, setOpen] = useState(false);
 
-  const strategy = useMemo(
-    () => generateOptionEntryStrategy(optionList),
-    [optionList]
-  );
+  const list = useMemo(() => (hydrated ? optionList : []), [hydrated, optionList]);
+  const strategy = useMemo(() => generateOptionEntryStrategy(list), [list]);
 
-  const distribution = useMemo(
-    () =>
-      (
-        [
-          ["Aspirational", strategy.aspirational.length],
-          ["Moderate", strategy.moderate.length],
-          ["Safe", strategy.safe.length],
-        ] as const
-      )
-        .filter(([, count]) => count > 0)
-        .map(([name, value]) => ({ name, value })),
-    [strategy]
-  );
+  const tiers: { tier: Tier; entries: OptionEntry[] }[] = [
+    { tier: "Aspirational", entries: strategy.aspirational },
+    { tier: "Moderate", entries: strategy.moderate },
+    { tier: "Safe", entries: strategy.safe },
+  ];
 
-  const packages = useMemo(
-    () =>
-      optionList.slice(0, 5).map((entry) => ({
-        name: entry.prediction.college.shortName,
-        package: entry.prediction.avgPackage,
-      })),
-    [optionList]
-  );
-
-  if (!hydrated) {
-    return (
-      <div className="h-64 animate-shimmer rounded-2xl border border-[#E5E0D8]" />
-    );
-  }
-
-  const tone =
-    optionList.length === 0
-      ? "border-[#E5E0D8] bg-white text-[#6B6B6B]"
-      : strategy.isBalanced
-        ? "border-[#B8DFC9] bg-[#E8F5EE] text-[#1F7A4A]"
-        : strategy.safe.length < 3
-          ? "border-[#F5C4BF] bg-[#FEE8E6] text-[#A02E1A]"
-          : "border-[#F5D9A0] bg-[#FEF3E2] text-[#8A4B0F]";
+  const packages = list.slice(0, 5).map((entry) => ({
+    id: entry.id,
+    name: entry.prediction.college.shortName,
+    value: entry.prediction.avgPackage,
+  }));
+  const maxPackage = Math.max(1, ...packages.map((p) => p.value));
 
   const AdviceIcon =
-    strategy.isBalanced && optionList.length > 0
-      ? CheckCircle2
-      : optionList.length === 0
-        ? Info
-        : AlertTriangle;
+    list.length === 0 ? Info : strategy.isBalanced ? CheckCircle2 : AlertTriangle;
+  const adviceTone =
+    list.length === 0 ? "text-white/50" : strategy.isBalanced ? "text-[#10B981]" : "text-[#F59E0B]";
 
   return (
-    <div className="space-y-4 lg:sticky lg:top-20">
-      <h2 className="type-h3">Strategy</h2>
-
-      {distribution.length > 0 && (
-        <div className="card">
-          <div className="h-36">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={distribution}
-                  dataKey="value"
-                  nameKey="name"
-                  innerRadius={34}
-                  outerRadius={58}
-                  paddingAngle={distribution.length > 1 ? 2 : 0}
-                  stroke="none"
-                  isAnimationActive={false}
-                >
-                  {distribution.map((slice) => (
-                    <Cell
-                      key={slice.name}
-                      fill={TIER_COLOR[slice.name as keyof typeof TIER_COLOR]}
-                    />
-                  ))}
-                </Pie>
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <dl className="mt-4 grid grid-cols-3 gap-2 border-t border-[#F0EDE8] pt-4 text-center">
-            {(
-              [
-                ["Aspirational", strategy.aspirational.length],
-                ["Moderate", strategy.moderate.length],
-                ["Safe", strategy.safe.length],
-              ] as const
-            ).map(([name, count]) => (
-              <div key={name}>
-                <dd className="font-mono text-[15px] font-medium text-[#1A1A1A]">{count}</dd>
-                <dt className="mt-1 flex items-center justify-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.06em] text-[#9B9B9B]">
-                  <span aria-hidden className="size-1.5 rounded-full" style={{ background: TIER_COLOR[name] }} />
-                  {name === "Aspirational" ? "Reach" : name}
-                </dt>
-              </div>
-            ))}
-          </dl>
-        </div>
-      )}
-
-      <div className={cn("flex items-start gap-3 rounded-2xl border px-5 py-4", tone)}>
-        <AdviceIcon className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} aria-hidden />
-        <p className="text-[13px] leading-[1.6]">{strategy.advice}</p>
+    <aside className="h-fit rounded-3xl bg-[#1A1A1A] text-white lg:sticky lg:top-24">
+      <div className="flex items-center justify-between px-8 pt-8">
+        <h2 className="text-3xl font-light tracking-[-0.02em] text-white">Strategy</h2>
+        {/* On a phone the dashboard folds away under its title. */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="strategy-body"
+          className="inline-flex size-9 items-center justify-center rounded-full bg-white/5 text-white/70 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
+        >
+          <span className="sr-only">{open ? "Hide strategy" : "Show strategy"}</span>
+          <ChevronDown
+            className={cn("size-4 transition-transform duration-200", open && "rotate-180")}
+            strokeWidth={1.5}
+            aria-hidden
+          />
+        </button>
       </div>
 
-      <div className="rounded-2xl border border-[#E5E0D8] bg-white px-5">
-        <Accordion type="single" collapsible defaultValue="order">
-          {TIPS.map((tip) => (
-            <AccordionItem key={tip.id} value={tip.id}>
-              <AccordionTrigger>{tip.title}</AccordionTrigger>
-              <AccordionContent>{tip.body}</AccordionContent>
-            </AccordionItem>
+      <div id="strategy-body" className={cn("px-8 pb-8", open ? "block" : "hidden", "lg:block")}>
+        <div className="mt-8">
+          <Donut segments={tiers.map((t) => ({ tier: t.tier, count: t.entries.length }))} />
+        </div>
+
+        <dl className="mt-8 space-y-1">
+          {tiers.map(({ tier, entries }) => (
+            <div
+              key={tier}
+              className="flex items-center gap-3 rounded-lg py-1.5 text-[13px] text-white/60 transition-colors duration-150 hover:text-white"
+            >
+              <span aria-hidden className="size-1.5 rounded-full" style={{ background: TIER_COLOR[tier] }} />
+              <dt className="flex-1">{tier}</dt>
+              <dd className="font-mono text-white">{entries.length}</dd>
+              <dd className="w-24 text-right font-mono text-[12px]">
+                {entries.length ? `avg ₹${average(entries).toFixed(1)} LPA` : "—"}
+              </dd>
+            </div>
           ))}
-        </Accordion>
-      </div>
+        </dl>
 
-      {packages.length > 0 && (
-        <div className="card">
-          <p className="type-label">
-            Average package, top {packages.length}
-          </p>
-          <p className="mt-1 text-[12px] text-[#9B9B9B]">
-            Indicative — not published by KEA
-          </p>
-          <div className="mt-3" style={{ height: packages.length * 34 + 20 }}>
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={packages}
-                layout="vertical"
-                margin={{ top: 0, right: 28, bottom: 0, left: 0 }}
-              >
-                <XAxis type="number" hide />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  width={92}
-                  tickLine={false}
-                  axisLine={false}
-                  tick={{ fill: "#6B6B6B", fontSize: 12 }}
-                />
-                <Bar
-                  dataKey="package"
-                  fill="#1A1A1A"
-                  radius={[0, 4, 4, 0]}
-                  barSize={12}
-                  isAnimationActive={false}
-                  label={{ position: "right", fill: "#6B6B6B", fontSize: 11, fontFamily: DM_MONO, formatter: (v: unknown) => `₹${v}L` }}
-                />
-              </BarChart>
-            </ResponsiveContainer>
+        <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <div className="flex items-start gap-3">
+            <AdviceIcon className={cn("mt-0.5 size-4 shrink-0", adviceTone)} strokeWidth={1.5} aria-hidden />
+            <p className="text-[14px] leading-[1.6] text-white/80">{strategy.advice}</p>
           </div>
         </div>
-      )}
+
+        {packages.length > 0 && (
+          <div className="mt-8">
+            <p className="text-[11px] uppercase tracking-[0.1em] text-white/40">
+              Average package · top {packages.length}
+            </p>
+            <ul className="mt-4 space-y-3">
+              {packages.map((p) => (
+                <li key={p.id}>
+                  <div className="flex items-baseline gap-3">
+                    <span className="truncate text-[12px] text-white/60">{p.name}</span>
+                    <span className="ml-auto font-mono text-[13px] text-white">₹{p.value}L</span>
+                  </div>
+                  <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-white/10">
+                    <motion.div
+                      className="h-full rounded-full bg-[#CC3D2E]"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(p.value / maxPackage) * 100}%` }}
+                      transition={{ duration: 0.6, ease: EASE_OUT }}
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-[11px] text-white/30">Indicative — not published by KEA</p>
+          </div>
+        )}
+      </div>
+    </aside>
+  );
+}
+
+/** The three things every student asks before counselling, kept on the light side of the page. */
+export function CounsellingNotes() {
+  return (
+    <div className="rounded-3xl border border-[#E5E0D8] bg-white px-6">
+      <Accordion type="single" collapsible defaultValue="order">
+        {TIPS.map((tip) => (
+          <AccordionItem key={tip.id} value={tip.id}>
+            <AccordionTrigger>{tip.title}</AccordionTrigger>
+            <AccordionContent>{tip.body}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   );
 }

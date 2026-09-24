@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import PageWrapper from "@/components/PageWrapper";
-import StrategyPanel from "@/components/StrategyPanel";
+import OptionsHeader from "@/components/OptionsHeader";
+import StrategyPanel, { CounsellingNotes } from "@/components/StrategyPanel";
 import Disclaimer from "@/components/shared/Disclaimer";
 
 export const metadata: Metadata = {
@@ -16,33 +17,27 @@ const OptionEntryBuilder = dynamic(
   () => import("@/components/OptionEntryBuilder"),
   {
     loading: () => (
-      <div className="h-64 animate-shimmer rounded-2xl border border-[#E5E0D8]" />
+      <div className="blur-load h-72 rounded-3xl border border-[#E5E0D8] bg-white" data-loading="true" />
     ),
   }
 );
 
 export default function OptionsPage() {
   return (
-    <PageWrapper>
-      <div className="mx-auto max-w-[1120px] px-6 sm:px-8">
-        <header className="max-w-[720px]">
-          <h1 className="type-h1">
-            Option Entry Builder
-          </h1>
-          <p className="type-body-lg mt-4">
-            KEA walks your list from the top and gives you the first seat you
-            qualify for. Drag to set the order, and keep enough safe choices at
-            the bottom that the list cannot run out.
-          </p>
-        </header>
+    <PageWrapper className="py-0 md:py-0">
+      <OptionsHeader />
 
-        <div className="mt-8">
-          <Disclaimer />
-        </div>
-
-        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,65fr)_minmax(0,35fr)]">
-          <OptionEntryBuilder />
-          <StrategyPanel />
+      <div className="wrap pb-24">
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+          <div className="min-w-0 space-y-6">
+            <OptionEntryBuilder />
+            <CounsellingNotes />
+            <Disclaimer />
+          </div>
+          {/* On a phone the dashboard comes first, folded, so the list is not buried. */}
+          <div className="order-first lg:order-none">
+            <StrategyPanel />
+          </div>
         </div>
       </div>
     </PageWrapper>

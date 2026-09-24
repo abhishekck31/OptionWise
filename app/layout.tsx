@@ -64,7 +64,8 @@ export default function RootLayout({
       className={`scroll-smooth ${dmSans.variable} ${dmMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-[#F7F4F0] font-sans text-[#1A1A1A] antialiased">
+      {/* pt matches the fixed navbar's 52px, so nothing starts underneath it. */}
+      <body className="min-h-screen bg-[#F7F4F0] pt-[52px] font-sans text-[#1A1A1A] antialiased">
         <NuqsAdapter>
           <TooltipProvider delayDuration={150}>
             <ToastProvider>

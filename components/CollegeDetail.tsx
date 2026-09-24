@@ -1,51 +1,25 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import LinkedInSearch from "@/components/LinkedInSearch";
-import Disclaimer from "@/components/shared/Disclaimer";
-import { CATEGORY_GROUPS } from "@/components/shared/CategoryPicker";
-import { getBranchesWithCutoffs, getCutoff, VERIFIED_YEAR } from "@/lib/data/cutoffs";
-import { AVAILABLE_YEARS } from "@/lib/data/cutoffs";
-import { useKCETHydration, useRank } from "@/hooks/useKCETStore";
+import CollegeCutoffs from "@/components/kea/CollegeCutoffs";
+import { useSlotMachine } from "@/hooks/useSlotMachine";
+import { courseGroup, titleCase } from "@/lib/kea/courses";
+import { collegeShortName, LATEST_YEAR } from "@/lib/kea/meta";
+import type { KeaCollegeFile } from "@/lib/kea/types";
 import { formatCount, formatFee, formatRank } from "@/lib/format";
-import { BRANCHES, CATEGORIES } from "@/types";
-import type { Branch, Category, College } from "@/types";
+import { EASE_OUT } from "@/lib/motion";
+import { BRANCHES } from "@/types";
+import type { College } from "@/types";
 import { cn } from "@/lib/utils";
 
-// recharts is the heaviest thing on the page and only the first tab needs it.
-const RankTrendChart = dynamic(() => import("@/components/RankTrendChart"), {
-  ssr: false,
-  loading: () => (
-    <div className="h-[340px] animate-shimmer rounded-2xl border border-[#E5E0D8]" />
-  ),
-});
-
-const TAB_ITEMS = [
-  { value: "cutoffs", label: "Cutoffs" },
-  { value: "about", label: "About" },
-  { value: "alumni", label: "Alumni" },
-] as const;
-
-/** Shared trigger styling; `!` because this Select merges classes without deduping. */
-const SELECT_TRIGGER =
-  "h-10! rounded-xl! border-[#E0DCD4]! bg-white! px-4! text-[14px]!";
-
-function Chip({ children }: { children: React.ReactNode }) {
+function DarkBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex h-7 items-center rounded-lg border border-[#E5E0D8] bg-[#F7F4F0] px-2.5 text-[12px] font-medium text-[#6B6B6B]">
+    <span className="inline-flex h-7 items-center rounded-full border border-white/20 bg-white/10 px-3 text-[12px] font-medium text-white/70">
       {children}
     </span>
   );
@@ -53,365 +27,277 @@ function Chip({ children }: { children: React.ReactNode }) {
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex h-7 items-center rounded-lg border border-[#E5E0D8] bg-white px-2.5 text-[13px] text-[#3D3D3D]">
+    <span className="inline-flex h-8 items-center rounded-full border border-[#E5E0D8] bg-white px-3 text-[13px] text-[#3D3D3D]">
       {children}
     </span>
   );
 }
 
-export interface CollegeDetailProps {
-  college: College;
-  initialBranch: Branch;
-  initialCategory: Category;
+/** The header's key number, spun in on arrival. */
+function KeyNumber({ value }: { value: number }) {
+  const text = useSlotMachine(formatRank(value), { delay: 300 });
+  return <span className="tabular-nums">{text}</span>;
 }
 
-export function CollegeDetail({
-  college,
-  initialBranch,
-  initialCategory,
-}: CollegeDetailProps) {
-  const hydrated = useKCETHydration();
-  const studentRank = useRank();
+export interface CollegeDetailProps {
+  history: KeaCollegeFile;
+  /** The app's profile of the college, when it has one; older KEA-only colleges do not. */
+  college: College | null;
+  initialCategory: string;
+  initialBranch?: string;
+}
 
-  const branches = useMemo(
-    () => getBranchesWithCutoffs(college.id),
-    [college.id]
-  );
+export function CollegeDetail({ history, college, initialCategory, initialBranch }: CollegeDetailProps) {
+  const reduceMotion = useReducedMotion();
+  const latest = history.years[0];
+  const name = college?.name ?? latest?.name ?? history.code;
 
-  const [branch, setBranch] = useState<Branch>(
-    branches.includes(initialBranch) ? initialBranch : (branches[0] ?? "CSE")
-  );
-  const [category, setCategory] = useState<Category>(initialCategory);
-
-  /* The one number the page leads with: CSE general merit, or the first
-   * branch with a published figure when the college has no CSE seat. */
+  /* The number the page leads with: GM in the final general round of the
+   * latest year, for computer science when the college offers it. */
   const headline = useMemo(() => {
-    const order: Branch[] = branches.includes("CSE")
-      ? ["CSE", ...branches.filter((b) => b !== "CSE")]
-      : branches;
-    for (const b of order) {
-      const row = getCutoff(college.id, b, "GM", "R3");
-      if (row) return { branch: b, rank: row.closingRank };
-    }
-    return null;
-  }, [college.id, branches]);
+    if (!latest) return null;
+    const report = latest.reports.filter((r) => r.pool === "GEN").at(-1);
+    const gm = latest.categories.indexOf("GM");
+    if (!report || gm < 0) return null;
+    const courses = latest.courses.filter((c) => (c.ranks[report.id]?.[gm] ?? 0) > 0);
+    const cse = courses.find((c) => courseGroup(c.name, c.courseCode).branch === "CSE");
+    const course = cse ?? courses[0];
+    if (!course) return null;
+    const branch = courseGroup(course.name, course.courseCode).branch;
+    return {
+      rank: course.ranks[report.id][gm],
+      label: branch ? branch : titleCase(course.name),
+      year: latest.year,
+      report,
+    };
+  }, [latest]);
 
-  const years = useMemo(
-    () =>
-      [...AVAILABLE_YEARS].sort((a, b) => b - a).map((year) => ({
-        year,
-        r1: getCutoff(college.id, branch, category, "R1", year)?.closingRank,
-        r2: getCutoff(college.id, branch, category, "R2", year)?.closingRank,
-        r3: getCutoff(college.id, branch, category, "R3", year)?.closingRank,
-      })),
-    [college.id, branch, category]
-  );
+  const courseNames = useMemo(() => {
+    const seen = new Set<string>();
+    return (latest?.courses ?? [])
+      .map((c) => {
+        const g = courseGroup(c.name, c.courseCode);
+        return g.branch ? BRANCHES[g.branch] : titleCase(c.name);
+      })
+      .filter((n) => (seen.has(n) ? false : (seen.add(n), true)));
+  }, [latest]);
 
-  const facts = [
-    { label: "Average package", value: `₹${college.avgPackage} LPA` },
-    { label: "Highest package", value: `₹${college.highestPackage} LPA` },
-    { label: "Annual fee", value: formatFee(college.annualFee) },
-    {
-      label: "Hostel",
-      value:
-        college.hasHostel && college.hostelType !== "None"
-          ? college.hostelType === "Both"
-            ? "Boys and girls"
-            : college.hostelType
-          : "Not recorded",
-      text: true,
-    },
+  const facts = college
+    ? [
+        { label: "Average package", value: `₹${college.avgPackage} LPA` },
+        { label: "Highest package", value: `₹${college.highestPackage} LPA` },
+        { label: "Annual fee", value: formatFee(college.annualFee) },
+        {
+          label: "Hostel",
+          value:
+            college.hasHostel && college.hostelType !== "None"
+              ? college.hostelType === "Both"
+                ? "Boys and girls"
+                : college.hostelType
+              : "Not recorded",
+          text: true,
+        },
+      ]
+    : [];
+
+  const enter = (delay: number) => ({
+    initial: reduceMotion ? false : ({ opacity: 0, y: 24 } as const),
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: EASE_OUT, delay },
+  });
+
+  const years = history.years.map((y) => y.year);
+  const tabs = [
+    { value: "cutoffs", label: "Year-wise cut-offs" },
+    ...(college ? [{ value: "about", label: "About" }] : []),
+    { value: "alumni", label: "Alumni" },
   ];
 
   return (
     <>
-      {/* ── Header ── */}
-      <header className="border-b border-[#E5E0D8] bg-white">
-        <div className="mx-auto max-w-[1120px] px-6 pb-10 pt-8 sm:px-8">
-          <Link
-            href="/predict/college"
-            className="group inline-flex items-center gap-1.5 text-[13px] font-medium text-[#6B6B6B] transition-colors hover:text-[#1A1A1A]"
-          >
-            <ArrowLeft
-              className="size-3.5 transition-transform duration-150 group-hover:-translate-x-0.5"
-              strokeWidth={1.5}
-              aria-hidden
-            />
-            College Finder
-          </Link>
+      {/* ── Header: the page's one dark moment ── */}
+      <header className={cn("bg-[#1A1A1A] pt-20", facts.length ? "pb-32" : "pb-16")}>
+        <div className="wrap">
+          <div className="grid-editorial items-end gap-y-12">
+            <motion.div {...enter(0)} className="col-span-4 min-w-0 md:col-span-5 xl:col-span-7">
+              <nav aria-label="Breadcrumb" className="text-[13px] text-white/30">
+                <ol className="flex flex-wrap items-center gap-2">
+                  <li>
+                    <Link href="/cutoffs" className="transition-colors hover:text-white/70">
+                      Cut-offs
+                    </Link>
+                  </li>
+                  {college && (
+                    <>
+                      <li aria-hidden className="text-white/20">/</li>
+                      <li>{college.city}</li>
+                    </>
+                  )}
+                  <li aria-hidden className="text-white/20">/</li>
+                  <li aria-current="page" className="text-white/50">
+                    {collegeShortName(history.code, latest?.name)}
+                  </li>
+                </ol>
+              </nav>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
-            <div className="min-w-0">
-              <p className="type-caption">
-                KEA code <span className="font-mono normal-case tracking-normal text-[#6B6B6B]">{college.kea_code}</span>
-              </p>
-              <h1 className="type-h1 mt-3 max-w-[720px] text-balance">{college.name}</h1>
+              <h1 className="mt-6 text-balance text-[clamp(2.25rem,4vw,3.75rem)] font-light leading-[1.05] tracking-[-0.03em] text-white">
+                {name}
+              </h1>
 
-              <div className="mt-6 flex flex-wrap items-center gap-2">
-                <Chip>{college.city}</Chip>
-                <Chip>{college.type}</Chip>
-                <Chip>{college.affiliation}</Chip>
-                {college.nirfRank !== null && (
-                  <Chip>
-                    NIRF <span className="ml-1 font-mono text-[#1A1A1A]">{college.nirfRank}</span>
-                  </Chip>
-                )}
-                {college.naacGrade && (
-                  <Chip>
-                    NAAC <span className="ml-1 text-[#1A1A1A]">{college.naacGrade}</span>
-                  </Chip>
-                )}
-                <Chip>
-                  Est. <span className="ml-1 font-mono text-[#1A1A1A]">{college.established}</span>
-                </Chip>
-                {college.website && (
+              <div className="mt-8 flex flex-wrap items-center gap-2">
+                {college && <DarkBadge>{college.type}</DarkBadge>}
+                {college?.naacGrade && <DarkBadge>NAAC {college.naacGrade}</DarkBadge>}
+                {college && <DarkBadge>{college.city}</DarkBadge>}
+                <DarkBadge>
+                  KEA data <span className="ml-1 font-mono">{years.at(-1)}–{years[0]}</span>
+                </DarkBadge>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+                {college?.website && (
                   <a
                     href={college.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-1 inline-flex items-center gap-1 text-[13px] font-medium text-[#6B6B6B] transition-colors hover:text-[#1A1A1A]"
+                    className="inline-flex items-center gap-1 font-medium text-[#CC3D2E] transition-colors hover:text-[#E0594A]"
                   >
-                    Website
+                    Visit Website
                     <ArrowUpRight className="size-3.5" strokeWidth={1.5} aria-hidden />
                   </a>
                 )}
+                <span className="text-white/30">
+                  KEA Code: <span className="font-mono">{history.code}</span>
+                </span>
+                {!college && latest && latest.year < LATEST_YEAR && (
+                  <span className="text-white/30">Last listed by KEA in {latest.year}</span>
+                )}
               </div>
-            </div>
+            </motion.div>
 
             {headline && (
-              <div className="lg:text-right">
-                <p className="font-mono text-[64px] font-medium leading-none tracking-[-0.03em] text-[#CC3D2E]">
-                  {formatRank(headline.rank)}
+              <motion.div {...enter(0.15)} className="col-span-4 md:col-span-3 md:text-right xl:col-span-5">
+                <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-white/40">
+                  {headline.label} GM closing rank
                 </p>
-                <p className="type-caption mt-3">
-                  {headline.branch} GM closing rank {VERIFIED_YEAR}
+                <p className="mt-3 font-mono text-[clamp(3.5rem,7vw,7rem)] font-medium leading-[0.9] tracking-[-0.04em] text-white">
+                  <KeyNumber value={headline.rank} />
                 </p>
-              </div>
+                <p className="mt-4 text-[13px] text-white/30">
+                  {headline.year} · {headline.report.label}
+                  {headline.report.mock && " (mock)"}
+                  {headline.report.provisional && " (provisional)"} · Official KEA data
+                </p>
+              </motion.div>
             )}
           </div>
-
-          <dl className="scrollbar-none -mx-6 mt-10 flex snap-x gap-3 overflow-x-auto px-6 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-4">
-            {facts.map((fact) => (
-              <div
-                key={fact.label}
-                className="min-w-[160px] shrink-0 snap-start rounded-xl bg-[#F7F4F0] p-4 lg:min-w-0"
-              >
-                <dd
-                  className={cn(
-                    "text-[17px] font-medium text-[#1A1A1A]",
-                    fact.text ? "tracking-[-0.01em]" : "font-mono"
-                  )}
-                >
-                  {fact.value}
-                </dd>
-                <dt className="type-caption mt-1.5">{fact.label}</dt>
-              </div>
-            ))}
-          </dl>
-
-          <p className="type-body-sm mt-4 text-[#9B9B9B]">
-            Fees, packages and hostels are indicative. KEA publishes cutoff ranks
-            only, so confirm these with the college.
-          </p>
         </div>
       </header>
 
-      {/* ── Body ── */}
-      <div className="mx-auto max-w-[1120px] px-6 pt-10 sm:px-8">
-        <Tabs defaultValue="cutoffs">
-          <TabsList
-            variant="line"
-            className="h-auto w-full justify-start gap-8 rounded-none border-b border-[#E5E0D8] p-0"
-          >
-            {TAB_ITEMS.map((tab) => (
-              <TabsTrigger
-                key={tab.value}
-                value={tab.value}
-                className="h-auto flex-none rounded-none border-0 border-b-2 border-transparent px-0 pb-3 text-[14px] font-medium text-[#6B6B6B] after:hidden hover:text-[#1A1A1A] data-[state=active]:border-[#1A1A1A] data-[state=active]:bg-transparent data-[state=active]:text-[#1A1A1A]"
-              >
-                {tab.label}
-              </TabsTrigger>
+      {/* ── Stats band: breaks out of the header and over the page ── */}
+      {facts.length > 0 && (
+        <div className="wrap relative z-10 -mt-10">
+          <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+            {facts.map((fact, i) => (
+              <motion.div key={fact.label} {...enter(0.25 + i * 0.06)} className="rounded-2xl border border-[#E5E0D8] bg-white p-5 md:p-6">
+                <dd className={cn("text-[clamp(1rem,1.8vw,1.375rem)] font-medium text-[#1A1A1A]", fact.text ? "tracking-[-0.01em]" : "font-mono tracking-[-0.02em]")}>
+                  {fact.value}
+                </dd>
+                <dt className="type-caption mt-2">{fact.label}</dt>
+              </motion.div>
             ))}
-          </TabsList>
+          </dl>
+          <p className="mt-4 text-[12px] text-[#9B9B9B]">
+            Fees, packages and hostels are indicative. KEA publishes cut-off ranks only, so confirm these with the college.
+          </p>
+        </div>
+      )}
 
-          {/* ── Cutoffs ── */}
-          <TabsContent value="cutoffs" className="mt-8 space-y-6">
-            <div className="flex flex-wrap items-center gap-3">
-              {branches.length <= 6 ? (
-                <div role="group" aria-label="Branch" className="flex flex-wrap gap-1.5">
-                  {branches.map((b) => (
-                    <button
-                      key={b}
-                      type="button"
-                      aria-pressed={branch === b}
-                      title={BRANCHES[b]}
-                      onClick={() => setBranch(b)}
-                      className={cn(
-                        "h-9 rounded-[10px] border px-3.5 font-mono text-[13px] font-medium transition-colors duration-150 active:scale-[0.97]",
-                        branch === b
-                          ? "border-[#1A1A1A] bg-[#1A1A1A] text-white"
-                          : "border-[#E5E0D8] bg-white text-[#6B6B6B] hover:border-[#C9C4BC] hover:text-[#1A1A1A]"
-                      )}
-                    >
-                      {b}
-                    </button>
-                  ))}
-                </div>
-              ) : (
-                <Select value={branch} onValueChange={(next) => setBranch(next as Branch)}>
-                  <SelectTrigger aria-label="Branch" className={cn(SELECT_TRIGGER, "w-[280px]!")}>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {branches.map((b) => (
-                      <SelectItem key={b} value={b}>
-                        {BRANCHES[b]}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              )}
-
-              <Select value={category} onValueChange={(next) => setCategory(next as Category)}>
-                <SelectTrigger aria-label="Category" className={cn(SELECT_TRIGGER, "w-[220px]!")}>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {CATEGORY_GROUPS.map((group) => (
-                    <SelectGroup key={group.label}>
-                      <SelectLabel className="type-caption">{group.label}</SelectLabel>
-                      {group.keys.map((key) => (
-                        <SelectItem key={key} value={key}>
-                          {CATEGORIES[key]}
-                        </SelectItem>
-                      ))}
-                    </SelectGroup>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            <RankTrendChart
-              collegeId={college.id}
-              branch={branch}
-              category={category}
-              studentRank={hydrated ? studentRank : undefined}
-            />
-
-            <div className="overflow-x-auto rounded-2xl border border-[#E5E0D8] bg-white">
-              <table className="w-full text-left text-[14px]">
-                <thead>
-                  <tr className="border-b border-[#E5E0D8]">
-                    {["Year", "Round 1", "Round 2", "Round 3", "Source"].map((h, i) => (
-                      <th
-                        key={h}
-                        className={cn(
-                          "type-caption px-5 py-3.5 font-medium",
-                          i > 0 && i < 4 && "text-right"
-                        )}
-                      >
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {years.map((row) => {
-                    const published = row.year === VERIFIED_YEAR;
-                    const cell = (n?: number) => (n !== undefined ? formatRank(n) : "—");
-                    return (
-                      <tr
-                        key={row.year}
-                        className={cn(
-                          "border-b border-[#F0EDE8] last:border-b-0",
-                          published && "bg-[#FAF8F5]"
-                        )}
-                      >
-                        <td className="px-5 py-3 font-mono text-[#1A1A1A]">{row.year}</td>
-                        <td className="px-5 py-3 text-right font-mono text-[#6B6B6B]">{cell(row.r1)}</td>
-                        <td className="px-5 py-3 text-right font-mono text-[#6B6B6B]">{cell(row.r2)}</td>
-                        <td className="px-5 py-3 text-right font-mono font-medium text-[#1A1A1A]">{cell(row.r3)}</td>
-                        <td className="px-5 py-3 text-[12px]">
-                          {published ? (
-                            <span className="inline-flex items-center gap-1.5 font-medium text-[#1F7A4A]">
-                              <span aria-hidden className="size-1.5 rounded-full bg-current" />
-                              Published
-                            </span>
-                          ) : (
-                            <span className="text-[#9B9B9B]">Projected</span>
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-
-            <Disclaimer />
-          </TabsContent>
-
-          {/* ── About ── */}
-          <TabsContent value="about" className="mt-8 space-y-10">
-            <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                ["College type", college.type, false],
-                ["Affiliation", college.affiliation, false],
-                ["Established", String(college.established), true],
-                ["Sanctioned seats", formatCount(college.totalSeats), true],
-                ["District", college.district, false],
-                ["Region", college.region, false],
-              ].map(([label, value, mono]) => (
-                <div key={String(label)} className="rounded-xl border border-[#E5E0D8] bg-white p-5">
-                  <dd className={cn("text-[15px] font-medium text-[#1A1A1A]", mono && "font-mono")}>
-                    {value}
-                  </dd>
-                  <dt className="type-caption mt-1.5">{label}</dt>
-                </div>
+      {/* ── Body ── */}
+      <Tabs defaultValue="cutoffs" className="mt-12 min-h-screen gap-0">
+        <div className="sticky top-[52px] z-40 border-b border-[#E5E0D8] bg-white">
+          <div className="mx-auto max-w-6xl px-5 md:px-8">
+            <TabsList
+              variant="line"
+              // `!` throughout: this primitive joins classes without deduping,
+              // so its own height and underline offset would otherwise win.
+              className="h-14! w-full justify-start gap-8 rounded-none border-0 p-0"
+            >
+              {tabs.map((tab) => (
+                <TabsTrigger
+                  key={tab.value}
+                  value={tab.value}
+                  className="h-14! flex-none rounded-none border-0! px-0! text-[14px] font-medium text-[#6B6B6B] after:bottom-0! after:bg-[#1A1A1A]! hover:text-[#1A1A1A] data-[state=active]:bg-transparent! data-[state=active]:text-[#1A1A1A] data-[state=active]:shadow-none"
+                >
+                  {tab.label}
+                </TabsTrigger>
               ))}
-            </dl>
+            </TabsList>
+          </div>
+        </div>
 
-            <section>
-              <h2 className="type-label">Branches with published cutoffs</h2>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {branches.map((b) => (
-                  <Pill key={b}>{BRANCHES[b]}</Pill>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <h2 className="type-label">Recruiters</h2>
-              <p className="mt-1 text-[12px] text-[#9B9B9B]">Indicative, not published by KEA</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {college.topRecruiters.map((r) => (
-                  <Pill key={r}>{r}</Pill>
-                ))}
-              </div>
-            </section>
+        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8">
+          <TabsContent value="cutoffs">
+            <CollegeCutoffs file={history} initialCategory={initialCategory} initialBranch={initialBranch} />
           </TabsContent>
 
-          {/* ── Alumni ── */}
-          <TabsContent value="alumni" className="mt-8 space-y-2">
-            <LinkedInSearch
-              collegeName={college.name}
-              collegeShortName={college.shortName}
-            />
-            {branches.map((b) => (
+          {college && (
+            <TabsContent value="about" className="space-y-12">
+              <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  ["College type", college.type, false],
+                  ["Affiliation", college.affiliation, false],
+                  ["Established", String(college.established), true],
+                  ["Sanctioned seats", formatCount(college.totalSeats), true],
+                  ["District", college.district, false],
+                  ["Region", college.region, false],
+                ].map(([label, value, mono]) => (
+                  <div key={String(label)} className="rounded-2xl border border-[#E5E0D8] bg-white p-5">
+                    <dd className={cn("text-[15px] font-medium text-[#1A1A1A]", mono && "font-mono")}>{value}</dd>
+                    <dt className="type-caption mt-1.5">{label}</dt>
+                  </div>
+                ))}
+              </dl>
+
+              <section>
+                <h2 className="text-[24px] font-light tracking-[-0.02em] text-[#1A1A1A]">
+                  Courses in KEA&rsquo;s {latest?.year} reports
+                </h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {courseNames.map((n) => (
+                    <Pill key={n}>{n}</Pill>
+                  ))}
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-[24px] font-light tracking-[-0.02em] text-[#1A1A1A]">Recruiters</h2>
+                <p className="mt-1 text-[12px] text-[#9B9B9B]">Indicative, not published by KEA</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {college.topRecruiters.map((r) => (
+                    <Pill key={r}>{r}</Pill>
+                  ))}
+                </div>
+              </section>
+            </TabsContent>
+          )}
+
+          <TabsContent value="alumni" className="space-y-2">
+            <LinkedInSearch collegeName={name} collegeShortName={college?.shortName ?? collegeShortName(history.code, name)} />
+            {courseNames.slice(0, 8).map((course) => (
               <LinkedInSearch
-                key={b}
-                collegeName={college.name}
-                collegeShortName={college.shortName}
-                branch={BRANCHES[b]}
+                key={course}
+                collegeName={name}
+                collegeShortName={college?.shortName ?? collegeShortName(history.code, name)}
+                branch={course}
               />
             ))}
             <p className="type-body-sm pt-4 text-[#9B9B9B]">
-              These links only build a LinkedIn search. We hold no alumni data;
-              what comes back is whatever LinkedIn shows for that query.
+              These links only build a LinkedIn search. We hold no alumni data; what comes back is whatever LinkedIn
+              shows for that query.
             </p>
           </TabsContent>
-        </Tabs>
-      </div>
+        </div>
+      </Tabs>
     </>
   );
 }

@@ -1,0 +1,203 @@
+{
+  "year": 2026,
+  "rounds": [
+    {
+      "round": "R1",
+      "label": "Round 1",
+      "mock": false,
+      "provisional": false
+    },
+    {
+      "round": "R2",
+      "label": "Round 2",
+      "mock": true,
+      "provisional": false
+    },
+    {
+      "round": "R3",
+      "label": "Round 3",
+      "mock": false,
+      "provisional": true
+    }
+  ],
+  "finalRound": {
+    "round": "R3",
+    "label": "Round 3",
+    "mock": false,
+    "provisional": true
+  },
+  "collegesInLatestYear": 242,
+  "yearsCovered": 10,
+  "firstYear": 2016,
+  "missingYears": [
+    2018
+  ],
+  "totalRanks": 433855,
+  "reports": 59,
+  "flagship": {
+    "code": "E005",
+    "shortName": "RVCE",
+    "course": "COMPUTER SCIENCE AND ENGINEERING",
+    "ranks": {
+      "R1": 144,
+      "R2": 285,
+      "R3": 425
+    }
+  },
+  "topCse": [
+    {
+      "code": "E005",
+      "appId": "r-v-college-of-engineering-bangalore",
+      "shortName": "RVCE",
+      "rank": 425
+    },
+    {
+      "code": "E006",
+      "appId": "m-s-ramaiah-institute-of-technology-bangalore",
+      "shortName": "MSRIT",
+      "rank": 2691
+    },
+    {
+      "code": "E021",
+      "appId": "sri-jayachamarajendra-college-of-engineering-mysore",
+      "shortName": "SJCE E021",
+      "rank": 4550
+    },
+    {
+      "code": "E048",
+      "appId": "b-m-s-college-of-engineering-basavanagudi-e048",
+      "shortName": "BMSCE E048",
+      "rank": 5200
+    },
+    {
+      "code": "E001",
+      "appId": "univesity-of-visvesvaraya-college-of-engineering-k",
+      "shortName": "UVCE",
+      "rank": 6659
+    },
+    {
+      "code": "E284",
+      "appId": "sri-jayachamarajendra-college-of-engineering-mysore-e284",
+      "shortName": "SJCE E284",
+      "rank": 7234
+    },
+    {
+      "code": "E057",
+      "appId": "jss-science-and-technology-university",
+      "shortName": "JSS Science",
+      "rank": 8849
+    },
+    {
+      "code": "E007",
+      "appId": "dayananda-sagar-college-of-engineering-bangalore",
+      "shortName": "DSCE",
+      "rank": 11020
+    },
+    {
+      "code": "E016",
+      "appId": "siddaganga-institute-of-technology-tumkur-b-h",
+      "shortName": "SIT Tumakuru",
+      "rank": 13316
+    },
+    {
+      "code": "E008",
+      "appId": "bangalore-institute-of-technology-k-r-road",
+      "shortName": "BIT",
+      "rank": 13882
+    },
+    {
+      "code": "E275",
+      "appId": "r-v-institute-of-technology-and-management",
+      "shortName": "RV E275",
+      "rank": 16231
+    },
+    {
+      "code": "E241",
+      "appId": "kle-technological-university-bvbhoomaraddi-college-campus-vidyanagar",
+      "shortName": "KLE Technological",
+      "rank": 16607
+    },
+    {
+      "code": "E126",
+      "appId": "b-m-s-institute-of-technology-management",
+      "shortName": "BMSIT&M",
+      "rank": 19196
+    },
+    {
+      "code": "E178",
+      "appId": "the-national-institute-of-engineering-mysore-e178",
+      "shortName": "NIE E178",
+      "rank": 19843
+    }
+  ],
+  "rankStops": [
+    500,
+    1000,
+    2000,
+    3000,
+    5000,
+    7500,
+    10000,
+    15000,
+    20000,
+    30000,
+    40000,
+    50000,
+    75000,
+    100000,
+    150000
+  ],
+  "reachableAtStops": {
+    "R1": [
+      1660,
+      1654,
+      1644,
+      1628,
+      1601,
+      1576,
+      1553,
+      1506,
+      1448,
+      1353,
+      1265,
+      1163,
+      932,
+      694,
+      323
+    ],
+    "R2": [
+      1624,
+      1620,
+      1614,
+      1607,
+      1587,
+      1565,
+      1547,
+      1519,
+      1485,
+      1392,
+      1316,
+      1248,
+      1041,
+      870,
+      586
+    ],
+    "R3": [
+      1592,
+      1588,
+      1585,
+      1582,
+      1573,
+      1558,
+      1548,
+      1524,
+      1500,
+      1455,
+      1395,
+      1347,
+      1247,
+      1169,
+      1012
+    ]
+  }
+}

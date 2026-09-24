@@ -9,11 +9,12 @@
 export const formatCount = (n: number): string => n.toLocaleString("en-IN");
 
 /**
- * A rank as KEA publishes it. Ties are broken with a half rank (3898.5), and
- * that half is kept — it is the mark of a figure read off a real report.
+ * A rank as KEA publishes it. Ties are broken with fractional ranks — 3898.5,
+ * 28144.875, 77697.84375 — and every digit is kept, because that is the figure
+ * the report printed.
  */
 export const formatRank = (n: number): string =>
-  n.toLocaleString("en-IN", { maximumFractionDigits: 1 });
+  n.toLocaleString("en-IN", { maximumFractionDigits: 5 });
 
 /** Annual fee in rupees, shortened to lakhs once it gets there. */
 export const formatFee = (n: number): string =>
