@@ -9,7 +9,7 @@
 - [x] Sample-data banner: API exposes whether sample data is in use; UI shows a clear banner
 
 ## Core predictors
-- [ ] Rank predictor (merit score from config weights + interpolation over score-rank points) returning optimistic/likely/conservative + confidence; property tests (higher score never gives worse rank)
+- [x] Rank predictor (merit score from config weights + interpolation over score-rank points) returning optimistic/likely/conservative + confidence; property tests (higher score never gives worse rank)
 - [ ] College predictor: Safe/Target/Reach per college-course across years and rounds with trend adjustment and evidence; tests
 - [ ] Option-entry builder logic: preference-ordered list, warnings (too few Safe, Safe above preferred), per-entry explanations; tests
 - [ ] Allotment simulator over previous-year rounds; tests

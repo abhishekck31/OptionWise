@@ -108,7 +108,7 @@ the empty app shell and the tooling to build on top of. Specifically:
 | `config/categories.json` (category/quota codes) | done, but UNVERIFIED — see BLOCKED.md |
 | KEA PDF ingestion + sample dataset | done (pipeline works; PDF text-format is an unverified placeholder — see Task 5 notes) |
 | Sample-data banner | done (see Task 6 notes) |
-| Rank predictor | missing |
+| Rank predictor | done (logic + tests; UNVERIFIED config — see BLOCKED.md; no UI yet) |
 | College predictor (Safe/Target/Reach) | missing |
 | Option-entry builder logic | missing |
 | Allotment simulator | missing |
@@ -211,6 +211,29 @@ None — there is no feature code yet to have bugs in. `make check` (lint, typec
   a devDependency to take it; kept rather than removed since the "UI polish pass" task
   will need Playwright anyway. This was a manual one-off, not an automated screenshot
   pipeline — that's the polish task's job, including dark mode and other viewports.
+
+## Core predictors: Rank predictor notes
+
+- `apps/web/lib/predictors/rankPredictor.ts`: `calculateMeritScore` (KCET marks /180
+  scaled to 0-100, weighted 50/50 with board PCM% per `config/rankPredictor.json`),
+  `interpolateRank` (piecewise-linear over configured score→rank points, clamped —
+  never extrapolates past the configured range), `predictRank` (always returns
+  optimistic/likely/conservative + a `"low"|"medium"` confidence, per SPEC.md — never
+  a single number). `confidence` is `"low"` only when the merit score falls outside
+  the configured point range (clamped); it's `"medium"`, never `"high"`, otherwise —
+  deliberately, since the underlying `scoreRankPoints` are fabricated placeholder data
+  (see below), so nothing here should claim high confidence yet. Every prediction also
+  carries `basedOnSampleData: true` for the same reason, mirroring the DB-level
+  `isSample` concept for this config-driven (non-DB) predictor.
+- **`config/rankPredictor.json` is UNVERIFIED**, same as `config/categories.json` —
+  see `BLOCKED.md`. The 50/50 weighting and 180-mark KCET scale are a reasonable
+  reading of SPEC.md's own description; `scoreRankPoints` (the curve the predictor
+  interpolates over) are entirely fabricated round numbers, not real historical KCET
+  results. Replace both once a real KEA document / real historical data exists.
+- Property-tested with `fast-check` (`rankPredictor.property.test.ts`, 500 runs each):
+  a strictly higher merit score never yields a strictly worse likely rank, and
+  optimistic ≤ likely ≤ conservative always holds, across randomized KCET-marks/board%
+  inputs — not just the handful of example-based unit tests.
 
 ## Notes for future sessions
 

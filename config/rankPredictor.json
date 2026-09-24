@@ -1,0 +1,25 @@
+{
+  "verified": false,
+  "verificationNote": "UNVERIFIED. No KEA rules/brochure documents were present in data/docs/ when this file was generated (see BLOCKED.md). The 50/50 KCET-marks/board-PCM% weighting and the 180-mark KCET scale follow SPEC.md's own description (\"merit score from KCET marks and board PCM %, weights in config, default 50/50, marked 'verify against current KEA rules'\"), which is a reasonable general description of how KCET merit is computed but not sourced from an official current-year KEA document. scoreRankPoints below are entirely fabricated, obviously-round numbers for interpolation to work against — NOT real historical KEA score-to-rank data. Do not use to make real predictions for a real student until this is checked against a real KEA rules document and real historical results.",
+  "kcetMaxMarks": 180,
+  "weights": {
+    "kcetMarksWeight": 0.5,
+    "boardPcmPercentWeight": 0.5
+  },
+  "conservativeSpreadFraction": 0.15,
+  "scoreRankPoints": [
+    { "meritScore": 100, "rank": 1 },
+    { "meritScore": 95, "rank": 250 },
+    { "meritScore": 90, "rank": 1000 },
+    { "meritScore": 85, "rank": 3000 },
+    { "meritScore": 80, "rank": 7000 },
+    { "meritScore": 75, "rank": 13000 },
+    { "meritScore": 70, "rank": 22000 },
+    { "meritScore": 60, "rank": 45000 },
+    { "meritScore": 50, "rank": 80000 },
+    { "meritScore": 40, "rank": 130000 },
+    { "meritScore": 30, "rank": 180000 },
+    { "meritScore": 20, "rank": 220000 },
+    { "meritScore": 0, "rank": 250000 }
+  ]
+}

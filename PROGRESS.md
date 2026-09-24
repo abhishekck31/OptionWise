@@ -79,3 +79,16 @@ light mode only) to `app/globals.css` for the banner to use instead of ad-hoc co
 
 Human should verify: dark-mode styling on the banner is a Tailwind stopgap, not
 derived tokens — revisit once the "Design system" task lands real dark-mode values.
+
+## Core predictors: Rank predictor
+
+Added `apps/web/lib/predictors/rankPredictor.ts` (merit score from KCET marks/board
+PCM%, piecewise-linear interpolation over `config/rankPredictor.json`, always
+optimistic/likely/conservative + confidence, never a single number) and
+`config/rankPredictor.json` (weights + score-rank curve). 11 example tests + 2
+`fast-check` property tests (500 runs each): higher merit score never yields a worse
+likely rank, and optimistic ≤ likely ≤ conservative always holds.
+
+Human should verify: `config/rankPredictor.json`'s `scoreRankPoints` are fabricated
+placeholder numbers, not real historical KCET results — see `BLOCKED.md`. Every
+prediction carries `basedOnSampleData: true` until that's replaced with real data.

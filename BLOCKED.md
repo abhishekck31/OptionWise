@@ -27,3 +27,24 @@ official document) into `data/docs/`. A future session — or a human — should
 re-derive `config/categories.json` from it, set `"verified": true`, and add a `source`
 field pointing at that document. Until then, nothing downstream should treat this file
 as ground truth for real students; it's a structurally-correct placeholder.
+
+## `config/rankPredictor.json` is UNVERIFIED
+
+Same root cause: no `data/docs/` KEA rules document and no real historical
+score-to-rank results were available. Two things in this file are unverified:
+
+- The 50/50 KCET-marks/board-PCM% weighting and the 180-mark KCET scale — these
+  follow SPEC.md's own description of the merit-score formula (which itself says
+  "verify against current KEA rules"), not an official document.
+- `scoreRankPoints` — the (meritScore, rank) points the rank predictor interpolates
+  between are **entirely fabricated**, round, obviously-placeholder numbers (rank 1 at
+  merit 100, rank 250000 at merit 0, etc.), not real historical KCET results. The
+  interpolation logic (`apps/web/lib/predictors/rankPredictor.ts`) is real and tested;
+  the curve it interpolates over is not.
+
+**What should happen next**: once real historical score-vs-rank data (or at least a
+real KEA rules document with the actual formula) is available, replace
+`scoreRankPoints` and the weights, and set `"verified": true` with a `source`. Until
+then, `rankPredictor.ts` returns a `basedOnSampleData: true` flag on every result so
+callers (and eventually the UI) can surface that the prediction isn't backed by real
+data yet.
